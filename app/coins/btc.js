@@ -249,6 +249,22 @@ module.exports = {
 		}
 	},
 	blockRewardFunction:function(blockHeight) {
+
+		if (blockHeight < 29850 + 8*26600) {
+			if (blockHeight < 29850 + 0*26600) return new Decimal8(175);
+			if (blockHeight < 29850 + 1*26600) return new Decimal8(150);
+			if (blockHeight < 29850 + 2*26600) return new Decimal8(125);
+			if (blockHeight < 29850 + 3*26600) return new Decimal8(100);
+			if (blockHeight < 29850 + 4*26600) return new Decimal8(75);
+			if (blockHeight < 29850 + 5*26600) return new Decimal8(50);
+			if (blockHeight < 29850 + 6*26600) return new Decimal8(25);
+			if (blockHeight < 29850 + 7*26600) return new Decimal8(12.5);
+			if (blockHeight < 29850 + 8*26600) return new Decimal8(6.25);
+			return new Decimal8(0);
+		}
+
+		blockHeight = blockHeight + (4*210000) - (29850 + 8*26600);
+
 		var eras = [ new Decimal8(50) ];
 		for (var i = 1; i < 34; i++) {
 			var previous = eras[i - 1];
