@@ -1,7 +1,7 @@
 {
-  "name": "btc-rpc-explorer",
+  "name": "btcr-rpc-explorer",
   "version": "1.0.3",
-  "description": "Explorer for Bitcoin and RPC-compatible blockchains",
+  "description": "Explorer for Bitcoin Royale and RPC-compatible blockchains",
   "private": false,
   "bin": "bin/cli.js",
   "scripts": {
@@ -9,15 +9,14 @@
     "refresh-mining-pool-configs": "node ./bin/refresh-mining-pool-configs.js"
   },
   "keywords": [
-    "bitcoin",
-    "litecoin",
+    "bitcoin royale",
     "blockchain"
   ],
   "author": "Dan Janosik <dan@47.io>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/janoside/btc-rpc-explorer.git"
+    "url": "git+https://github.com/bitcoinroyale/explorer.git"
   },
   "dependencies": {
     "async": "2.6.2",

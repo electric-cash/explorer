@@ -4,17 +4,17 @@ Decimal8 = Decimal.clone({ precision:8, rounding:8 });
 var currencyUnits = [
 	{
 		type:"native",
-		name:"BTC",
+		name:"BTCR",
 		multiplier:1,
 		default:true,
-		values:["", "btc", "BTC"],
+		values:["", "btcr", "BTCR"],
 		decimalPlaces:8
 	},
 	{
 		type:"native",
-		name:"mBTC",
+		name:"mBTCR",
 		multiplier:1000,
-		values:["mbtc"],
+		values:["mbtcr"],
 		decimalPlaces:5
 	},
 	{
@@ -50,14 +50,14 @@ var currencyUnits = [
 ];
 
 module.exports = {
-	name:"Bitcoin",
-	ticker:"BTC",
+	name:"Bitcoin Royale",
+	ticker:"BTCR",
 	logoUrl:"/img/logo/btc.svg",
-	siteTitle:"Bitcoin Explorer",
-	siteDescriptionHtml:"<b>BTC Explorer</b> is <a href='https://github.com/janoside/btc-rpc-explorer). If you run your own [Bitcoin Full Node](https://bitcoin.org/en/full-node), **BTC Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/janoside/btc-rpc-explorer) for a list of features and instructions for running.",
+	siteTitle:"Bitcoin Royale Explorer",
+	siteDescriptionHtml:"<b>BTCR Explorer</b> is <a href='https://github.com/bitcoinroyale/explorer). If you run your own [Bitcoin Royale Full Node](https://bitcoin.org/en/full-node), **BTCR Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/bitcoinroyale/explorer) for a list of features and instructions for running.",
 	nodeTitle:"Bitcoin Full Node",
 	nodeUrl:"https://bitcoin.org/en/full-node",
-	demoSiteUrl: "https://btc.chaintools.io",
+	demoSiteUrl: "http://explorer.bitcoinroyale.org",
 	miningPoolsConfigUrls:[
 		"https://raw.githubusercontent.com/btccom/Blockchain-Known-Pools/master/pools.json",
 		"https://raw.githubusercontent.com/blockchain/Blockchain-Known-Pools/master/pools.json"
@@ -65,7 +65,7 @@ module.exports = {
 	maxBlockWeight: 4000000,
 	targetBlockTimeSeconds: 600,
 	currencyUnits:currencyUnits,
-	currencyUnitsByName:{"BTC":currencyUnits[0], "mBTC":currencyUnits[1], "bits":currencyUnits[2], "sat":currencyUnits[3]},
+	currencyUnitsByName:{"BTCR":currencyUnits[0], "mBTCR":currencyUnits[1], "bits":currencyUnits[2], "sat":currencyUnits[3]},
 	baseCurrencyUnit:currencyUnits[3],
 	defaultCurrencyUnit:currencyUnits[0],
 	feeSatoshiPerByteBucketMaxima: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 75, 100, 150],

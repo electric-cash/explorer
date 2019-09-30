@@ -1,15 +1,16 @@
-# BTC RPC Explorer
+# Bitcoin Royale RPC Explorer
 
-[![npm version][npm-ver-img]][npm-ver-url] [![NPM downloads][npm-dl-img]][npm-dl-url]
+This is a fork of [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer) with minor modifications to adapt it to Bitcoin Royale.
 
+---
 
-Simple, database-free Bitcoin blockchain explorer, via RPC. Built with Node.js, express, bootstrap-v4.
+Simple, database-free Bitcoin Royale blockchain explorer, via RPC. Built with Node.js, express, bootstrap-v4.
 
-This tool is intended to be a simple, self-hosted explorer for the Bitcoin blockchain, driven by RPC calls to your own bitcoind node. This tool is easy to run but currently lacks features compared to database-backed explorers.
+This tool is intended to be a simple, self-hosted explorer for the Bitcoin Royale blockchain, driven by RPC calls to your own broyaled node. This tool is easy to run but currently lacks features compared to database-backed explorers.
 
 Whatever reasons one might have for running a full node (trustlessness, technical curiosity, supporting the network, etc) it's helpful to appreciate the "fullness" of your node. With this explorer, you can not only explore the blockchain (in the traditional sense of the term "explorer"), but also explore the functional capabilities of your own node.
 
-Live demo available at: [https://btc-explorer.com](https://btc-explorer.com)
+Live demo available at: [http://explorer.bitcoinroyale.org](http://explorer.bitcoinroyale.org)
 
 # Features
 
@@ -24,19 +25,22 @@ Live demo available at: [https://btc-explorer.com](https://btc-explorer.com)
 
 # Getting started
 
-The below instructions are geared toward BTC, but can be adapted easily to other coins.
+The below instructions are geared toward BTCR, but can be adapted easily to other coins.
 
 ## Prerequisites
 
-1. Install and run a full, archiving node - [instructions](https://bitcoin.org/en/full-node). Ensure that your bitcoin node has full transaction indexing enabled (`txindex=1`) and the RPC server enabled (`server=1`).
-2. Synchronize your node with the Bitcoin network.
+1. Install and run a full, archiving [node](https://github.com/bitcoinroyale/bitcoinroyale/blob/master/INSTALL.md). Ensure that your bitcoin node has full transaction indexing enabled (`txindex=1`) and the RPC server enabled (`server=1`).
+2. Synchronize your node with the Bitcoin Royale network.
 3. "Recent" version of Node.js (8+ recommended).
 
 ## Instructions
 
 ```bash
-npm install -g btc-rpc-explorer
-btc-rpc-explorer
+apt-get install node npm 
+git clone https://github.com/bitcoinroyale/explorer
+cd explorer
+npm install
+./bin/cli.js
 ```
 
 If you're running on mainnet with the default datadir and port, this Should Just Work.
@@ -48,30 +52,36 @@ See [configuration](#configuration) for details.
 ### Configuration
 
 Configuration options may be passed as environment variables
-or by creating an env file at `~/.config/btc-rpc-explorer.env`
+or by creating an env file at `~/.config/btcr-rpc-explorer.env`
 or at `.env` in the working directory.
 See [.env-sample](.env-sample) for a list of the options and details for formatting `.env`.
+
+In simple cases, you may use the following configuration:
+
+```
+BTCEXP_HOST=0.0.0.0
+BTCEXP_PORT=80
+BTCEXP_PRIVACY_MODE=true
+BTCEXP_NO_RATES=true
+BTCEXP_UI_SHOW_TOOLS_SUBHEADER=false
+```
 
 You may also pass options as CLI arguments, for example:
 
 ```bash
-btc-rpc-explorer --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.bitcoin/regtest/.cookie
+./bin/cli.js --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.broyale/regtest/.cookie
 ```
 
-See `btc-rpc-explorer --help` for the full list of CLI options.
+See `./bin/cli.js --help` for the full list of CLI options.
 
 ## Run via Docker
 
-1. `docker build -t btc-rpc-explorer .`
-2. `docker run -p 3002:3002 -it btc-rpc-explorer`
+1. `docker build -t btcr-rpc-explorer .`
+2. `docker run -p 3002:3002 -it btcr-rpc-explorer`
 
 # Support
 
+Support the original developer of BTC RPC Explorer by donating BTC to:
+
 * [3NPGpNyLLmVKCEcuipBs7G4KpQJoJXjDGe](bitcoin:3NPGpNyLLmVKCEcuipBs7G4KpQJoJXjDGe)
-
-
-[npm-ver-img]: https://img.shields.io/npm/v/btc-rpc-explorer.svg?style=flat
-[npm-ver-url]: https://www.npmjs.com/package/btc-rpc-explorer
-[npm-dl-img]: http://img.shields.io/npm/dm/btc-rpc-explorer.svg?style=flat
-[npm-dl-url]: https://npmcharts.com/compare/btc-rpc-explorer?minimal=true
 
