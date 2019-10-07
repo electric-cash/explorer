@@ -69,16 +69,16 @@ module.exports = {
 	baseCurrencyUnit:currencyUnits[3],
 	defaultCurrencyUnit:currencyUnits[0],
 	feeSatoshiPerByteBucketMaxima: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 75, 100, 150],
-	genesisBlockHash: "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
-	genesisCoinbaseTransactionId: "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b",
+	genesisBlockHash: "0000000028ce26975b32feda3d75ac3fe10372f75062366cfba4e934dcc6a48b",
+	genesisCoinbaseTransactionId: "8b92cc030bdb6a02d3dc3d510826e38efb0f1c59c167fac0b96bc73432d55a01",
 	genesisCoinbaseTransaction: {
 		"hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0804ffff001d02fd04ffffffff0100f2052a01000000434104f5eeb2b10c944c6b9fbcfff94c35bdeecd93df977882babc7f3a2cf7f5c81d3b09a68db7f0e04f21de5d4230e75e6dbe7ad16eefe0d4325a62067dc6f369446aac00000000",
-		"txid": "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b",
-		"hash": "4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b",
+		"txid": "8b92cc030bdb6a02d3dc3d510826e38efb0f1c59c167fac0b96bc73432d55a01",
+		"hash": "8b92cc030bdb6a02d3dc3d510826e38efb0f1c59c167fac0b96bc73432d55a01",
 		"size": 204,
 		"vsize": 204,
 		"version": 1,
-		"confirmations":475000,
+		"confirmations":1,
 		"vin": [
 			{
 				"coinbase": "04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73",
@@ -87,7 +87,7 @@ module.exports = {
 		],
 		"vout": [
 			{
-				"value": 50,
+				"value": 175,
 				"n": 0,
 				"scriptPubKey": {
 					"asm": "04f5eeb2b10c944c6b9fbcfff94c35bdeecd93df977882babc7f3a2cf7f5c81d3b09a68db7f0e04f21de5d4230e75e6dbe7ad16eefe0d4325a62067dc6f369446a OP_CHECKSIG",
@@ -100,9 +100,9 @@ module.exports = {
 				}
 			}
 		],
-		"blockhash": "000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f",
-		"time": 1230988505,
-		"blocktime": 1230988505
+		"blockhash": "0000000028ce26975b32feda3d75ac3fe10372f75062366cfba4e934dcc6a48b",
+		"time": 1570478400,
+		"blocktime": 1570478400
 	},
 	genesisCoinbaseOutputAddressScripthash:"8b01df4e368ea28f8dc0423bcf7a4923e3a12d307c875e47a0cfbf90b5c39161",
 	historicalData: [
