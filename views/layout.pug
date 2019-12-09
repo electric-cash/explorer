@@ -140,16 +140,16 @@ html(lang="en")
 						dl
 							dt Source
 							dd
-								a(href="https://github.com/bitcoinroyale/explorer") github.com/bitcoinroyale/explorer
+								a(href="https://github.com/bitcoinvault/explorer") github.com/bitcoinvault/explorer
 								
 								if (global.sourcecodeProjectMetadata)
 									div(class="mt-2")
-										a(href="https://github.com/bitcoinroyale/explorer", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
+										a(href="https://github.com/bitcoinvault/explorer", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
 											i(class="fas fa-star mr-2")
 											span(class="mr-2") Star 
 											span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.stargazers_count}
 
-										a(href="https://github.com/bitcoinroyale/explorer/fork", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
+										a(href="https://github.com/bitcoinvault/explorer/fork", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
 											i(class="fas fa-code-branch mr-2")
 											span(class="mr-2") Fork 
 											span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.forks_count}
@@ -158,7 +158,7 @@ html(lang="en")
 							if (sourcecodeVersion)
 								dt Running Version
 								dd
-									a(href=("https://github.com/bitcoinroyale/explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
+									a(href=("https://github.com/bitcoinvault/explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
 									span(style="color: #ccc;")  (#{sourcecodeDate})
 
 							if (config.demoSite)

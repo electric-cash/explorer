@@ -2,20 +2,20 @@
 
 const args = require('meow')(`
     Usage
-      $ btcr-rpc-explorer [options]
+      $ btcv-rpc-explorer [options]
 
     Options
       -p, --port <port>              port to bind http server [default: 3002]
       -i, --host <host>              host to bind http server [default: 127.0.0.1]
       -a, --basic-auth-password <..> protect web interface with a password [default: no password]
-      -C, --coin <coin>              crypto-coin to enable [default: BTCR]
+      -C, --coin <coin>              crypto-coin to enable [default: BTCV]
 
-      -b, --bitcoind-uri <uri>       connection URI for broyaled rpc (overrides the options below)
-      -H, --bitcoind-host <host>     hostname for broyaled rpc [default: 127.0.0.1]
-      -P, --bitcoind-port <port>     port for broyaled rpc [default: 8332]
-      -c, --bitcoind-cookie <path>   path to broyaled cookie file [default: ~/.bitcoin/.cookie]
-      -u, --bitcoind-user <user>     username for broyaled rpc [default: none]
-      -w, --bitcoind-pass <pass>     password for broyaled rpc [default: none]
+      -b, --bitcoind-uri <uri>       connection URI for bvaultd rpc (overrides the options below)
+      -H, --bitcoind-host <host>     hostname for bvaultd rpc [default: 127.0.0.1]
+      -P, --bitcoind-port <port>     port for bvaultd rpc [default: 8332]
+      -c, --bitcoind-cookie <path>   path to bvaultd cookie file [default: ~/.bitcoin/.cookie]
+      -u, --bitcoind-user <user>     username for bvaultd rpc [default: none]
+      -w, --bitcoind-pass <pass>     password for bvaultd rpc [default: none]
 
       --address-api <option>         api to use for address queries (options: electrumx, blockchain.com, blockchair.com, blockcypher.com) [default: none]
       -E, --electrumx-servers <..>   comma separated list of electrum servers to use for address queries; only used if --address-api=electrumx [default: none]
@@ -36,15 +36,15 @@ const args = require('meow')(`
       -v, --version                  output version number
 
     Examples
-      $ btcr-rpc-explorer --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.broyale/regtest/.cookie
-      $ btcr-rpc-explorer -p 8080 -P 18443 -c ~/.broyale/regtest.cookie
+      $ btcv-rpc-explorer --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.bvault/regtest/.cookie
+      $ btcv-rpc-explorer -p 8080 -P 18443 -c ~/.bvault/regtest.cookie
 
     Or using connection URIs
-      $ btcr-rpc-explorer -b bitcoin://bob:myPassword@127.0.0.1:18443/
-      $ btcr-rpc-explorer -b bitcoin://127.0.0.1:18443/?cookie=$HOME/.broyale/regtest/.cookie
+      $ btcv-rpc-explorer -b bitcoin://bob:myPassword@127.0.0.1:18443/
+      $ btcv-rpc-explorer -b bitcoin://127.0.0.1:18443/?cookie=$HOME/.bvault/regtest/.cookie
 
     All options may also be specified as environment variables
-      $ BTCEXP_PORT=8080 BTCEXP_BITCOIND_PORT=18443 BTCEXP_BITCOIND_COOKIE=~/.broyale/regtest/.cookie btcr-rpc-explorer
+      $ BTCEXP_PORT=8080 BTCEXP_BITCOIND_PORT=18443 BTCEXP_BITCOIND_COOKIE=~/.bvault/regtest/.cookie btcv-rpc-explorer
 
 
 `, { flags: { port: {alias:'p'}, host: {alias:'i'}, basicAuthPassword: {alias:'a'}, coin: {alias:'C'}
