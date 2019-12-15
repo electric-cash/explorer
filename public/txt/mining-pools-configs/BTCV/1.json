@@ -355,6 +355,10 @@
         "/haominer/" : {
             "name": "Haominer",
             "link": "http://haominer.com/"
+        },
+        "/KnoxPool/" : {
+            "name": "KnoxPool",
+            "link": "http://knoxpool.com"
         }
     },
     "payout_addresses" : {
