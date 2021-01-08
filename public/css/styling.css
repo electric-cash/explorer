@@ -11,8 +11,8 @@ hr {
 img.header-image {
 	margin-top: -10px;
 	margin-bottom: -5px;
-	width: 30px;
-	height: 30px;
+	width: 122px;
+	height: 28px;
 	margin-right: 10px;
 }
 
@@ -225,19 +225,6 @@ strong {
 	.tx-io-content { max-width: 93.5%; }
 	.tx-io-desc { max-width: 70%; }
 	.tx-io-value { max-width: 30%; text-align: right; padding-right: 25px; }
-}
-
-
-
-
-
-footer a {
-	color: #ddd;
-	text-decoration: underline;
-}
-
-footer a:hover {
-	color: white;
 }
 
 .table-striped>tbody>tr:nth-child(odd)>td, 

@@ -1,19 +1,17 @@
 div(class="card mb-4 shadow-sm")
-	div(class="card-header")
-		h2(class="h6 mb-0") Tools
-	div(class="card-body")
+	div(class="card-top")
+		h3(class="card-top-title") Tools
+		hr(class="hr")
+	div(class="card-bottom")
 		div(class="row")
 			each item, index in [[0, 1, 2], [4, 3, 5], [6, 7]]
-				div(class="col-md-4")
-					ul(style="list-style-type: none;", class="pl-0")
-						each toolIndex, toolIndexIndex in item
+				each toolIndex, toolIndexIndex in item
+					div(class="col-md-4 col-sm-6 card-bottom-item")
 							- var siteTool = config.siteTools[toolIndex];
+								div(class="float-left icon-container")
+									img(src="/img/icons/" + siteTool.image + ".svg")
 
-							li
-								div(class="float-left", style="height: 50px; width: 40px; margin-right: 10px;")
-									span
-										i(class=siteTool.fontawesome, class="fa-2x mr-2", style="margin-top: 6px;")
-
-								a(href=siteTool.url) #{siteTool.name}
+								span(class="font-weight-bold")
+									a(href=siteTool.url) #{siteTool.name}
 								br
 								p #{siteTool.desc}

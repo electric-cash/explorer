@@ -1,11 +1,11 @@
 extends layout
 
 block headContent
-	title Bitcoin Vault Explorer
+	title Electric Cash Explorer
 	
 block content
-	h1(class="h3") #{coinConfig.siteTitle}
-	hr
+	div(class='page-content')
+		h1(class="page-title") #{coinConfig.siteTitle}
 
 	if (getblockchaininfo == null)
 		div(class="alert alert-warning")
@@ -60,19 +60,19 @@ block content
 		if (txStats)
 			- networkSummaryItemCount++;
 
-		- var networkSummaryColumnClass = "col-md-4";
+		- var networkSummaryColumnClass = "col-md-4 col-lg-3 card-bottom-item";
 		if (networkSummaryItemCount > 6)
-			- networkSummaryColumnClass = "col-md-3";
+			- networkSummaryColumnClass = "col-md-4 col-lg-3 card-bottom-item";
 			
 		div(class="card mb-4 shadow-sm")
-			div(class="card-header")
-				h2(class="h6 mb-0") Network Summary
-			div(class="card-body")
+			div(class="card-top")
+				h3(class="card-top-title") Network Summary
+				hr(class="hr")
+			div(class="card-bottom")
 				div(class="row")
 					div(class=networkSummaryColumnClass)
-						div(class="float-left", style="height: 40px; width: 40px;")
-							span
-								i(class="fas fa-tachometer-alt fa-2x mr-2", style="margin-top: 6px;")
+						div(class="float-left icon-container")
+							img(src="/img/icons/tachometer.svg")
 						- var hashrateData = utils.formatLargeNumber(miningInfo.networkhashps, 3);
 						
 						span(class="font-weight-bold") Hashrate 
@@ -83,18 +83,16 @@ block content
 
 					if (txStats)
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px;")
-								span
-									i(class="fas fa-exchange-alt fa-2x mr-2", style="margin-top: 6px; margin-left: 3px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/total-transactions.svg")
 
 							span(class="font-weight-bold") Total Transactions
 
 							p(class="lead") #{txStats.totalTxCount.toLocaleString()}
 
 					div(class=networkSummaryColumnClass)
-						div(class="float-left", style="height: 40px; width: 40px;")
-							span
-								i(class="fas fa-unlock-alt fa-2x mr-2", style="margin-top: 6px; margin-left: 3px;")
+						div(class="float-left icon-container")
+							img(src="/img/icons/unlock.svg")
 
 						span(class="font-weight-bold") Unconfirmed Transactions
 
@@ -103,9 +101,8 @@ block content
 							small(class="text-muted font-weight-light") (#{mempoolBytesData[0]} #{mempoolBytesData[1].abbreviation}B)
 
 					div(class=networkSummaryColumnClass)
-						div(class="float-left", style="height: 40px; width: 40px;")
-							span
-								i(class="fas fa-bolt fa-2x mr-2", style="margin-top: 6px; margin-left: 6px;")
+						div(class="float-left icon-container")
+							img(src="/img/icons/chainwork.svg")
 
 						- var chainworkData = utils.formatLargeNumber(parseInt("0x" + getblockchaininfo.chainwork), 2);
 						span.font-weight-bold.border-dotted(data-toggle="tooltip", title=("How many hashes were needed to create the current blockchain state")) Chainwork
@@ -118,9 +115,8 @@ block content
 								span  hashes
 					
 					div(class=networkSummaryColumnClass)
-						div(class="float-left", style="height: 40px; width: 40px; font-size: 12px;")
-							span
-								i(class="fas fa-dumbbell fa-2x mr-2", style="margin-top: 6px;")
+						div(class="float-left icon-container")
+							img(src="/img/icons/difficulty.svg")
 
 						- var difficultyData = utils.formatLargeNumber(getblockchaininfo.difficulty, 3);
 
@@ -134,9 +130,8 @@ block content
 
 					if (getblockchaininfo.size_on_disk)
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px;")
-								span
-									i(class="fas fa-save fa-2x mr-2", style="margin-top: 6px; margin-left: 3px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/blockchain-size.svg")
 							span(class="font-weight-bold") Blockchain Size
 
 							- var sizeData = utils.formatLargeNumber(getblockchaininfo.size_on_disk, 2);
@@ -144,52 +139,46 @@ block content
 					
 					if (global.totalWalletsNumber)
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px;")
-								span
-									i(class="fas fa-wallet fa-2x mr-2", style="margin-top: 6px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/wallet.svg")
 							span(class="font-weight-bold") Number of BTCV wallets
 							p(class="lead") #{global.totalWalletsNumber.toLocaleString()}
 
 					if (global.txAvgVolume24h)
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px;")
-								span
-									i(class="fas fa-chart-bar fa-2x mr-2", style="margin-top: 6px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/avg-tx.svg")
 							span(class="font-weight-bold") Avg Tx Volume (24h)
 							p(class="lead") #{global.txAvgVolume24h.toLocaleString()} BTCV/TX
 
 					if (global.totalCoinSupply)
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px;")
-								span
-									i(class="fas fa-coins fa-2x mr-2", style="margin-top: 6px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/coins.svg")
 							span(class="font-weight-bold") Coins In Circulation
 							p(class="lead") #{Math.round(global.totalCoinSupply).toLocaleString()} BTCV
 					
-					if (global.totalCoinSupply && global.exchangeRates)
+					if (global.totalCoinSupply && global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'])
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px;")
-								span
-									i(class="fas fa-money-check-alt fa-2x mr-2", style="margin-top: 6px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/market-cap.svg")
 							span(class="font-weight-bold") Market Cap
-							p(class="lead") $#{Math.round(global.exchangeRates['usd'] * global.totalCoinSupply).toLocaleString() }
+							p(class="lead") $#{Math.round(global.exchangeRates['usdt'] * global.exchangeRates['usdtusd'] * global.totalCoinSupply).toLocaleString() }
 
-					if (global.exchangeRates)
+					if (global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'] && global.exchangeRates['btc'])
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px; font-size: 12px;")
-								span
-									i(class="fas fa-dollar-sign fa-2x mr-2", style="margin-top: 7px; margin-left:10px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/usd.svg")
 
-							span.font-weight-bold.border-dotted(data-toggle="tooltip", title=("Exchange-rate data from: " + coinConfig.exchangeRateDataUSD.jsonUrl)) Exchange Rate (USD)
+							span.font-weight-bold.border-dotted(data-toggle="tooltip", title=("Exchange-rate data from: " + coinConfig.exchangeRateDataUSDT.jsonUrl)) Exchange Rate (USD)
 
 							if (global.exchangeRates)
 								p(class="lead") #{utils.formatExchangedCurrency(1.0, "usd")}
 							else
 								p(class="lead") -
 						div(class=networkSummaryColumnClass)
-							div(class="float-left", style="height: 40px; width: 40px; font-size: 12px;")
-								span
-									i(class="fab fa-bitcoin fa-2x mr-2", style="margin-top: 7px;")
+							div(class="float-left icon-container")
+								img(src="/img/icons/btc.svg")
 
 							span.font-weight-bold.border-dotted(data-toggle="tooltip", title=("Exchange-rate data from: " + coinConfig.exchangeRateDataBTC.jsonUrl)) Exchange Rate (BTC)
 
@@ -204,19 +193,21 @@ block content
 		
 		if (latestBlocks)
 			div(class="card mb-4 shadow-sm")
-				div(class="card-header")
+				div(class="card-top")
 					div(class="row")
 						div(class="col")
-							h2(class="h6 mb-0") Latest Blocks
+							h3(class="card-top-title") Latest Blocks
 								if (getblockchaininfo.initialblockdownload)
 									small  (#{(getblockchaininfo.headers - getblockchaininfo.blocks).toLocaleString()} behind)
 
 						div(class="col")
 							span(style="float: right;")
 								a(href="/blocks")
-									span  Browse Blocks &raquo;
+									span(class="fw-500")  Browse Blocks
 
-				div(class="card-body")
+					hr(class="hr")
+
+				div(class="card-bottom")
 
 					- var blocks = latestBlocks;
 					- var blockOffset = 0;
@@ -226,22 +217,24 @@ block content
 
 		if (txStats)
 			div(class="card mb-4 shadow-sm")
-				div(class="card-header")
+				div(class="card-top")
 					div(class="row")
 						div(class="col")
-							h2(class="h6 mb-0") Transaction Stats Summary
+							h3(class="card-top-title") Transaction Stats Summary
 
 						div(class="col")
 							span(style="float: right;")
 								a(href="/tx-stats")
-									span  Transaction Stats &raquo;
-			
-				div(class="card-body")
+									span(class="fw-500")  Transaction Stats
+
+					hr(class="hr")
+
+				div(class="card-bottom")
 					if (true)
 						div(class="row")
 							div(class="col-lg-6")
 								div(class="table-responsive")
-									table(class="table text-right mb-4 mb-lg-0")
+									table(class="table text-right mb-4 mb-lg-0 transaction-stats-table")
 										thead
 											tr
 												th Period

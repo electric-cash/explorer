@@ -52,9 +52,9 @@ var currencyUnits = [
 module.exports = {
 	name:"Bitcoin Vault",
 	ticker:"BTCV",
-	logoUrl:"/img/logo/btc.svg",
-	siteTitle:"Bitcoin Vault Explorer",
-	siteDescriptionHtml:"<b>BTCV Explorer</b> is <a href='https://github.com/bitcoinvault/explorer). If you run your own [Bitcoin Vault Full Node](https://bitcoin.org/en/full-node), **BTCV Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/bitcoinvault/explorer) for a list of features and instructions for running.",
+	logoUrl:"/img/logo/electric_vault.svg",
+	siteTitle:"Electric Cash Explorer",
+	siteDescriptionHtml:"<b>Electric Cash Explorer</b> is <a href='https://github.com/bitcoinvault/explorer). If you run your own [Bitcoin Vault Full Node](https://bitcoin.org/en/full-node), **BTCV Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/bitcoinvault/explorer) for a list of features and instructions for running.",
 	nodeTitle:"Bitcoin Full Node",
 	nodeUrl:"https://bitcoin.org/en/full-node",
 	demoSiteUrl: "http://explorer.bitcoinvault.global",
