@@ -147,19 +147,19 @@ module.exports = {
 	credentials: credentials,
 
 	siteTools:[
-		{name:"Node Status", url:"/node-status", desc:"Summary of this node: version, network, uptime, etc.", fontawesome:"fas fa-broadcast-tower"},
-		{name:"Peers", url:"/peers", desc:"Detailed info about the peers connected to this node.", fontawesome:"fas fa-sitemap"},
+		{name:"Node Status", url:"/node-status", desc:"Summary of this node: version, network, uptime, etc.", image:"node-status"},
+		{name:"Peers", url:"/peers", desc:"Detailed info about the peers connected to this node.", image:"peers"},
 
-		{name:"Browse Blocks", url:"/blocks", desc:"Browse all blocks in the blockchain.", fontawesome:"fas fa-cubes"},
-		{name:"Transaction Stats", url:"/tx-stats", desc:"See graphs of total transaction volume and transaction rates.", fontawesome:"fas fa-chart-bar"},
+		{name:"Browse Blocks", url:"/blocks", desc:"Browse all blocks in the blockchain.", image:"browse-blocks"},
+		{name:"Transaction Stats", url:"/tx-stats", desc:"See graphs of total transaction volume and transaction rates.", image:"avg-tx"},
 
-		{name:"Mempool Summary", url:"/mempool-summary", desc:"Detailed summary of the current mempool for this node.", fontawesome:"fas fa-clipboard-list"},
-		{name:"Unconfirmed Transactions", url:"/unconfirmed-tx", desc:"Browse unconfirmed/pending transactions.", fontawesome:"fas fa-unlock-alt"},
+		{name:"Mempool Summary", url:"/mempool-summary", desc:"Detailed summary of the current mempool for this node.", image:"mempool-summary"},
+		{name:"Unconfirmed Transactions", url:"/unconfirmed-tx", desc:"Browse unconfirmed/pending transactions.", image:"unlock"},
 
-		{name:"RPC Browser", url:"/rpc-browser", desc:"Browse the RPC functionality of this node. See docs and execute commands.", fontawesome:"fas fa-book"},
-		{name:"Hashrate distribution", url:"/mining-pools", desc:"Estimated hashrate of mining pools.", fontawesome:"fas fa-chart-pie"}
+		{name:"RPC Browser", url:"/rpc-browser", desc:"Browse the RPC functionality of this node. See docs and execute commands.", image:"rpc-browser"},
+		{name:"Hashrate distribution", url:"/mining-pools", desc:"Estimated hashrate of mining pools.", image:"hashrate-distribution"}
 	],
-
+	
 	donations:{
 		addresses:{
 			coins:["BTC"],
