@@ -22,8 +22,8 @@
   "dependencies": {
     "async": "2.6.2",
     "basic-auth": "^2.0.1",
-    "bitcoin-core": "2.0.0",
-    "bitcoinjs-lib": "5.0.3",
+    "bitcoin-core": "^2.3.0",
+    "bitcoinjs-lib": "^5.1.6",
     "body-parser": "~1.19.0",
     "cookie-parser": "^1.4.4",
     "crypto-js": "3.1.9-1",
