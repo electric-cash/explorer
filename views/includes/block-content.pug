@@ -1,8 +1,8 @@
-ul(class='nav nav-tabs mb-3')
-	li(class="nav-item")
-		a(data-toggle="tab", href="#tab-details", class="nav-link active", role="tab") Details
-	li(class="nav-item")
-		a(data-toggle="tab", href="#tab-json", class="nav-link", role="tab") JSON
+ul(class='nav nav-tabs tabs')
+	li(class="nav-item tabs-item")
+		a(data-toggle="tab", href="#tab-details", class="active", role="tab") Details
+	li(class="nav-item tabs-item")
+		a(data-toggle="tab", href="#tab-json", role="tab") JSON
 
 - var txCount = result.getblock.tx.length;
 
@@ -32,15 +32,16 @@ div(class="tab-content")
 							span  
 								a(href=sbInfo.referenceUrl) Read more
 
-		div(class="card mb-3 shadow-sm")
-			div(class="card-header")
-				span(class="h6") Summary
-			div(class="card-body")
+		div(class="card mb-3 shadow-sm card-menu")
+			div(class="card-top")
+				h3(class="card-top-title") Summary
+				hr(class="hr")
+			div(class="card-bottom")
 				div(class="row")
 					div(class="col-md-6")
 						div(class="row")
 							div(class="summary-split-table-label") Previous Block
-							div(class="summary-split-table-content monospace")
+							div(class="summary-split-table-content fw-300")
 								if (result.getblock.previousblockhash)
 									a(class="word-wrap", href=("/block/" + result.getblock.previousblockhash)) #{result.getblock.previousblockhash}
 									br
@@ -51,25 +52,25 @@ div(class="tab-content")
 
 						div(class="row")
 							div(class="summary-split-table-label") Timestamp
-							div(class="summary-split-table-content monospace")
+							div(class="summary-split-table-content fw-300")
 								span #{moment.utc(new Date(result.getblock.time * 1000)).format("Y-MM-DD HH:mm:ss")} utc
 								- var timeAgoTime = result.getblock.time;
 								include ./time-ago.pug
 
 						div(class="row")
 							div(class="summary-split-table-label") Transactions
-							div(class="summary-split-table-content monospace") #{result.getblock.tx.length.toLocaleString()}
+							div(class="summary-split-table-content fw-300") #{result.getblock.tx.length.toLocaleString()}
 
 						div(class="row")
 							div(class="summary-split-table-label") Total Fees
-							div(class="summary-split-table-content monospace")
+							div(class="summary-split-table-content fw-300")
 								- var currencyValue = new Decimal(result.getblock.totalFees);
 								include ./value-display.pug
 
 						if (result.getblock.totalFees > 0)
 							div(class="row")
 								div(class="summary-split-table-label") Average Fee
-								div(class="summary-split-table-content monospace")
+								div(class="summary-split-table-content fw-300")
 									- var currencyValue = new Decimal(result.getblock.totalFees).dividedBy(result.getblock.tx.length);
 									include ./value-display.pug
 
@@ -82,14 +83,14 @@ div(class="tab-content")
 							div(class="row")
 								div(class="summary-split-table-label")
 									span.border-dotted(data-toggle="tooltip" title="The miner of this block failed to collect this value. As a result, it is lost.") Fees Destroyed
-								div(class="summary-split-table-content monospace text-danger")
+								div(class="summary-split-table-content fw-300 text-danger")
 									- var currencyValue = new Decimal(blockRewardMax).minus(coinbaseTxTotalOutputValue);
 									include ./value-display.pug
 
 						if (result.getblock.weight)
 							div(class="row")
 								div(class="summary-split-table-label") Weight
-								div(class="summary-split-table-content monospace")
+								div(class="summary-split-table-content fw-300")
 									span(style="") #{result.getblock.weight.toLocaleString()} wu 
 
 									span(class="text-muted")  (#{new Decimal(100 * result.getblock.weight / coinConfig.maxBlockWeight).toDecimalPlaces(2)}% full)
@@ -104,11 +105,11 @@ div(class="tab-content")
 
 						div(class="row")
 							div(class="summary-split-table-label") Size
-							div(class="summary-split-table-content monospace") #{result.getblock.size.toLocaleString()} bytes
+							div(class="summary-split-table-content fw-300") #{result.getblock.size.toLocaleString()} bytes
 
 						div(class="row")
 							div(class="summary-split-table-label") Confirmations
-							div(class="summary-split-table-content monospace")
+							div(class="summary-split-table-content fw-300")
 								if (result.getblock.confirmations < 6)
 									span(class="font-weight-bold text-warning") #{result.getblock.confirmations.toLocaleString()} 
 										a(data-toggle="tooltip", title="Fewer than 6 confirmations is generally considered 'unsettled' for high-value transactions. The applicability of this guidance may vary.")
@@ -122,7 +123,7 @@ div(class="tab-content")
 					div(class="col-md-6")
 						div(class="row")
 							div(class="summary-split-table-label") Next Block
-							div(class="summary-split-table-content monospace")
+							div(class="summary-split-table-content fw-300")
 								if (result.getblock.nextblockhash)
 									a(href=("/block/" + result.getblock.nextblockhash)) #{result.getblock.nextblockhash}
 									br
@@ -132,7 +133,7 @@ div(class="tab-content")
 
 						div(class="row")
 							div(class="summary-split-table-label") Difficulty
-							div(class="summary-split-table-content monospace")
+							div(class="summary-split-table-content fw-300")
 								- var difficultyData = utils.formatLargeNumber(result.getblock.difficulty, 3);
 								
 								span(title=parseFloat(result.getblock.difficulty).toLocaleString(), data-toggle="tooltip")
@@ -142,24 +143,24 @@ div(class="tab-content")
 
 						div(class="row")
 							div(class="summary-split-table-label") Version
-							div(class="summary-split-table-content monospace") 0x#{result.getblock.versionHex}
+							div(class="summary-split-table-content fw-300") 0x#{result.getblock.versionHex}
 								span(class="text-muted")  (decimal: #{result.getblock.version})
 
 						div(class="row")
 							div(class="summary-split-table-label") Nonce
-							div(class="summary-split-table-content monospace") #{result.getblock.nonce}
+							div(class="summary-split-table-content fw-300") #{result.getblock.nonce}
 
 						div(class="row")
 							div(class="summary-split-table-label") Bits
-							div(class="summary-split-table-content monospace") #{result.getblock.bits}
+							div(class="summary-split-table-content fw-300") #{result.getblock.bits}
 
 						div(class="row")
 							div(class="summary-split-table-label") Merkle Root
-							div(class="summary-split-table-content monospace") #{result.getblock.merkleroot}
+							div(class="summary-split-table-content fw-300") #{result.getblock.merkleroot}
 
 						div(class="row")
 							div(class="summary-split-table-label") Chainwork
-							div(class="summary-split-table-content monospace")
+							div(class="summary-split-table-content fw-300")
 								- var chainworkData = utils.formatLargeNumber(parseInt("0x" + result.getblock.chainwork), 2);
 
 								span #{chainworkData[0]}
@@ -172,7 +173,7 @@ div(class="tab-content")
 						if (result.getblock.miner)
 							div(class="row")
 								div(class="summary-split-table-label") Miner
-								div(class="summary-split-table-content monospace")
+								div(class="summary-split-table-content fw-300")
 									if (result.getblock.miner)
 										span #{result.getblock.miner.name} 
 										if (result.getblock.miner.identifiedBy)
@@ -185,14 +186,13 @@ div(class="tab-content")
 									
 
 		div(class="card mb-3 shadow-sm")
-			div(class="card-header")
+			div(class="card-top")
 				div(class="row")
 					div(class="col-md-4")
-						h2(class="h6 mb-0") #{txCount.toLocaleString()} 
-							if (txCount == 1)
-								span Transaction
-							else
-								span Transactions
+						if (txCount == 1)
+							h3(class="card-top-title") #{txCount.toLocaleString()} transaction
+						else
+							h3(class="card-top-title") #{txCount.toLocaleString()} transactions
 
 					if (!config.demoSite && !crawlerBot && txCount > 20)
 						div(class="col-md-8 text-right")
@@ -208,19 +208,21 @@ div(class="tab-content")
 								
 								a(href=(paginationBaseUrl + "?limit=3000"), class="btn btn-sm btn-primary px-2", class=(limit >= txCount ? "active" : false)) all
 
+				hr(class="hr")
+
 			- var fontawesomeInputName = "sign-in-alt";
 			- var fontawesomeOutputName = "sign-out-alt";
 
-			div(class="card-body")
+			div(class="card-bottom")
 				each tx, txIndex in result.transactions
 					//pre
 					//	code(class="json bg-light") #{JSON.stringify(tx, null, 4)}
 					div(class=("xcard bg-light rounded shadow-sm " + ((txIndex < (result.transactions.length - 1) || txCount > limit) ? "mb-4" : "")))
-						div(class="card-header monospace")
+						div(class="card-header")
 							if (tx && tx.txid)
 								span ##{(txIndex + offset + 1).toLocaleString()}
 								span  &ndash; 
-								a(href=("/tx/" + tx.txid)) #{tx.txid}
+								a(href=("/tx/" + tx.txid), class="blue-link") #{tx.txid}
 
 								if (global.specialTransactions && global.specialTransactions[tx.txid])
 									span  

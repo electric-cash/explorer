@@ -94,6 +94,10 @@ a:hover {
   padding-bottom: 44px;
 }
 
+.fw-300 {
+  font-weight: 300;
+}
+
 .fw-500 {
   font-weight: 500;
 }
@@ -171,14 +175,89 @@ p {
   font-weight: 500;
 }
 
-.bg-primary { 
-  background-color: #e4a416!important;
+.bg-primary {
+  background-color: #e4a416 !important;
 }
 
 .miner-label {
   font-size: 14px;
   font-weight: 500;
   padding: 1px 8px 2px 8px;
+}
+
+.card-menu {
+  border: none;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.text-md {
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.33px;
+}
+
+.nav-tabs {
+  border: 0px;
+}
+
+.nav-tabs .nav-item {
+  margin: 0px;
+}
+
+.tabs-item {
+  background-color: #fff;
+}
+
+.tabs-item:nth-child(1) {
+  border-top-left-radius: 4px;
+}
+.tabs-item:nth-child(2) {
+  border-top-right-radius: 4px;
+}
+
+.tabs-item a {
+  padding: 7px 15px;
+  color: #a1a3a6;
+  font-size: 16px;
+  background: #fff;
+}
+
+.tabs-item a.active {
+  color: black;
+  padding: 9.6px 15px;
+  -webkit-box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
+}
+
+.summary-split-table-content a {
+  color: #047aff;
+}
+
+.blue-link {
+  color: #047aff;
+}
+
+.btn-group a {
+  border: 1px solid #e4a416;
+  background-color: #fff;
+  color: #e4a416;
+  font-weight: 500;
+  padding: 3px 8px;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active {
+  background-color: #e4a416;
+  color: #fff;
+  border: 1px solid #e4a416;
+}
+
+.btn-primary:not(:disabled):not(.disabled):focus {
+  background-color: #e4a416;
+  color: #fff;
+  border: 1px solid #e4a416;
 }
 
 @media only screen and (min-width: 1921px) {
