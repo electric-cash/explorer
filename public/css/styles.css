@@ -65,6 +65,7 @@ nav.navbar {
 
 .card-bottom p {
   overflow: hidden;
+  font-weight: 300;
 }
 
 .page-footer {
@@ -218,7 +219,7 @@ p {
 }
 
 .tabs-item a {
-  padding: 7px 15px;
+  padding: 6.8px 15px;
   color: #a1a3a6;
   font-size: 16px;
   background: #fff;
@@ -226,7 +227,7 @@ p {
 
 .tabs-item a.active {
   color: black;
-  padding: 9.6px 15px;
+  padding: 10px 15px;
   -webkit-box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
   box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
@@ -258,6 +259,39 @@ p {
   background-color: #e4a416;
   color: #fff;
   border: 1px solid #e4a416;
+}
+
+.nav-pills .nav-link {
+  border-radius: 4px;
+  font-weight: 500;
+  padding: 4px 8px 3px 8px;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #e4a416;
+  color: #fff;
+  border: 1px solid #e4a416;
+}
+
+.hljs-literal, .hljs-number, .hljs-string, .hljs {
+  padding: 0px;
+  color: #000;
+}
+
+pre code {
+  font-size: 14px;
+}
+
+.transaction-stats-table tbody tr {
+  font-weight: 300;
+}
+
+dt {
+  font-weight: 600;
+}
+
+dd {
+  font-weight: 300;
 }
 
 @media only screen and (min-width: 1921px) {
