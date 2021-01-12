@@ -13,7 +13,7 @@ script.
 		link.classList.add("d-none");
 	}
 
-div(class="row monospace")
+div(class="row")
 	div(class="col-lg-6")
 		if (txInputs)
 			- var extraInputCount = 0;
@@ -146,8 +146,8 @@ div(class="row monospace")
 											else if (vout.scriptPubKey.type == "witness_v0_keyhash")
 												span(class="border border-secondary rounded bg-light px-2 py-1 mr-2") V0_P2WPKH
 
-										a(id=("output-" + voutIndex), href=("/address/" + vout.scriptPubKey.addresses[0]))
-											span(class=("monospace word-wrap " + (highlightRow ? "font-weight-bold" : ""))) #{vout.scriptPubKey.addresses[0]}
+										a(id=("output-" + voutIndex), href=("/address/" + vout.scriptPubKey.addresses[0]), class="blue-link")
+											span(class=("word-wrap " + (highlightRow ? "font-weight-bold" : ""))) #{vout.scriptPubKey.addresses[0]}
 
 										if (global.specialAddresses[vout.scriptPubKey.addresses[0]])
 											- var specialAddressInfo = global.specialAddresses[vout.scriptPubKey.addresses[0]];
@@ -162,7 +162,7 @@ div(class="row monospace")
 													
 
 									else if (vout.scriptPubKey.hex && vout.scriptPubKey.hex.startsWith('6a24aa21a9ed'))
-										span(class="monospace")
+										span()
 											span(class="rounded bg-primary text-white px-2 py-1 mr-2") OP_RETURN
 											span(title="Segregated Witness", data-toggle="tooltip") SegWit 
 											span committment 
@@ -171,12 +171,12 @@ div(class="row monospace")
 											i(class="fas fa-info-circle")
 
 									else if (vout.scriptPubKey.asm && vout.scriptPubKey.asm.startsWith('OP_RETURN '))
-										span(class="monospace")
+										span()
 											span(class="rounded bg-primary text-white px-2 py-1 mr-2") OP_RETURN
 											span #{utils.hex2ascii(vout.scriptPubKey.asm.substring("OP_RETURN ".length))}
 
 									else
-										span(class="monospace")
+										span()
 											span(class="text-warning font-weight-bold") Unable to decode output:
 											br
 											span(class="font-weight-bold") type: 

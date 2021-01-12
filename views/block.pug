@@ -4,10 +4,9 @@ block headContent
 	title Block ##{result.getblock.height.toLocaleString()}, #{result.getblock.hash}
 
 block content
-	h1(class="h3") Block 
-		small(style="width: 100%;", class="monospace") ##{result.getblock.height.toLocaleString()}
+	h1(class="page-title") Block 
+		span(style="width: 100%;", class="text-md") ##{result.getblock.height.toLocaleString()}
 		br
-		small(style="width: 100%;", class="monospace word-wrap") #{result.getblock.hash}
-	hr
+		span(style="width: 100%;", class="text-md") #{result.getblock.hash}
 
 	include includes/block-content.pug

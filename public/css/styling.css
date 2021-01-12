@@ -87,7 +87,7 @@ strong {
 }
 
 .summary-table-label, .summary-split-table-label, .tx-io-label {
-	font-weight: bold;
+	font-weight: 500;
 }
 
 .summary-table-content, .summary-split-table-content {
