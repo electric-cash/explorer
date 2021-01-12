@@ -17,7 +17,7 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v2-beta
         with:
           node-version: 8
@@ -27,4 +27,4 @@ jobs:
       - name: commitlint
         run: |
           FIRST_COMMIT_SHA=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" ${{ github.event.pull_request.commits_url }} | jq -r '.[0].sha')
-          npx commitlint --from $FIRST_COMMIT_SHA^
+          ./node_modules/.bin/commitlint --from $FIRST_COMMIT_SHA^
