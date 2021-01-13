@@ -1,7 +1,7 @@
 {
-  "name": "btcv-rpc-explorer",
+  "name": "elcash-rpc-explorer",
   "version": "1.0.3",
-  "description": "Explorer for Bitcoin Vault and RPC-compatible blockchains",
+  "description": "Explorer for Electric Cash and RPC-compatible blockchains",
   "private": false,
   "bin": "bin/cli.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "refresh-mining-pool-configs": "node ./bin/refresh-mining-pool-configs.js"
   },
   "keywords": [
-    "bitcoin vault",
+    "elcash",
     "blockchain"
   ],
   "author": "Dan Janosik <dan@47.io>",

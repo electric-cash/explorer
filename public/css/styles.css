@@ -273,7 +273,10 @@ p {
   border: 1px solid #e4a416;
 }
 
-.hljs-literal, .hljs-number, .hljs-string, .hljs {
+.hljs-literal,
+.hljs-number,
+.hljs-string,
+.hljs {
   padding: 0px;
   color: #000;
 }
@@ -294,6 +297,16 @@ dd {
   font-weight: 300;
 }
 
+.input-group {
+  width: auto;
+}
+
+.settings-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 32px;
+}
+
 @media only screen and (min-width: 1921px) {
   .page-body {
     background-image: url("/img/images/background@3x.png");
@@ -309,5 +322,12 @@ dd {
 @media only screen and (max-width: 1024px) {
   .page-body {
     background-image: url("/img/images/background.png");
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .settings-icon {
+    margin-top: .5rem;
+    margin-left: 0px;
   }
 }

@@ -5,7 +5,7 @@ var url = require('url');
 var coins = require("./coins.js");
 var credentials = require("./credentials.js");
 
-var currentCoin = process.env.BTCEXP_COIN || "BTC"; // BTC is the same as BTCV
+var currentCoin = process.env.BTCEXP_COIN || "BTC"; // BTC is the same as ELCASH
 
 var rpcCred = credentials.rpc;
 
@@ -146,18 +146,20 @@ module.exports = {
 
 	credentials: credentials,
 
+	// TODO
+	// EC-94 Adjustments after demo
 	siteTools:[
 		{name:"Node Status", url:"/node-status", desc:"Summary of this node: version, network, uptime, etc.", image:"node-status"},
-		{name:"Peers", url:"/peers", desc:"Detailed info about the peers connected to this node.", image:"peers"},
+		// {name:"Peers", url:"/peers", desc:"Detailed info about the peers connected to this node.", image:"peers"},
 
 		{name:"Browse Blocks", url:"/blocks", desc:"Browse all blocks in the blockchain.", image:"browse-blocks"},
-		{name:"Transaction Stats", url:"/tx-stats", desc:"See graphs of total transaction volume and transaction rates.", image:"avg-tx"},
+		// {name:"Transaction Stats", url:"/tx-stats", desc:"See graphs of total transaction volume and transaction rates.", image:"avg-tx"},
 
-		{name:"Mempool Summary", url:"/mempool-summary", desc:"Detailed summary of the current mempool for this node.", image:"mempool-summary"},
-		{name:"Unconfirmed Transactions", url:"/unconfirmed-tx", desc:"Browse unconfirmed/pending transactions.", image:"unlock"},
+		// {name:"Mempool Summary", url:"/mempool-summary", desc:"Detailed summary of the current mempool for this node.", image:"mempool-summary"},
+		{name:"Unconfirmed Transactions", url:"/unconfirmed-tx", desc:"Browse unconfirmed/pending transactions.", image:"unlock"}
 
-		{name:"RPC Browser", url:"/rpc-browser", desc:"Browse the RPC functionality of this node. See docs and execute commands.", image:"rpc-browser"},
-		{name:"Hashrate distribution", url:"/mining-pools", desc:"Estimated hashrate of mining pools.", image:"hashrate-distribution"}
+		// {name:"RPC Browser", url:"/rpc-browser", desc:"Browse the RPC functionality of this node. See docs and execute commands.", image:"rpc-browser"},
+		// {name:"Hashrate distribution", url:"/mining-pools", desc:"Estimated hashrate of mining pools.", image:"hashrate-distribution"}
 	],
 	
 	donations:{

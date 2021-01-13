@@ -1,12 +1,12 @@
-# Bitcoin Vault RPC Explorer
+# Electric Cash RPC Explorer
 
-This is a fork of [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer) with minor modifications to adapt it to Bitcoin Vault.
+This is a fork of [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explorer) with minor modifications to adapt it to Electric Cash.
 
 ---
 
-Simple, database-free Bitcoin Vault blockchain explorer, via RPC. Built with Node.js, express, bootstrap-v4.
+Simple, database-free Electric Cash blockchain explorer, via RPC. Built with Node.js, express, bootstrap-v4.
 
-This tool is intended to be a simple, self-hosted explorer for the Bitcoin Vault blockchain, driven by RPC calls to your own bvaultd node. This tool is easy to run but currently lacks features compared to database-backed explorers.
+This tool is intended to be a simple, self-hosted explorer for the Electric Cash blockchain, driven by RPC calls to your own bvaultd node. This tool is easy to run but currently lacks features compared to database-backed explorers.
 
 Whatever reasons one might have for running a full node (trustlessness, technical curiosity, supporting the network, etc) it's helpful to appreciate the "fullness" of your node. With this explorer, you can not only explore the blockchain (in the traditional sense of the term "explorer"), but also explore the functional capabilities of your own node.
 
@@ -30,7 +30,7 @@ The below instructions are geared toward BTCV, but can be adapted easily to othe
 ## Prerequisites
 
 1. Install and run a full, archiving [node](https://github.com/bitcoinvault/bitcoinvault/blob/master/INSTALL.md). Ensure that your bitcoin node has full transaction indexing enabled (`txindex=1`) and the RPC server enabled (`server=1`).
-2. Synchronize your node with the Bitcoin Vault network.
+2. Synchronize your node with the Electric Cash network.
 3. "Recent" version of Node.js (8+ recommended).
 
 ## Instructions
