@@ -13,15 +13,16 @@ else
 script.
 	Chart.defaults.global.elements.point.radius = 1;
 	var ctx = document.getElementById("#{graphData.id}").getContext('2d');
+	const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+	gradient.addColorStop(0, 'rgba(243, 196, 7, 0.8)');   
+	gradient.addColorStop(1, 'rgba(244, 212, 136, 0)');
 	var graph = new Chart(ctx, {
 		type: 'line',
 		labels: [#{graphData.labels}],
 		data: {
 			datasets: [{
-				borderColor: '#e4a416',
-				borderWidth: 1,
-				backgroundColor: '#e4a416',
-				data: #{graphData.dataVar}
+				data: #{graphData.dataVar},
+				backgroundColor: gradient,
 			}]
 		},
 		options: {

@@ -75,7 +75,7 @@ html(lang="en")
 						ul(class="navbar-nav")
 							li(class="nav-item dropdown")
 								a(href="javascript:void(0)", id="navbarDropdown", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") 
-									img(src="/img/icons/settings.png", style="width:24px; height:24px;margin-left:32px")
+									img(src="/img/icons/settings.png", class="settings-icon")
 								div(class="dropdown-menu dropdown-menu-right shadow", aria-labelledby="navbarDropdown")
 									if (coinConfig.currencyUnits)
 										span(class="dropdown-header") Currency Units
@@ -86,16 +86,17 @@ html(lang="en")
 														if (currencyFormatType == valueName)
 															i(class="fas fa-check")
 													span  #{item.name}
-
-									span(class="dropdown-header") Theme
-									a(class="dropdown-item", href="/changeSetting?name=uiTheme&value=light")
-										if (session.uiTheme == "light" || session.uiTheme == "")
-											i(class="fas fa-check")
-										span  Light
-									a(class="dropdown-item", href="/changeSetting?name=uiTheme&value=dark")
-										if (session.uiTheme == "dark")
-											i(class="fas fa-check")
-										span  Dark
+									//- TODO
+									//- EC-94 Adjustments after demo
+									//- span(class="dropdown-header") Theme
+									//- a(class="dropdown-item", href="/changeSetting?name=uiTheme&value=light")
+									//- 	if (session.uiTheme == "light" || session.uiTheme == "")
+									//- 		i(class="fas fa-check")
+									//- 	span  Light
+									//- a(class="dropdown-item", href="/changeSetting?name=uiTheme&value=dark")
+									//- 	if (session.uiTheme == "dark")
+									//- 		i(class="fas fa-check")
+									//- 	span  Dark
 		
 		- var bodyBgColor = "#ffffff;";
 		if (session.uiTheme && session.uiTheme == "dark")
@@ -124,16 +125,16 @@ html(lang="en")
 						dl
 							dt Source
 							dd
-								a(href="https://github.com/bitcoinvault/explorer") github.com/bitcoinvault/explorer
+								a(href="https://github.com/electric-cash/explorer") github.com/electric-cash/explorer
 								
 								if (global.sourcecodeProjectMetadata)
 									div(class="mt-2")
-										a(href="https://github.com/bitcoinvault/explorer", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
+										a(href="https://github.com/electric-cash/explorer", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
 											i(class="fas fa-star mr-2")
 											span(class="mr-2") Star 
 											span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.stargazers_count}
 
-										a(href="https://github.com/bitcoinvault/explorer/fork", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
+										a(href="https://github.com/electric-cash/explorer/fork", class="btn btn-primary btn-sm mr-3 mb-1 text-decoration-none")
 											i(class="fas fa-code-branch mr-2")
 											span(class="mr-2") Fork 
 											span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.forks_count}
@@ -142,7 +143,7 @@ html(lang="en")
 							if (sourcecodeVersion)
 								dt Running Version
 								dd
-									a(href=("https://github.com/bitcoinvault/explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
+									a(href=("https://github.com/electric-cash/explorer/commit/" + sourcecodeVersion)) #{sourcecodeVersion}
 									span(style="color: #ccc;")  (#{sourcecodeDate})
 
 							if (config.demoSite)

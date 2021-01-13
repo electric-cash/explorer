@@ -20,21 +20,21 @@ block content
 				span
 					strong #{coinConfig.siteTitle}
 					span  is 
-					a(href="https://github.com/bitcoinvault/explorer", target="_blank") open-source
+					a(href="https://github.com/electric-cash/explorer", target="_blank") open-source
 					span  and easy to set up. It can communicate with your 
 					a(href=coinConfig.nodeUrl, target="_blank") #{coinConfig.name} Full Node
 					span  via RPC. See the 
-					a(href="https://github.com/bitcoinvault/explorer", target="_blank") project description
+					a(href="https://github.com/electric-cash/explorer", target="_blank") project description
 					span  for a list of features and instructions for running.
 
 				if (global.sourcecodeProjectMetadata)
 					div.mt-2
-						a(href="https://github.com/bitcoinvault/explorer", class="btn btn-primary mr-3 mb-1")
+						a(href="https://github.com/electric-cash/explorer", class="btn btn-primary mr-3 mb-1")
 							i(class="fas fa-star mr-2")
 							span(class="mr-2") Star 
 							span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.stargazers_count}
 
-						a(href="https://github.com/bitcoinvault/explorer/fork", class="btn btn-primary mr-3 mb-1")
+						a(href="https://github.com/electric-cash/explorer/fork", class="btn btn-primary mr-3 mb-1")
 							i(class="fas fa-code-branch mr-2")
 							span(class="mr-2") Fork 
 							span(class="badge bg-white text-dark") #{global.sourcecodeProjectMetadata.forks_count}
@@ -141,7 +141,7 @@ block content
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/wallet.svg")
-							span(class="font-weight-bold") Number of BTCV wallets
+							span(class="font-weight-bold") Number of ELCASH wallets
 							p(class="lead") #{global.totalWalletsNumber.toLocaleString()}
 
 					if (global.txAvgVolume24h)
@@ -149,14 +149,14 @@ block content
 							div(class="float-left icon-container")
 								img(src="/img/icons/avg-tx.svg")
 							span(class="font-weight-bold") Avg Tx Volume (24h)
-							p(class="lead") #{global.txAvgVolume24h.toLocaleString()} BTCV/TX
+							p(class="lead") #{global.txAvgVolume24h.toLocaleString()} ELCASH/TX
 
 					if (global.totalCoinSupply)
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/coins.svg")
 							span(class="font-weight-bold") Coins In Circulation
-							p(class="lead") #{Math.round(global.totalCoinSupply).toLocaleString()} BTCV
+							p(class="lead") #{Math.round(global.totalCoinSupply).toLocaleString()} ELCASH
 					
 					if (global.totalCoinSupply && global.exchangeRates)
 						div(class=networkSummaryColumnClass)

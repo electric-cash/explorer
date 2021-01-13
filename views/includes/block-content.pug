@@ -258,19 +258,21 @@ div(class="tab-content")
 	div(id="tab-json", class="tab-pane", role="tabpanel")
 		- var blockDetails = JSON.parse(JSON.stringify(result.getblock));
 		- blockDetails.tx = "See 'Transaction IDs'";
+		
+		div(class="card mb-3 shadow-sm card-menu")
+			div(class="card-bottom")
+				ul(class='nav nav-pills pb-4 pt-4')
+					li(class="nav-item")
+						a(data-toggle="tab", href="#tab-json-block-summary", class="nav-link active", role="tab") Block Summary
+					li(class="nav-item")
+						a(data-toggle="tab", href="#tab-json-tx-ids", class="nav-link", role="tab") Transaction IDs
 
-		ul(class='nav nav-pills mb-3')
-			li(class="nav-item")
-				a(data-toggle="tab", href="#tab-json-block-summary", class="nav-link active", role="tab") Block Summary
-			li(class="nav-item")
-				a(data-toggle="tab", href="#tab-json-tx-ids", class="nav-link", role="tab") Transaction IDs
+				div(class="tab-content")
+					div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
+						pre
+							code(class="json bg-light") #{JSON.stringify(blockDetails, null, 4)}
 
-		div(class="tab-content")
-			div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
-				pre
-					code(class="json bg-light") #{JSON.stringify(blockDetails, null, 4)}
-
-			div(id="tab-json-tx-ids", class="tab-pane", role="tabpanel")
-				pre
-					code(class="json bg-light") #{JSON.stringify(result.getblock.tx, null, 4)}
+					div(id="tab-json-tx-ids", class="tab-pane", role="tabpanel")
+						pre
+							code(class="json bg-light") #{JSON.stringify(result.getblock.tx, null, 4)}
 

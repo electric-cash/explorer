@@ -4,17 +4,17 @@ Decimal8 = Decimal.clone({ precision:8, rounding:8 });
 var currencyUnits = [
 	{
 		type:"native",
-		name:"BTCV",
+		name:"ELCASH",
 		multiplier:1,
 		default:true,
-		values:["", "btcv", "BTCV"],
+		values:["", "elcash", "ELCASH"],
 		decimalPlaces:8
 	},
 	{
 		type:"native",
-		name:"mBTCV",
+		name:"mELCASH",
 		multiplier:1000,
-		values:["mbtcv"],
+		values:["mELCASH"],
 		decimalPlaces:5
 	},
 	{
@@ -31,30 +31,32 @@ var currencyUnits = [
 		values:["sat", "satoshi"],
 		decimalPlaces:0
 	},
-	{
-		type:"exchanged",
-		name:"USD",
-		multiplier:"usd",
-		values:["usd"],
-		decimalPlaces:2,
-		symbol:"$"
-	},
-	{
-		type:"exchanged",
-		name:"EUR",
-		multiplier:"eur",
-		values:["eur"],
-		decimalPlaces:2,
-		symbol:"€"
-	},
+	// TODO
+	// EC-94 Adjustments after demo
+	// {
+	// 	type:"exchanged",
+	// 	name:"USD",
+	// 	multiplier:"usd",
+	// 	values:["usd"],
+	// 	decimalPlaces:2,
+	// 	symbol:"$"
+	// },
+	// {
+	// 	type:"exchanged",
+	// 	name:"EUR",
+	// 	multiplier:"eur",
+	// 	values:["eur"],
+	// 	decimalPlaces:2,
+	// 	symbol:"€"
+	// },
 ];
 
 module.exports = {
-	name:"Bitcoin Vault",
-	ticker:"BTCV",
+	name:"Electric Cash",
+	ticker:"ELCASH",
 	logoUrl:"/img/logo/electric_vault.svg",
 	siteTitle:"Electric Cash Explorer",
-	siteDescriptionHtml:"<b>Electric Cash Explorer</b> is <a href='https://github.com/bitcoinvault/explorer). If you run your own [Bitcoin Vault Full Node](https://bitcoin.org/en/full-node), **BTCV Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/bitcoinvault/explorer) for a list of features and instructions for running.",
+	siteDescriptionHtml:"<b>Electric Cash Explorer</b> is <a href='https://github.com/bitcoinvault/explorer). If you run your own [Bitcoin Vault Full Node](https://bitcoin.org/en/full-node), **ELCASH Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/bitcoinvault/explorer) for a list of features and instructions for running.",
 	nodeTitle:"Bitcoin Full Node",
 	nodeUrl:"https://bitcoin.org/en/full-node",
 	demoSiteUrl: "http://explorer.bitcoinvault.global",
@@ -65,7 +67,7 @@ module.exports = {
 	maxBlockWeight: 4000000,
 	targetBlockTimeSeconds: 600,
 	currencyUnits:currencyUnits,
-	currencyUnitsByName:{"BTCV":currencyUnits[0], "mBTCV":currencyUnits[1], "bits":currencyUnits[2], "sat":currencyUnits[3]},
+	currencyUnitsByName:{"ELCASH":currencyUnits[0], "mELCASH":currencyUnits[1], "bits":currencyUnits[2], "sat":currencyUnits[3]},
 	baseCurrencyUnit:currencyUnits[3],
 	defaultCurrencyUnit:currencyUnits[0],
 	feeSatoshiPerByteBucketMaxima: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 75, 100, 150],
