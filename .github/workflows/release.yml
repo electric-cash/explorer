@@ -5,6 +5,11 @@ on:
     branches:
       - master
 
+env:
+  ECR_REPOSITORY: explorer
+  IMAGE_TAG: ${{ github.sha }}
+  BUILD_NAME: elcash-build-$GITHUB_ACTION
+
 jobs:
   release:
     name: release
@@ -16,12 +21,6 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-node@v2
       - uses: bahmutov/npm-install@v1
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build docker image
-        run: docker build -t elcash-explorer-$GITHUB_ACTION .
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -34,11 +33,24 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull docker docker image (for layers that we dont have)
+        continue-on-error: true
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        run: docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+      - name: Build docker image
+        run: docker build -t $BUILD_NAME .
+
       - name: Build, tag, and push image to Amazon ECR
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: explorer
-          IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG elcash-build-github-$GITHUB_ACTION
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $BUILD_NAME
+          docker tag $BUILD_NAME $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
