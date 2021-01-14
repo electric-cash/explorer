@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "refresh-mining-pool-configs": "node ./bin/refresh-mining-pool-configs.js",
-    "commit-retry": "npx cz --retry"
+    "commit-retry": "npx cz --retry",
+    "test:cy": "cypress run"
   },
   "keywords": [
     "elcash",
@@ -28,6 +29,7 @@
     "cookie-parser": "^1.4.4",
     "crypto-js": "3.1.9-1",
     "csurf": "^1.10.0",
+    "cypress": "^6.2.0",
     "d3-scale-chromatic": "^1.5.0",
     "debug": "~4.1.1",
     "decimal.js": "10.1.1",

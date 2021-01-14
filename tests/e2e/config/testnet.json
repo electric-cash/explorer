@@ -1,0 +1,7 @@
+{
+  "baseUrl": "https://explorer-testnet.ec.stage.rnd.land/",
+  "env": {
+    "video": "false",
+    "screenshotOnRunFailure": "false"
+  }
+}
