@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/electric-cash/explorer/compare/v1.0.4...v1.1.0) (2021-01-15)
+
+
+### Features
+
+* **ci:** new ECR registry ([7c3f0fc](https://github.com/electric-cash/explorer/commit/7c3f0fc3a96d05dd52f78f5ef6c7d56f0c51eb7e))
+
 ### [1.0.4](https://github.com/electric-cash/explorer/compare/v1.0.3...v1.0.4) (2021-01-13)
 
 
