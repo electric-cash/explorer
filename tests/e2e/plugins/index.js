@@ -13,6 +13,6 @@ function getConfigurationByFile(file) {
   return fs.readJson(pathToConfigFile);
 }
 module.exports = (on, config) => {
-  const file = config.env.configFile || 'local';
+  const file = config.env.configFile || 'testnet';
   return getConfigurationByFile(file);
 };
