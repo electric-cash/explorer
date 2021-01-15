@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.1.1](https://github.com/electric-cash/explorer/compare/v1.1.0...v1.1.1) (2021-01-15)
+
+
+### Bug Fixes
+
+* 🐛 fix buttons size on rwd ([8b7bf0a](https://github.com/electric-cash/explorer/commit/8b7bf0a8bcc23f99635b5053d0bd97590f75b2fe))
+* 🐛 Transaction view ([52710f1](https://github.com/electric-cash/explorer/commit/52710f1857387bcf6166f6651678a8a42f7cb26a))
+
 ## [1.1.0](https://github.com/electric-cash/explorer/compare/v1.0.4...v1.1.0) (2021-01-15)
 
 
