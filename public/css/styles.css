@@ -327,7 +327,35 @@ dd {
 
 @media only screen and (max-width: 991px) {
   .settings-icon {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     margin-left: 0px;
+  }
+}
+
+@media (max-width: 376px) {
+  .pagination-wrap .page-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 377px) {
+  .pagination-wrap .page-link {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.91rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .pagination-wrap .page-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pagination-wrap .page-link {
+    padding: 0.52rem 1.05rem;
+    font-size: 1rem;
   }
 }
