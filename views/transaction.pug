@@ -10,18 +10,17 @@ block headContent
 
 block content
 	if (result && result.getrawtransaction)
-		h1(class="h3 word-wrap") Transaction 
+		h1(class="page-title") Transaction 
 			br
-			small(class="monospace") #{txid}
-		hr
+			span(style="word-break: break-all;", class="text-md") #{txid}
 
-		ul(class='nav nav-tabs mb-3')
-			li(class="nav-item")
-				a(data-toggle="tab", href="#tab-details", class="nav-link active", role="tab") Details
-			li(class="nav-item")
-				a(data-toggle="tab", href="#tab-scripts", class="nav-link", role="tab") Scripts
-			li(class="nav-item")
-				a(data-toggle="tab", href="#tab-json", class="nav-link", role="tab") JSON
+		ul(class='nav nav-tabs tabs')
+			li(class="nav-item tabs-item")
+				a(data-toggle="tab", href="#tab-details", class=" active", role="tab") Details
+			li(class="nav-item tabs-item")
+				a(data-toggle="tab", href="#tab-scripts", role="tab") Scripts
+			li(class="nav-item tabs-item")
+				a(data-toggle="tab", href="#tab-json", role="tab") JSON
 
 		- DecimalRounded = Decimal.clone({ precision: 4, rounding: 2 })
 
@@ -68,20 +67,21 @@ block content
 				if (!result.getrawtransaction.confirmations || result.getrawtransaction.confirmations == 0)
 					- isTxConfirmed = false;
 
-				div(class="card mb-3 shadow-sm")
-					div(class="card-header")
-						span(class="h6") Summary
-					div(class="card-body")
+				div(class="card mb-3 shadow-sm card-menu")
+					div(class="card-top")
+						h3(class="card-top-title") Summary
+						hr(class="hr")
+					div(class="card-bottom")
 						if (!isTxConfirmed)
 							div(class="row")
 								div(class="summary-table-label") Status
-								div(class="summary-table-content monospace")
+								div(class="summary-table-content")
 									span(class="text-warning") Unconfirmed
 
 							div(class="row")
 								div(class="summary-table-label")
 									span.border-dotted(title="Whether this unconfirmed transaction is replaceable using replace-by-fee (RBF)", data-toggle="tooltip") RBF
-								div(class="summary-table-content monospace")
+								div(class="summary-table-content")
 									- var replaceable = false;
 									each vin, vinIndex in result.getrawtransaction.vin
 										// ref: https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki#summary
@@ -101,8 +101,8 @@ block content
 						if (isTxConfirmed)
 							div(class="row")
 								div(class="summary-table-label") Block
-								div(class="summary-table-content monospace")
-									a(href=("/block/" + result.getrawtransaction.blockhash)) #{result.getrawtransaction.blockhash}
+								div(class="summary-table-content")
+									a(class="blue-link", href=("/block/" + result.getrawtransaction.blockhash)) #{result.getrawtransaction.blockhash}
 									if (result.getblock.height)
 										br
 										span (##{result.getblock.height.toLocaleString()})
@@ -110,19 +110,19 @@ block content
 						if (isTxConfirmed)
 							div(class="row")
 								div(class="summary-table-label") Timestamp
-								div(class="summary-table-content monospace")
+								div(class="summary-table-content")
 									if (result.getrawtransaction.time)
-										td(class="monospace") #{moment.utc(new Date(result.getrawtransaction["time"] * 1000)).format("Y-MM-DD HH:mm:ss")} utc
+										td() #{moment.utc(new Date(result.getrawtransaction["time"] * 1000)).format("Y-MM-DD HH:mm:ss")} utc
 											- var timeAgoTime = result.getrawtransaction["time"];
 											include includes/time-ago.pug
 
 						div(class="row")
 							div(class="summary-table-label") Version
-							div(class="summary-table-content monospace") #{result.getrawtransaction.version}
+							div(class="summary-table-content") #{result.getrawtransaction.version}
 
 						div(class="row")
 							div(class="summary-table-label") Size
-							div(class="summary-table-content monospace")
+							div(class="summary-table-content")
 								if (result.getrawtransaction.vsize != result.getrawtransaction.size)
 									span #{result.getrawtransaction.vsize.toLocaleString()} 
 									span.border-dotted(title="Virtual bytes", data-toggle="tooltip") vB
@@ -135,7 +135,7 @@ block content
 						if (result.getrawtransaction.locktime > 0)
 							div(class="row")
 								div(class="summary-table-label") Locktime
-								div(class="summary-table-content monospace")
+								div(class="summary-table-content")
 									if (result.getrawtransaction.locktime < 500000000)
 										span Spendable in block 
 										a(href=("/block-height/" + result.getrawtransaction.locktime)) #{result.getrawtransaction.locktime.toLocaleString()}
@@ -150,7 +150,7 @@ block content
 						if (isTxConfirmed)
 							div(class="row")
 								div(class="summary-table-label") Confirmations
-								div(class="summary-table-content monospace")
+								div(class="summary-table-content")
 									if (!result.getrawtransaction.confirmations || result.getrawtransaction.confirmations == 0)
 										strong(class="text-warning") 0 (unconfirmed)
 
@@ -164,7 +164,7 @@ block content
 						if (result.getrawtransaction.vin[0].coinbase)
 							div(class="row")
 								div(class="summary-table-label") Fees Collected
-								div(class="summary-table-content monospace")
+								div(class="summary-table-content")
 									- var currencyValue = new Decimal(totalOutputValue).minus(totalInputValue);
 									include includes/value-display.pug
 
@@ -173,7 +173,7 @@ block content
 								div(class="row")
 									div(class="summary-table-label")
 										span.border-dotted(data-toggle="tooltip" title="The miner of this transaction's block failed to collect this value. As a result, it is lost.") Fees Destroyed
-									div(class="summary-table-content monospace text-danger")
+									div(class="summary-table-content text-danger")
 										- var currencyValue = new Decimal(blockRewardMax).minus(totalOutputValue);
 										include includes/value-display.pug
 
@@ -181,7 +181,7 @@ block content
 								- var minerInfo = utils.getMinerFromCoinbaseTx(result.getrawtransaction);
 								div(class="row")
 									div(class="summary-table-label") Miner
-									div(class="summary-table-content monospace")
+									div(class="summary-table-content")
 										if (minerInfo)
 											span #{minerInfo.name} 
 											if (minerInfo.identifiedBy)
@@ -198,7 +198,7 @@ block content
 
 							div(class="row")
 								div(class="summary-table-label") Fee Paid
-								div(class="summary-table-content monospace")
+								div(class="summary-table-content")
 									- var currencyValue = feePaid;
 									include includes/value-display.pug
 
@@ -209,7 +209,7 @@ block content
 							if (feePaid > 0)
 								div(class="row")
 									div(class="summary-table-label") Fee Rate
-									div(class="summary-table-content monospace")
+									div(class="summary-table-content")
 										if (result.getrawtransaction.vsize != result.getrawtransaction.size)
 											span #{utils.addThousandsSeparators(new DecimalRounded(totalInputValue).minus(totalOutputValue).dividedBy(result.getrawtransaction.vsize).times(100000000))} sat/
 											span.border-dotted(title="Virtual bytes" data-toggle="tooltip") vB
@@ -220,20 +220,21 @@ block content
 
 				if (result.getrawtransaction.vin[0].coinbase)
 					div(class="card mb-3 shadow-sm")
-						div(class="card-header")
-							h2(class="h6 mb-0") Coinbase
-						div(class="card-body")
+						div(class="card-top")
+							h3(class="card-top-title") Coinbase
+							hr(class="hr")
+						div(class="card-bottom")
 							h6 Hex
-							div(class="bg-light px-4 py-3 mb-3")
-								span(class="monospace word-wrap") #{result.getrawtransaction.vin[0].coinbase}
+							div(class="mb-3")
+								span(class="word-wrap") #{result.getrawtransaction.vin[0].coinbase}
 
 							h6 Decoded
-							div(class="bg-light px-4 py-3 mb-3")
-								span(class="monospace word-wrap") #{utils.hex2ascii(result.getrawtransaction.vin[0].coinbase)}
+							div(class="mb-3")
+								span(class="word-wrap") #{utils.hex2ascii(result.getrawtransaction.vin[0].coinbase)}
 
 				div(class="card mb-3 shadow-sm")
-					div(class="card-header")
-						h2(class="h6 mb-0")
+					div(class="card-top")
+						h3(class="card-top-title")
 							span #{result.getrawtransaction.vin.length.toLocaleString()} 
 							if (result.getrawtransaction.vin.length == 1)
 								span Input
@@ -247,9 +248,10 @@ block content
 								span Output
 							else
 								span Outputs
+						hr(class="hr")
 
 					
-					div(class="card-body")
+					div(class="card-bottom")
 						- var tx = result.getrawtransaction;
 						- var txInputs = result.txInputs;
 						- var blockHeight = -1;
@@ -260,20 +262,21 @@ block content
 				if (mempoolDetails)
 					if (mempoolDetails.ancestors.length > 0)
 						div(class="card mb-3 shadow-sm")
-							div(class="card-header")
-								h2(class="h6 mb-0")
+							div(class="card-top")
+								h3(class="card-top-title")
 									span #{mempoolDetails.ancestors.length.toLocaleString()} 
 									if (mempoolDetails.ancestors.length == 1)
 										span Ancestor
 									else
 										span Ancestors
+								hr(class="hr")
 
 							
-							div(class="card-body")
+							div(class="card-bottom")
 								ol.mb-0
 									each ancestorTxid, ancestorIndex in mempoolDetails.ancestors
 										li
-											a.monospace(href=("/tx/" + ancestorTxid)) #{ancestorTxid}
+											a(href=("/tx/" + ancestorTxid)) #{ancestorTxid}
 
 					if (mempoolDetails.descendants.length > 0)
 						div(class="card mb-3 shadow-sm")
@@ -290,7 +293,7 @@ block content
 								ol.mb-0
 									each descendantTxid, descendantIndex in mempoolDetails.descendants
 										li
-											a.monospace(href=("/tx/" + descendantTxid)) #{descendantTxid}
+											a(href=("/tx/" + descendantTxid)) #{descendantTxid}
 
 			- var fontawesomeInputName = "sign-in-alt";
 			- var fontawesomeOutputName = "sign-out-alt";
@@ -313,12 +316,12 @@ block content
 												i(class=("fas fa-" + fontawesomeInputName + " mr-2"))
 												span #{(vinIndex + 1)}
 
-										td(class="word-wrap text-break monospace")
+										td(class="word-wrap text-break")
 											if (vin.scriptSig && vin.scriptSig.asm)
 												span #{vin.scriptSig.asm}
 
 											else if (vin.coinbase)
-												div(class="monospace", style="line-height: 1.75em;")
+												div(, style="line-height: 1.75em;")
 													span(class="rounded bg-primary text-white px-2 py-1 mr-2") coinbase
 													br
 													span #{vin.coinbase}
@@ -342,7 +345,7 @@ block content
 												i(class=("fas fa-" + fontawesomeOutputName + " mr-2"))
 												span #{(voutIndex + 1)}
 
-										td(class="word-wrap monospace")
+										td(class="word-wrap")
 											if (vout.scriptPubKey && vout.scriptPubKey.asm)
 												span #{vout.scriptPubKey.asm}
 												if (vout.scriptPubKey.asm.startsWith("OP_RETURN"))
