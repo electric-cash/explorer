@@ -349,22 +349,32 @@ block content
 													span(class="text-muted") (decoded) #{utils.hex2ascii(vout.scriptPubKey.asm)}
 
 			div(id="tab-json", class="tab-pane", role="tabpanel")
-				h3.h5 Transaction
-				div(class="highlight")
-					pre
-						code(class="json bg-light", data-lang="json") #{JSON.stringify(result.getrawtransaction, null, 4)}
+				div(class="card mb-3 shadow-sm card-menu")
+					div(class="card-top")
+						h3(class="card-top-title") Transaction
+						hr(class="hr")
+					div(class="card-bottom")
+						div(class="tab-content")
+							div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
+								pre
+									code(class="json bg-light") #{JSON.stringify(result.getrawtransaction, null, 4)}
 
-				h3.h5 UTXOs
-				div(class="highlight")
-					pre
-						code(class="json bg-light", data-lang="json") #{JSON.stringify(utxos, null, 4)}
+				div(class="card mb-3 shadow-sm")
+					div(class="card-top")
+						h3(class="card-top-title") UTXOs
+						hr(class="hr")
+					div(class="card-bottom")
+						div(class="tab-content")
+							div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
+								pre
+									code(class="json bg-light") #{JSON.stringify(utxos, null, 4)}
 
-				if (mempoolDetails)
-					h3.h5 Mempool Details
-					div(class="highlight")
-						pre
-							code(class="json bg-light", data-lang="json") #{JSON.stringify(mempoolDetails, null, 4)}
-
-				//pre #{JSON.stringify(result.txInputs, null, 4)}
-
-		
+				div(class="card mb-3 shadow-sm")
+					div(class="card-top")
+						h3(class="card-top-title") Mempool Details
+						hr(class="hr")
+					div(class="card-bottom")
+						div(class="tab-content")
+							div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
+								pre
+									code(class="json bg-light") #{JSON.stringify(mempoolDetails, null, 4)}
