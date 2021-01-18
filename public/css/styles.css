@@ -308,6 +308,16 @@ dd {
   margin-left: 32px;
 }
 
+.check-icon {
+  width: 13px;
+  height: 10px;
+}
+
+.remove-icon {
+  width: 10px;
+  height: 11px;
+}
+
 .table thead th {
   border-bottom: 0;
 }
