@@ -325,7 +325,13 @@ router.get("/blocks", function(req, res, next) {
 			res.render("blocks");
 
 			next();
-		});
+		}).catch(function(err) {
+			res.locals.userMessage = "Error: " + err;
+	
+			res.render("blocks");
+	
+			next();
+		});;
 	}).catch(function(err) {
 		res.locals.userMessage = "Error: " + err;
 
