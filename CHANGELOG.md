@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.1.2](https://github.com/electric-cash/explorer/compare/v1.1.1...v1.1.2) (2021-01-18)
+
+
+### Bug Fixes
+
+* 🐛 address details view ([5c4ee8a](https://github.com/electric-cash/explorer/commit/5c4ee8a6583d3061ba5b89350737e621f0f7a167))
+* 🐛 Implementation of transaction json tab screen ([d6f9caf](https://github.com/electric-cash/explorer/commit/d6f9caf300d398fc2d2ab54af56433d78f40ed0f))
+* 🐛 Transaction details tab scripts design ([aeb1025](https://github.com/electric-cash/explorer/commit/aeb102575f3768dc9f9767f0f8f2f7b04d07925b))
+
 ### [1.1.1](https://github.com/electric-cash/explorer/compare/v1.1.0...v1.1.1) (2021-01-15)
 
 
