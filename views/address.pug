@@ -236,23 +236,22 @@ block content
 															img(src="/img/icons/remove.svg", class="remove-icon")
 
 					div(class="card mb-3 shadow-sm")
-						div(class="card-top clearfix")
+						div(class="card-top")
 							div(class="float-left")
-								span(class="h6")
-									if (addressDetails && addressDetails.txCount)
-										if (addressDetails.txCount == 1)
-											h3(class="card-top-title") 1 Transaction
-										else
-											h3(class="card-top-title") #{addressDetails.txCount.toLocaleString()} Transactions
+								if (addressDetails && addressDetails.txCount)
+									if (addressDetails.txCount == 1)
+										h3(class="card-top-title") 1 Transaction
 									else
-										h3(class="card-top-title") Transactions
+										h3(class="card-top-title") #{addressDetails.txCount.toLocaleString()} Transactions
+								else
+									h3(class="card-top-title") Transactions
 
-									if (config.addressApi)
-										if (config.addressApi == "electrumx")
-											small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ElectrumX (using the configured server(s))` data-toggle="tooltip") Trust Note
-										else
-											small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ${config.addressApi}` data-toggle="tooltip") Trust Note
-										
+								if (config.addressApi)
+									if (config.addressApi == "electrumx")
+										small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ElectrumX (using the configured server(s))` data-toggle="tooltip") Trust Note
+									else
+										small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ${config.addressApi}` data-toggle="tooltip") Trust Note
+							hr(class="hr")
 
 							if (!crawlerBot && txids && txids.length > 1 && addressApiSupport.sortDesc && addressApiSupport.sortAsc)
 								div(class="float-right")
@@ -327,7 +326,7 @@ block content
 											div(class="row")
 												div(class="col-md-6")
 													if (tx && tx.txid)
-														a(href=("/tx/" + tx.txid)) #{tx.txid}
+														a(href=("/tx/" + tx.txid), class="blue-link") #{tx.txid}
 
 														if (global.specialTransactions && global.specialTransactions[tx.txid])
 															span  
@@ -391,16 +390,22 @@ block content
 
 							
 				
-
 				div(id="tab-json", class="tab-pane", role="tabpanel")
-					div(class="highlight")
-						h4 validateaddress
-						pre
-							code(class="json bg-light", data-lang="json") #{JSON.stringify(result.validateaddress, null, 4)}
+					div(class="card mb-4 shadow-sm card-menu")
+						div(class="card-top")
+							h3(class="card-top-title") validateaddress
+							hr(class="hr")
+						div(class="card-bottom")
+							pre 
+								code(data-lang="json") #{JSON.stringify(result.validateaddress, null, 4)}
 
-						if (addressDetails)
-							h4 addressDetails
+				if (addressDetails)
+					div(class="card mb-4 shadow-sm")
+						div(class="card-top")
+							h3(class="card-top-title") addressDetails
+							hr(class="hr")
+						div(class="card-bottom")
 							pre
-								code.json.bg-light #{JSON.stringify(addressDetails, null, 4)}
+								code #{JSON.stringify(addressDetails, null, 4)}
 
 		
