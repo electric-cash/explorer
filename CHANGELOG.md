@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/electric-cash/explorer/compare/v1.1.3...v1.2.0) (2021-01-19)
+
+
+### Features
+
+* 🎸 add missing views: node-status, unconfirmed transaction ([69cf1c1](https://github.com/electric-cash/explorer/commit/69cf1c13ad5a0282621e39e633af6635743c0b84))
+
+
+### Bug Fixes
+
+* 🐛 add env sample ([2c3dbe0](https://github.com/electric-cash/explorer/commit/2c3dbe0f10f2c3711f8e0012bf249aadb4b24ff5))
+* 🐛 add envs for testnet and api ([58daef9](https://github.com/electric-cash/explorer/commit/58daef9743578318ef66903e42793d1515b57945))
+
 ### [1.1.3](https://github.com/electric-cash/explorer/compare/v1.1.2...v1.1.3) (2021-01-19)
 
 
