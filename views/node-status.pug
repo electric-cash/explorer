@@ -4,8 +4,7 @@ block headContent
 	title Node Status
 	
 block content
-	h1(class="h3") Node Status
-	hr
+	h1(class="page-title") Node Status
 
 	if (getblockchaininfo)
 		if (false)
@@ -20,54 +19,55 @@ block content
 			pre
 				code(class="json bg-light") #{JSON.stringify(getblockchaininfo, null, 4)}
 
-		ul(class='nav nav-tabs mb-3')
-			li(class="nav-item")
-				a(data-toggle="tab", href="#tab-details", class="nav-link active", role="tab") Details
-			li(class="nav-item")
-				a(data-toggle="tab", href="#tab-json", class="nav-link", role="tab") JSON
+		ul(class='nav nav-tabs tabs')
+			li(class="nav-item tabs-item")
+				a(data-toggle="tab", href="#tab-details", class="active", role="tab") Details
+			li(class="nav-item tabs-item")
+				a(data-toggle="tab", href="#tab-json", role="tab") JSON
 
 
 		div(class="tab-content")
 			div(id="tab-details", class="tab-pane active", role="tabpanel")
-				div(class="card mb-3 shadow-sm")
-					div(class="card-header")
-						span(class="h6") Summary
-					div(class="card-body")
+				div(class="card mb-3 shadow-sm card-menu")
+					div(class="card-top")
+						h3(class="card-top-title") Summary
+						hr(class="hr")
+					div(class="card-bottom")
 						table(class="table details-table mb-0")
 							tr
-								td(class="properties-header") Host : Port
-								td(class="monospace") #{global.client.host + " : " + global.client.port}
+								td(class="properties-header fw-500") Host : Port
+								td(class="fw-300") #{global.client.host + " : " + global.client.port}
 
 							tr
-								td(class="properties-header") Chain
-								td(class="monospace") #{getblockchaininfo.chain}
+								td(class="properties-header fw-500") Chain
+								td(class="fw-300") #{getblockchaininfo.chain}
 							tr
-								td(class="properties-header") Version
-								td(class="monospace") #{getnetworkinfo.version}
-									span(class="monospace")  (#{getnetworkinfo.subversion})
+								td(class="properties-header fw-500") Version
+								td(class="fw-300") #{getnetworkinfo.version}
+									span()  (#{getnetworkinfo.subversion})
 							tr
-								td(class="properties-header") Protocol Version
-								td(class="monospace") #{getnetworkinfo.protocolversion}
+								td(class="properties-header fw-500") Protocol Version
+								td(class="fw-300") #{getnetworkinfo.protocolversion}
 
 							if (getblockchaininfo.size_on_disk)
 								- var sizeData = utils.formatLargeNumber(getblockchaininfo.size_on_disk, 2);
 								tr
-									td(class="properties-header") Blockchain Size
-									td(class="monospace") #{sizeData[0]} #{sizeData[1].abbreviation}B
+									td(class="properties-header fw-500") Blockchain Size
+									td(class="fw-300") #{sizeData[0]} #{sizeData[1].abbreviation}B
 										br
 										span(class="text-muted")  (pruned: #{getblockchaininfo.pruned})
 							tr
-								td(class="properties-header") Connections
-								td(class="monospace") #{getnetworkinfo.connections.toLocaleString()}
+								td(class="properties-header fw-500") Connections
+								td(class="fw-300") #{getnetworkinfo.connections.toLocaleString()}
 
 							tr
-								td(class="properties-header") Block Count
-								td(class="monospace") #{getblockchaininfo.blocks.toLocaleString()}
+								td(class="properties-header fw-500") Block Count
+								td(class="fw-300") #{getblockchaininfo.blocks.toLocaleString()}
 									br
 									span(class="text-muted") (headers: #{getblockchaininfo.headers.toLocaleString()})
 							tr
-								td(class="properties-header") Difficulty
-								td(class="monospace")
+								td(class="properties-header fw-500") Difficulty
+								td(class="fw-300")
 									- var difficultyData = utils.formatLargeNumber(getblockchaininfo.difficulty, 3);
 									
 									span(title=parseFloat(getblockchaininfo.difficulty).toLocaleString(), data-toggle="tooltip")
@@ -76,8 +76,8 @@ block content
 										sup #{difficultyData[1].exponent}
 
 							tr
-								td(class="properties-header") Status
-								td(class="monospace")
+								td(class="properties-header fw-500") Status
+								td(class="fw-300")
 									if (getblockchaininfo.initialblockdownload || getblockchaininfo.headers > getblockchaininfo.blocks)
 										span Initial block download progress #{(100 * getblockchaininfo.verificationprogress).toLocaleString()}%
 									else
@@ -85,12 +85,12 @@ block content
 
 							tr
 								- var startTimeAgo = moment.duration(uptimeSeconds * 1000);
-								td(class="properties-header") Uptime
-								td(class="monospace") #{startTimeAgo.format()}
+								td(class="properties-header fw-500") Uptime
+								td(class="fw-300") #{startTimeAgo.format()}
 
 							tr
-								td(class="properties-header") Network Traffic
-								td(class="monospace")
+								td(class="properties-header fw-500") Network Traffic
+								td(class="fw-300")
 									- var downData = utils.formatLargeNumber(getnettotals.totalbytesrecv, 2);
 									- var downRateData = utils.formatLargeNumber(getnettotals.totalbytesrecv / uptimeSeconds, 2);
 									- var upData = utils.formatLargeNumber(getnettotals.totalbytessent, 2);
@@ -103,34 +103,34 @@ block content
 									span(class="text-muted")  (avg #{upRateData[0]} #{upRateData[1].abbreviation}B/s)
 
 							tr
-								td(class="properties-header") Warnings
-								td(class="monospace")
+								td(class="properties-header fw-500") Warnings
+								td(class="fw-300")
 									if (getblockchaininfo.warnings && getblockchaininfo.warnings.trim().length > 0)
 										span #{getblockchaininfo.warnings}
 									else
 										span None
 
 			div(id="tab-json", class="tab-pane", role="tabpanel")
+				div(class="card mb-3 shadow-sm card-menu")
+					div(class="card-bottom")
+						ul(class='nav nav-pills pb-4 pt-4')
+							li(class="nav-item")
+								a(data-toggle="tab", href="#tab-getblockchaininfo", class="nav-link active", role="tab") getblockchaininfo
+							li(class="nav-item")
+								a(data-toggle="tab", href="#tab-getnettotals", class="nav-link", role="tab") getnettotals
+							li(class="nav-item")
+								a(data-toggle="tab", href="#tab-getnetworkinfo", class="nav-link", role="tab") getnetworkinfo
+						
+						div(class="tab-content")
+							div(id="tab-getblockchaininfo", class="tab-pane active", role="tabpanel")
+								pre
+									code(data-lang="json") #{JSON.stringify(getblockchaininfo, null, 4)}
 
-				ul(class='nav nav-pills mb-3')
-					li(class="nav-item")
-						a(data-toggle="tab", href="#tab-getblockchaininfo", class="nav-link active", role="tab") getblockchaininfo
-					li(class="nav-item")
-						a(data-toggle="tab", href="#tab-getnettotals", class="nav-link", role="tab") getnettotals
-					li(class="nav-item")
-						a(data-toggle="tab", href="#tab-getnetworkinfo", class="nav-link", role="tab") getnetworkinfo
-				
-				div(class="tab-content")
-					div(id="tab-getblockchaininfo", class="tab-pane active", role="tabpanel")
-						pre
-							code(class="json bg-light", data-lang="json") #{JSON.stringify(getblockchaininfo, null, 4)}
+							div(id="tab-getnettotals", class="tab-pane", role="tabpanel")
+								pre
+									code(data-lang="json") #{JSON.stringify(getnettotals, null, 4)}
 
-					div(id="tab-getnettotals", class="tab-pane", role="tabpanel")
-						pre
-							code(class="json bg-light", data-lang="json") #{JSON.stringify(getnettotals, null, 4)}
-
-					div(id="tab-getnetworkinfo", class="tab-pane", role="tabpanel")
-						pre
-							code(class="json bg-light", data-lang="json") #{JSON.stringify(getnetworkinfo, null, 4)}
-							
-										
+							div(id="tab-getnetworkinfo", class="tab-pane", role="tabpanel")
+								pre
+									code(data-lang="json") #{JSON.stringify(getnetworkinfo, null, 4)}
+					

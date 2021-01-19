@@ -4,8 +4,7 @@ block headContent
 	title Unconfirmed Transactions
 
 block content
-	h1(class="h2") Unconfirmed Transactions
-	hr
+	h1(class="page-title") Unconfirmed Transactions
 
 	if (false)
 		pre
@@ -15,14 +14,15 @@ block content
 		- var txCount = mempoolDetails.txCount;
 
 		div(class="card mb-3 shadow-sm")
-			div(class="card-header")
-				span(class="h6")
+			div(class="card-top")
+				h3(class="card-top-title")
 					if (txCount == 1)
 						span 1 Transaction
 					else
 						span #{txCount.toLocaleString()} Transactions
+				hr(class="hr")
 
-			div(class="card-body")
+			div(class="card-bottom")
 				each tx, txIndex in mempoolDetails.transactions
 					div(class="xcard bg-light rounded shadow-sm mb-4")
 						div(class="card-header")

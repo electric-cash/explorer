@@ -147,7 +147,7 @@ div(class="row")
 												span(class="border border-secondary rounded bg-light px-2 py-1 mr-2") V0_P2WPKH
 
 										a(id=("output-" + voutIndex), href=("/address/" + vout.scriptPubKey.addresses[0]), class="blue-link")
-											span(class=("word-wrap " + (highlightRow ? "font-weight-bold" : ""))) #{vout.scriptPubKey.addresses[0]}
+											span(class="word-wrap ") #{vout.scriptPubKey.addresses[0]}
 
 										if (global.specialAddresses[vout.scriptPubKey.addresses[0]])
 											- var specialAddressInfo = global.specialAddresses[vout.scriptPubKey.addresses[0]];
