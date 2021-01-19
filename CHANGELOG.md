@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.3](https://github.com/electric-cash/explorer/compare/v1.1.2...v1.1.3) (2021-01-19)
+
+
+### Bug Fixes
+
+* 🐛 catch blocks list error ([d1e8d97](https://github.com/electric-cash/explorer/commit/d1e8d97b8e8b250611da9910ba33237e89cc6019))
+
 ### [1.1.2](https://github.com/electric-cash/explorer/compare/v1.1.1...v1.1.2) (2021-01-18)
 
 
