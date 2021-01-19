@@ -64,6 +64,8 @@ BTCEXP_PORT=80
 BTCEXP_PRIVACY_MODE=true
 BTCEXP_NO_RATES=true
 BTCEXP_UI_SHOW_TOOLS_SUBHEADER=false
+BTCEXP_API_URL=
+BTCEXP_IS_TESTNET=
 ```
 
 You may also pass options as CLI arguments, for example:
