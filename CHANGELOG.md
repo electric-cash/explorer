@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.1](https://github.com/electric-cash/explorer/compare/v1.3.0...v1.3.1) (2021-01-22)
+
+
+### Bug Fixes
+
+* 🐛 config update with missing arguments ([e5fa2b2](https://github.com/electric-cash/explorer/commit/e5fa2b27fefbdb257e9cf55781cbe78a6cb9a32f))
+
 ## [1.3.0](https://github.com/electric-cash/explorer/compare/v1.2.0...v1.3.0) (2021-01-22)
 
 
