@@ -163,7 +163,8 @@ block content
 							div(class="float-left icon-container")
 								img(src="/img/icons/market-cap.svg")
 							span(class="font-weight-bold") Market Cap
-							p(class="lead") $#{Math.round(global.exchangeRates['usd'] * global.totalCoinSupply).toLocaleString() }
+							//- p(class="lead") $#{Math.round(global.exchangeRates['usd'] * global.totalCoinSupply).toLocaleString() }
+							p(class="lead") $--.--
 
 					if (global.exchangeRates)
 						div(class=networkSummaryColumnClass)
@@ -173,7 +174,8 @@ block content
 							span.font-weight-bold.border-dotted(data-toggle="tooltip", title=("Exchange-rate data from: " + coinConfig.exchangeRateDataUSD.jsonUrl)) Exchange Rate (USD)
 
 							if (global.exchangeRates)
-								p(class="lead") #{utils.formatExchangedCurrency(1.0, "usd")}
+								//- p(class="lead") #{utils.formatExchangedCurrency(1.0, "usd")}
+								p(class="lead") $--.--
 							else
 								p(class="lead") -
 						div(class=networkSummaryColumnClass)
@@ -183,7 +185,8 @@ block content
 							span.font-weight-bold.border-dotted(data-toggle="tooltip", title=("Exchange-rate data from: " + coinConfig.exchangeRateDataBTC.jsonUrl)) Exchange Rate (BTC)
 
 							if (global.exchangeRates)
-								p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
+								//- p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
+								p(class="lead") -.----BTC
 							else
 								p(class="lead") -
 
