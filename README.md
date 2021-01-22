@@ -64,8 +64,12 @@ BTCEXP_PORT=80
 BTCEXP_PRIVACY_MODE=true
 BTCEXP_NO_RATES=true
 BTCEXP_UI_SHOW_TOOLS_SUBHEADER=false
-BTCEXP_API_URL=
-BTCEXP_IS_TESTNET=
+BTCEXP_API_URL=<URL to your api>
+BTCEXP_GENESIS_BLOCK_HASH=<genesis block hash>
+BTCEXP_GENESIS_COINBASE_TRANSACTION_ID=<genesis transaction id>
+BTCEXP_GENESIS_COINBASE_TRANSACTION=<genesis transaction>
+BTCEXP_GENESIS_COINBASE_OUTPUT_ADDRESS_SCRIPTHASH=<genesis output address>
+BTCEXP_IS_TESTNET=<true if testnet>
 ```
 
 You may also pass options as CLI arguments, for example:

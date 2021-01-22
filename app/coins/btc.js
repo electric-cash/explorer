@@ -71,42 +71,10 @@ module.exports = {
 	baseCurrencyUnit:currencyUnits[3],
 	defaultCurrencyUnit:currencyUnits[0],
 	feeSatoshiPerByteBucketMaxima: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 75, 100, 150],
-	genesisBlockHash: "0000000028ce26975b32feda3d75ac3fe10372f75062366cfba4e934dcc6a48b",
-	genesisCoinbaseTransactionId: "8b92cc030bdb6a02d3dc3d510826e38efb0f1c59c167fac0b96bc73432d55a01",
-	genesisCoinbaseTransaction: {
-		"hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0804ffff001d02fd04ffffffff0100f2052a01000000434104f5eeb2b10c944c6b9fbcfff94c35bdeecd93df977882babc7f3a2cf7f5c81d3b09a68db7f0e04f21de5d4230e75e6dbe7ad16eefe0d4325a62067dc6f369446aac00000000",
-		"txid": "8b92cc030bdb6a02d3dc3d510826e38efb0f1c59c167fac0b96bc73432d55a01",
-		"hash": "8b92cc030bdb6a02d3dc3d510826e38efb0f1c59c167fac0b96bc73432d55a01",
-		"size": 204,
-		"vsize": 204,
-		"version": 1,
-		"confirmations":1,
-		"vin": [
-			{
-				"coinbase": "04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73",
-				"sequence": 4294967295
-			}
-		],
-		"vout": [
-			{
-				"value": 175,
-				"n": 0,
-				"scriptPubKey": {
-					"asm": "04f5eeb2b10c944c6b9fbcfff94c35bdeecd93df977882babc7f3a2cf7f5c81d3b09a68db7f0e04f21de5d4230e75e6dbe7ad16eefe0d4325a62067dc6f369446a OP_CHECKSIG",
-					"hex": "4104f5eeb2b10c944c6b9fbcfff94c35bdeecd93df977882babc7f3a2cf7f5c81d3b09a68db7f0e04f21de5d4230e75e6dbe7ad16eefe0d4325a62067dc6f369446aac",
-					"reqSigs": 1,
-					"type": "pubkey",
-					"addresses": [
-						"1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
-					]
-				}
-			}
-		],
-		"blockhash": "0000000028ce26975b32feda3d75ac3fe10372f75062366cfba4e934dcc6a48b",
-		"time": 1570478400,
-		"blocktime": 1570478400
-	},
-	genesisCoinbaseOutputAddressScripthash:"8b01df4e368ea28f8dc0423bcf7a4923e3a12d307c875e47a0cfbf90b5c39161",
+	genesisBlockHash: process.env.BTCEXP_GENESIS_BLOCK_HASH,
+	genesisCoinbaseTransactionId: process.env.BTCEXP_GENESIS_COINBASE_TRANSACTION_ID,
+	genesisCoinbaseTransaction: process.env.BTCEXP_GENESIS_COINBASE_TRANSACTION,
+	genesisCoinbaseOutputAddressScripthash: process.env.BTCEXP_GENESIS_COINBASE_OUTPUT_ADDRESS_SCRIPTHASH,
 	historicalData: [
 		{
 			type: "blockheight",
@@ -249,30 +217,58 @@ module.exports = {
 		}
 	},
 	blockRewardFunction:function(blockHeight) {
-
-		if (blockHeight < 29850 + 8*26600) {
-			if (blockHeight < 29850 + 0*26600) return new Decimal8(175);
-			if (blockHeight < 29850 + 1*26600) return new Decimal8(150);
-			if (blockHeight < 29850 + 2*26600) return new Decimal8(125);
-			if (blockHeight < 29850 + 3*26600) return new Decimal8(100);
-			if (blockHeight < 29850 + 4*26600) return new Decimal8(75);
-			if (blockHeight < 29850 + 5*26600) return new Decimal8(50);
-			if (blockHeight < 29850 + 6*26600) return new Decimal8(25);
-			if (blockHeight < 29850 + 7*26600) return new Decimal8(12.5);
-			if (blockHeight < 29850 + 8*26600) return new Decimal8(6.25);
-			return new Decimal8(0);
+		const blocksRewardHeight = 52500;
+		const firstBlockRewardHeight = 4200;
+		const rewardAmounts = [7500000000,
+			7000000000,
+			6500000000,
+			5500000000,
+			4000000000,
+			2500000000,
+			1500000000,
+			750000000,
+			375000000,
+			187500000,
+			93750000,
+			46875000,
+			23437500,
+			11718750,
+			5859375,
+			2929688,
+			1464844,
+			732422,
+			366210,
+			183104,
+			91552,
+			45776,
+			22888,
+			11444,
+			5722,
+			2861,
+			1430,
+			715,
+			358,
+			179,
+			90,
+			45,
+			23,
+			12,
+			6,
+			3,
+			2,
+			1
+		];
+		
+		if (blockHeight <= firstBlockRewardHeight) {
+			return new Decimal8(500);
 		}
 
-		blockHeight = blockHeight + (4*210000) - (29850 + 8*26600);
-
-		var eras = [ new Decimal8(50) ];
-		for (var i = 1; i < 34; i++) {
-			var previous = eras[i - 1];
-			eras.push(new Decimal8(previous).dividedBy(2));
+		for (let index = 0; index < rewardAmounts.length; index++) {
+			if (blockHeight < (index + 1) * blocksRewardHeight + firstBlockRewardHeight) {
+				return new Decimal8(rewardAmounts[index] * 1e-8);
+			}
 		}
 
-		var index = Math.floor(blockHeight / 210000);
-
-		return eras[index];
+		return new Decimal8(0);;
 	}
 };
