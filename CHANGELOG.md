@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.2](https://github.com/electric-cash/explorer/compare/v1.3.1...v1.3.2) (2021-01-22)
+
+
+### Bug Fixes
+
+* 🐛 add mining pools configs for elcash coin ([cbee603](https://github.com/electric-cash/explorer/commit/cbee603ac450d88b4926ccccfef04a7258ae82f5))
+
 ### [1.3.1](https://github.com/electric-cash/explorer/compare/v1.3.0...v1.3.1) (2021-01-22)
 
 
