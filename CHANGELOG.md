@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.0](https://github.com/electric-cash/explorer/compare/v1.2.0...v1.3.0) (2021-01-22)
+
+
+### Features
+
+* 🎸 readme update v2 ([8a42c4c](https://github.com/electric-cash/explorer/commit/8a42c4cae9ff4dd4bb22d87ffe26702355e35b57))
+* 🎸 rewards update, config update ([ecfff83](https://github.com/electric-cash/explorer/commit/ecfff83cf12cdedbc2040f934654ba78ce0e53c5))
+* 🎸 updated readme ([7158b50](https://github.com/electric-cash/explorer/commit/7158b50c6835c157db8434ab13b6d6f142f1208c))
+
 ## [1.2.0](https://github.com/electric-cash/explorer/compare/v1.1.3...v1.2.0) (2021-01-19)
 
 
