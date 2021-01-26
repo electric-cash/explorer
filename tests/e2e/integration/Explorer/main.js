@@ -23,7 +23,7 @@ devices.forEach((device) => {
           cy.get(homepage.header.header)
             .should('be.visible')
             .invoke('text')
-            .and('include', 'Electric Cash Explorer');
+            .and('include', 'Electric Cash Testnet Explorer');
         });
 
         it('should display logo', () => {
@@ -135,6 +135,15 @@ devices.forEach((device) => {
             .contains('bits')
             .click();
           cy.get(homepage.units.units).should('contain', 'bits');
+        });
+
+        it('should change currency unit to sat', () => {
+          cy.get(homepage.header.navBar)
+            .click()
+            .get(homepage.header.navlist)
+            .contains('sat')
+            .click();
+          cy.get(homepage.units.units).should('contain', 'sat');
         });
       });
 

@@ -2,5 +2,6 @@
   "integrationFolder": "tests/e2e/integration",
   "supportFile": "tests/e2e/support",
   "fixturesFolder": "tests/e2e/fixtures",
-  "pluginsFile": "tests/e2e/plugins"
+  "pluginsFile": "tests/e2e/plugins",
+  "reporter": "mochawesome"
 }
