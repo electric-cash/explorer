@@ -56,10 +56,10 @@ module.exports = {
 	ticker:"ELCASH",
 	logoUrl:"/img/logo/electric_vault.svg",
 	siteTitle: !!process.env.BTCEXP_IS_TESTNET ? "Electric Cash Testnet Explorer" : "Electric Cash Explorer",
-	siteDescriptionHtml:"<b>Electric Cash Explorer</b> is <a href='https://github.com/bitcoinvault/explorer). If you run your own [Bitcoin Vault Full Node](https://bitcoin.org/en/full-node), **ELCASH Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/bitcoinvault/explorer) for a list of features and instructions for running.",
+	siteDescriptionHtml:"<b>Electric Cash Explorer</b> is <a href='https://github.com/electric-cash/explorer). If you run your own [Electric Cash Full Node](https://bitcoin.org/en/full-node), **ELCASH Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/electric-cash/explorer) for a list of features and instructions for running.",
 	nodeTitle:"Bitcoin Full Node",
 	nodeUrl:"https://bitcoin.org/en/full-node",
-	demoSiteUrl: "http://explorer.bitcoinvault.global",
+	demoSiteUrl: "http://explorer.electric-cash.global",
 	miningPoolsConfigUrls:[
 		"https://raw.githubusercontent.com/btccom/Blockchain-Known-Pools/master/pools.json",
 		"https://raw.githubusercontent.com/blockchain/Blockchain-Known-Pools/master/pools.json"
@@ -73,7 +73,7 @@ module.exports = {
 	feeSatoshiPerByteBucketMaxima: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 75, 100, 150],
 	genesisBlockHash: process.env.BTCEXP_GENESIS_BLOCK_HASH,
 	genesisCoinbaseTransactionId: process.env.BTCEXP_GENESIS_COINBASE_TRANSACTION_ID,
-	genesisCoinbaseTransaction: process.env.BTCEXP_GENESIS_COINBASE_TRANSACTION,
+	genesisCoinbaseTransaction: JSON.parse(process.env.BTCEXP_GENESIS_COINBASE_TRANSACTION),
 	genesisCoinbaseOutputAddressScripthash: process.env.BTCEXP_GENESIS_COINBASE_OUTPUT_ADDRESS_SCRIPTHASH,
 	historicalData: [
 		{
@@ -259,7 +259,7 @@ module.exports = {
 			1
 		];
 		
-		if (blockHeight <= firstBlockRewardHeight) {
+		if (blockHeight < firstBlockRewardHeight) {
 			return new Decimal8(500);
 		}
 
