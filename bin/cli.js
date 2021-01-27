@@ -10,12 +10,12 @@ const args = require('meow')(`
       -a, --basic-auth-password <..> protect web interface with a password [default: no password]
       -C, --coin <coin>              crypto-coin to enable [default: ELCASH]
 
-      -b, --bitcoind-uri <uri>       connection URI for bvaultd rpc (overrides the options below)
-      -H, --bitcoind-host <host>     hostname for bvaultd rpc [default: 127.0.0.1]
-      -P, --bitcoind-port <port>     port for bvaultd rpc [default: 8332]
-      -c, --bitcoind-cookie <path>   path to bvaultd cookie file [default: ~/.bitcoin/.cookie]
-      -u, --bitcoind-user <user>     username for bvaultd rpc [default: none]
-      -w, --bitcoind-pass <pass>     password for bvaultd rpc [default: none]
+      -b, --bitcoind-uri <uri>       connection URI for elcashd rpc (overrides the options below)
+      -H, --bitcoind-host <host>     hostname for elcashd rpc [default: 127.0.0.1]
+      -P, --bitcoind-port <port>     port for elcashd rpc [default: 8332]
+      -c, --bitcoind-cookie <path>   path to elcashd cookie file [default: ~/.bitcoin/.cookie]
+      -u, --bitcoind-user <user>     username for elcashd rpc [default: none]
+      -w, --bitcoind-pass <pass>     password for elcashd rpc [default: none]
 
       --address-api <option>         api to use for address queries (options: electrumx, blockchain.com, blockchair.com, blockcypher.com) [default: none]
       -E, --electrumx-servers <..>   comma separated list of electrum servers to use for address queries; only used if --address-api=electrumx [default: none]
@@ -36,15 +36,15 @@ const args = require('meow')(`
       -v, --version                  output version number
 
     Examples
-      $ elcash-rpc-explorer --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.bvault/regtest/.cookie
-      $ elcash-rpc-explorer -p 8080 -P 18443 -c ~/.bvault/regtest.cookie
+      $ elcash-rpc-explorer --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.elcash/regtest/.cookie
+      $ elcash-rpc-explorer -p 8080 -P 18443 -c ~/.elcash/regtest.cookie
 
     Or using connection URIs
       $ elcash-rpc-explorer -b bitcoin://bob:myPassword@127.0.0.1:18443/
-      $ elcash-rpc-explorer -b bitcoin://127.0.0.1:18443/?cookie=$HOME/.bvault/regtest/.cookie
+      $ elcash-rpc-explorer -b bitcoin://127.0.0.1:18443/?cookie=$HOME/.elcash/regtest/.cookie
 
     All options may also be specified as environment variables
-      $ BTCEXP_PORT=8080 BTCEXP_BITCOIND_PORT=18443 BTCEXP_BITCOIND_COOKIE=~/.bvault/regtest/.cookie elcash-rpc-explorer
+      $ BTCEXP_PORT=8080 BTCEXP_BITCOIND_PORT=18443 BTCEXP_BITCOIND_COOKIE=~/.elcash/regtest/.cookie elcash-rpc-explorer
 
 
 `, { flags: { port: {alias:'p'}, host: {alias:'i'}, basicAuthPassword: {alias:'a'}, coin: {alias:'C'}
