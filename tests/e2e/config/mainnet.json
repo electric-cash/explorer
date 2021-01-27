@@ -1,8 +1,7 @@
 {
-    "baseUrl": "https://explorer.ec.stage.rnd.land/",
-    "env": {
-      "video": "false",
-      "screenshotOnRunFailure": "false"
-    }
+  "baseUrl": "https://explorer.ec.stage.rnd.land",
+  "env": {
+    "video": "false",
+    "screenshotOnRunFailure": "false"
   }
-  
+}

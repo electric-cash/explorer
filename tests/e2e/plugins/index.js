@@ -2,14 +2,7 @@ const fs = require('fs-extra');
 const path = require('path');
 
 function getConfigurationByFile(file) {
-  const pathToConfigFile = path.resolve(
-    '..',
-    'EXPLORER',
-    'tests',
-    'e2e',
-    'config',
-    `${file}.json`
-  );
+  const pathToConfigFile = path.resolve('..', 'EXPLORER', 'tests', 'e2e', 'config', `${file}.json`);
   return fs.readJson(pathToConfigFile);
 }
 module.exports = (on, config) => {

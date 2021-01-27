@@ -3,7 +3,7 @@ import blockheight from '../../support/pages/blockheight';
 import mobileDevices from '../../support/mobileDevices';
 
 mobileDevices.forEach((device) => {
-  describe('Explorer autotest', () => {
+  describe('Explorer tests on mobile devices', () => {
     describe(`Testing on device: ${device.model}`, () => {
       beforeEach(() => {
         cy.viewport(device.width, device.height);
@@ -46,7 +46,7 @@ mobileDevices.forEach((device) => {
           cy.get(homepage.footer.sourceLink)
             .should('be.visible')
             .invoke('attr', 'href')
-            .should('be.eq', Cypress.env('source'));
+            .should('be.eq', 'https://github.com/electric-cash/explorer');
         });
       });
 
