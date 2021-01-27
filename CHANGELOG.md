@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.3.4](https://github.com/electric-cash/explorer/compare/v1.3.3...v1.3.4) (2021-01-27)
+
+
+### Bug Fixes
+
+* 🐛 change site url in readme and config ([1d51f5f](https://github.com/electric-cash/explorer/commit/1d51f5fcd224871b84aed64f551b0658cce3e690))
+* 🐛 fix bug on block list genesis block, update readme ([5caf08d](https://github.com/electric-cash/explorer/commit/5caf08d6124ed03f266bf01d2d5ed4be975d78de))
+
 ### [1.3.3](https://github.com/electric-cash/explorer/compare/v1.3.2...v1.3.3) (2021-01-26)
 
 
