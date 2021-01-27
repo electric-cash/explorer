@@ -17,6 +17,8 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
+      matrix:
+        config: [ mainnet, testnet ]
     steps:
       - name: Setup Node
         uses: actions/setup-node@v1
@@ -28,4 +30,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          command: npm run test:cy
+          record: false
+          config-file: tests/cypress-config.json
+          command: npm run test:cy -- --env configFile=${{ matrix.config }}
+
