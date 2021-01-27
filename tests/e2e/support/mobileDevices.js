@@ -24,6 +24,16 @@ const devices = [
     width: 360,
     height: 760,
   },
+  {
+    model: 'Samsung S20',
+    width: 360,
+    height: 800,
+  },
+  {
+    model: 'Oppo A37',
+    width: 360,
+    height: 640,
+  },
 ];
 
 export default devices;
