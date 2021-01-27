@@ -31,6 +31,5 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           record: false
-          config-file: tests/cypress-config.json
           command: npm run test:cy -- --env configFile=${{ matrix.config }}
 
