@@ -17,24 +17,15 @@ jobs:
       # leaving the Dashboard hanging ...
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
-      matrix:
-        # run 3 copies of the current job in parallel
-        containers: [1, 2, 3]
-        node: [ 8 ]
     steps:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 8
       - run: node -v
       - name: Checkout
         uses: actions/checkout@v1
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v1
         with:
-          record: true
-          parallel: true
-          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
-          group: 'tests in parallel'
-          tag: node-${{ matrix.node }}
-          config-file: cypress.json
+          command: npm run test:cy
