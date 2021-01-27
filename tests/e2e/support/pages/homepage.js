@@ -7,6 +7,7 @@ const homepage = {
       navlist: "[aria-labelledby='navbarDropdown']",
       searchButton: "[type='image'][src='/img/icons/search.png']",
       noResultAlert: ".alert[role='alert']",
+      mobilenav: ".navbar-toggler > .svg-inline--fa"
     },
     footer: {
       sourceLink: "a[href='https://github.com/electric-cash/explorer']",
