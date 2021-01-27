@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.3.5](https://github.com/electric-cash/explorer/compare/v1.3.4...v1.3.5) (2021-01-27)
+
+
+### Bug Fixes
+
+* 🐛 icons name, readme update ([297e52e](https://github.com/electric-cash/explorer/commit/297e52edf5f73b693e4ebe10f121266b52514336))
+* 🐛 update texts in cli.js ([647a871](https://github.com/electric-cash/explorer/commit/647a87143361807f014d1971dd035e1d647ea6c7))
+
 ### [1.3.4](https://github.com/electric-cash/explorer/compare/v1.3.3...v1.3.4) (2021-01-27)
 
 
