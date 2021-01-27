@@ -118,7 +118,7 @@ function loadMiningPoolConfigs() {
 
 function getSourcecodeProjectMetadata() {
 	var options = {
-		url: "https://api.github.com/repos/bitcoinvault/explorer",
+		url: "https://api.github.com/repos/electric-cash/explorer",
 		headers: {
 			'User-Agent': 'request'
 		}

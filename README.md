@@ -10,7 +10,7 @@ This tool is intended to be a simple, self-hosted explorer for the Electric Cash
 
 Whatever reasons one might have for running a full node (trustlessness, technical curiosity, supporting the network, etc) it's helpful to appreciate the "fullness" of your node. With this explorer, you can not only explore the blockchain (in the traditional sense of the term "explorer"), but also explore the functional capabilities of your own node.
 
-Live demo available at: [http://explorer.bitcoinvault.global](http://explorer.bitcoinvault.global)
+Live demo available at: [http://explorer.electriccash.global](http://explorer.electriccash.global)
 
 # Features
 
@@ -25,11 +25,11 @@ Live demo available at: [http://explorer.bitcoinvault.global](http://explorer.bi
 
 # Getting started
 
-The below instructions are geared toward BTCV, but can be adapted easily to other coins.
+The below instructions are geared toward Electric Cash, but can be adapted easily to other coins.
 
 ## Prerequisites
 
-1. Install and run a full, archiving [node](https://github.com/bitcoinvault/bitcoinvault/blob/master/INSTALL.md). Ensure that your bitcoin node has full transaction indexing enabled (`txindex=1`) and the RPC server enabled (`server=1`).
+1. Install and run a full, archiving [node](https://github.com/electric-cash/electric-cash/blob/master/INSTALL.md). Ensure that your bitcoin node has full transaction indexing enabled (`txindex=1`) and the RPC server enabled (`server=1`).
 2. Synchronize your node with the Electric Cash network.
 3. "Recent" version of Node.js (8+ recommended).
 
@@ -37,7 +37,7 @@ The below instructions are geared toward BTCV, but can be adapted easily to othe
 
 ```bash
 apt-get install node npm 
-git clone https://github.com/bitcoinvault/explorer
+git clone https://github.com/electric-cash/explorer
 cd explorer
 npm install
 ./bin/cli.js
@@ -52,7 +52,7 @@ See [configuration](#configuration) for details.
 ### Configuration
 
 Configuration options may be passed as environment variables
-or by creating an env file at `~/.config/btcv-rpc-explorer.env`
+or by creating an env file at `~/.config/elcash-rpc-explorer.env`
 or at `.env` in the working directory.
 See [.env-sample](.env-sample) for a list of the options and details for formatting `.env`.
 
@@ -88,8 +88,8 @@ See `./bin/cli.js --help` for the full list of CLI options.
 
 ## Run via Docker
 
-1. `docker build -t btcv-rpc-explorer .`
-2. `docker run -p 3002:3002 -it btcv-rpc-explorer`
+1. `docker build -t elcash-rpc-explorer .`
+2. `docker run -p 3002:3002 -it elcash-rpc-explorer`
 
 # Support
 
