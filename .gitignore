@@ -58,4 +58,5 @@ typings/
 .env
 
 # screenshots & videos
-/cypress
+artifacts
+mochawesome-report

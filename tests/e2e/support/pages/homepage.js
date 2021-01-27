@@ -1,7 +1,7 @@
 const homepage = {
   header: {
     header: 'h1.page-title',
-    logo: "[src='/img/logo/electric_vault.svg']",
+    logo: "[src='/img/logo/electric_cash.svg']",
     searchBar: ".search-input[placeholder='Search']",
     navBar: "img.settings-icon[src='/img/icons/settings.png']",
     navlist: "[aria-labelledby='navbarDropdown']",
