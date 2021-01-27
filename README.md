@@ -6,7 +6,7 @@ This is a fork of [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explore
 
 Simple, database-free Electric Cash blockchain explorer, via RPC. Built with Node.js, express, bootstrap-v4.
 
-This tool is intended to be a simple, self-hosted explorer for the Electric Cash blockchain, driven by RPC calls to your own bvaultd node. This tool is easy to run but currently lacks features compared to database-backed explorers.
+This tool is intended to be a simple, self-hosted explorer for the Electric Cash blockchain, driven by RPC calls to your own elcashd node. This tool is easy to run but currently lacks features compared to database-backed explorers.
 
 Whatever reasons one might have for running a full node (trustlessness, technical curiosity, supporting the network, etc) it's helpful to appreciate the "fullness" of your node. With this explorer, you can not only explore the blockchain (in the traditional sense of the term "explorer"), but also explore the functional capabilities of your own node.
 
@@ -81,7 +81,7 @@ Additional required env's.
 You may also pass options as CLI arguments, for example:
 
 ```bash
-./bin/cli.js --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.bvault/regtest/.cookie
+./bin/cli.js --port 8080 --bitcoind-port 18443 --bitcoind-cookie ~/.elcash/regtest/.cookie
 ```
 
 See `./bin/cli.js --help` for the full list of CLI options.
