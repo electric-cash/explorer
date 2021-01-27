@@ -8,7 +8,7 @@ const args = require('meow')(`
       -p, --port <port>              port to bind http server [default: 3002]
       -i, --host <host>              host to bind http server [default: 127.0.0.1]
       -a, --basic-auth-password <..> protect web interface with a password [default: no password]
-      -C, --coin <coin>              crypto-coin to enable [default: elcash]
+      -C, --coin <coin>              crypto-coin to enable [default: ELCASH]
 
       -b, --bitcoind-uri <uri>       connection URI for bvaultd rpc (overrides the options below)
       -H, --bitcoind-host <host>     hostname for bvaultd rpc [default: 127.0.0.1]

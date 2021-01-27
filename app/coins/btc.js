@@ -59,7 +59,7 @@ module.exports = {
 	siteDescriptionHtml:"<b>Electric Cash Explorer</b> is <a href='https://github.com/electric-cash/explorer). If you run your own [Electric Cash Full Node](https://bitcoin.org/en/full-node), **ELCASH Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/electric-cash/explorer) for a list of features and instructions for running.",
 	nodeTitle:"Bitcoin Full Node",
 	nodeUrl:"https://bitcoin.org/en/full-node",
-	demoSiteUrl: "http://explorer.electric-cash.global",
+	demoSiteUrl: "http://explorer.electriccash.global",
 	miningPoolsConfigUrls:[
 		"https://raw.githubusercontent.com/btccom/Blockchain-Known-Pools/master/pools.json",
 		"https://raw.githubusercontent.com/blockchain/Blockchain-Known-Pools/master/pools.json"

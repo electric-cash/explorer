@@ -10,7 +10,7 @@ This tool is intended to be a simple, self-hosted explorer for the Electric Cash
 
 Whatever reasons one might have for running a full node (trustlessness, technical curiosity, supporting the network, etc) it's helpful to appreciate the "fullness" of your node. With this explorer, you can not only explore the blockchain (in the traditional sense of the term "explorer"), but also explore the functional capabilities of your own node.
 
-Live demo available at: [http://explorer.electric-cash.global](http://explorer.electric-cash.global)
+Live demo available at: [http://explorer.electriccash.global](http://explorer.electriccash.global)
 
 # Features
 
