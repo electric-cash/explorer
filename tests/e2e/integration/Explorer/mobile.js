@@ -79,7 +79,7 @@ mobileDevices.forEach((device) => {
           cy.get(homepage.networkSummary.unconfirmedTx).should('be.visible');
         });
 
-        it('should display number of btcv wallets', () => {
+        it('should display number of elcash wallets', () => {
           cy.get(homepage.networkSummary.numberOfWallet).should('be.visible');
         });
 
