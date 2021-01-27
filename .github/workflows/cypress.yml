@@ -20,15 +20,21 @@ jobs:
       matrix:
         # run 3 copies of the current job in parallel
         containers: [1, 2, 3]
+        node: [ 8 ]
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: node -v
       - name: Checkout
         uses: actions/checkout@v1
-
-      # because of "record" and "parallel" parameters
-      # these containers will load balance all found tests among themselves
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          record: false
+          record: true
           parallel: true
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           group: 'tests in parallel'
+          tag: node-${{ matrix.node }}
+          config-file: cypress.json
