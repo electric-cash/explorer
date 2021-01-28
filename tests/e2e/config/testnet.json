@@ -1,7 +1,7 @@
 {
   "baseUrl": "https://explorer.testnet.electriccash.global",
   "env": {
-    "video": "false",
-    "screenshotOnRunFailure": "false"
+    "video": false,
+    "screenshotOnRunFailure": false
   }
 }
