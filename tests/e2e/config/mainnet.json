@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://explorer.ec.stage.rnd.land",
+  "baseUrl": "https://explorer.electriccash.global",
   "env": {
     "video": "false",
     "screenshotOnRunFailure": "false"
