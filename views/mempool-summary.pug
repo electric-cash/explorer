@@ -4,18 +4,12 @@ block headContent
 	title Mempool Summary
 	
 block content
-	h1(class="h3") Mempool Summary
-	hr
-
-	if (false)
-		pre
-			code(class="json bg-light") #{JSON.stringify(mempoolstats, null, 4)}
-
-	if (true)
+		h1(class="page-title") Mempool Summary
 		div(class="card mb-3 shadow-sm")
-			div(class="card-header")
-				span(class="h6") Summary
-			div(class="card-body")
+			div(class="card-top")
+				h3(class="card-top-title") Summary
+				hr(class="hr")
+			div(class="card-bottom")
 				table(class="table details-table mb-0")
 					tr
 						td(class="properties-header") Transaction Count
@@ -26,36 +20,34 @@ block content
 						- var mem2Data = utils.formatLargeNumber(getmempoolinfo.bytes, 2);
 
 						td(class="properties-header") Memory Usage
-						td(class="monospace")
+						td()
 							span #{mem1Data[0]} #{mem1Data[1].abbreviation}B
 							span(class="text-muted")  (#{mem2Data[0]} v#{mem2Data[1].abbreviation}B)
 
 					tr
 						td(class="properties-header") Total Fees
-						td(class="monospace")
+						td()
 							- var currencyValue = mempoolstats["totalFees"];
 							include includes/value-display.pug
 							
 					if (getmempoolinfo.size > 0)
 						tr
 							td(class="properties-header") Avg Fee
-							td(class="monospace")
+							td()
 								- var currencyValue = mempoolstats["averageFee"];
 								include ./includes/value-display.pug
 
 						tr
 							td(class="properties-header") Avg Fee per 
 								span.border-dotted(title="Virtual bytes", data-toggle="tooltip") vByte
-							td(class="monospace") #{utils.formatCurrencyAmountInSmallestUnits(mempoolstats["averageFeePerByte"], 2)}/vB
+							td() #{utils.formatCurrencyAmountInSmallestUnits(mempoolstats["averageFeePerByte"], 2)}/vB
 
 		if (getmempoolinfo.size > 0)
-			h2(class="h5") Transactions by fee rate
-			hr
-
-			if (false)
-				#{JSON.stringify(mempoolstats)}
-
-			if (true)
+			div(class="card mb-3 shadow-sm card-menu")
+				div(class="card-top")
+					h3(class="card-top-title") Transactions Fee By Rate
+					hr(class="hr")
+				div(class="card-bottom")
 				- var feeBucketLabels = [("[0 - " + mempoolstats["satoshiPerByteBucketMaxima"][0] + ")")];
 				each item, index in mempoolstats["satoshiPerByteBuckets"]
 					if (index > 0 && index < mempoolstats["satoshiPerByteBuckets"].length - 1)
@@ -75,7 +67,7 @@ block content
 				each feeBucketLabel, index in feeBucketLabels
 					- var percentTx = Math.round(100 * feeBucketTxCounts[index] / getmempoolinfo.size).toLocaleString();
 					script feeBucketLabels.push(["#{feeBucketLabel}","#{feeBucketTxCounts[index]} tx (#{percentTx}%)"]);
-					script bgColors.push("hsl(#{(333 * index / feeBucketLabels.length)}, 100%, 50%)");
+					script bgColors.push("hsl(41, 82%, 49%)");
 
 				script var feeBucketTxCounts = [#{feeBucketTxCounts}];
 
@@ -105,7 +97,7 @@ block content
 					});
 
 			div(class="table-responsive")
-				table(class="table table-striped mb-4")
+				table(class="table mb-4")
 					thead
 						tr
 							th Fee Rate
@@ -117,8 +109,8 @@ block content
 						each item, index in mempoolstats["satoshiPerByteBuckets"]
 							tr
 								td #{mempoolstats["satoshiPerByteBucketLabels"][index]}
-								td(class="text-right monospace") #{item["count"].toLocaleString()}
-								td(class="text-right monospace")
+								td(class="text-right") #{item["count"].toLocaleString()}
+								td(class="text-right")
 									- var currencyValue = item["totalFees"];
 									include ./includes/value-display.pug
 
@@ -126,14 +118,14 @@ block content
 									- var avgFee = item["totalFees"] / item["count"];
 									- var avgFeeRate = item["totalFees"] / item["totalBytes"];
 
-									td(class="text-right monospace")
+									td(class="text-right")
 										- var currencyValue = avgFee;
 										include ./includes/value-display.pug
 													
-									td(class="text-right monospace") #{utils.formatCurrencyAmountInSmallestUnits(avgFeeRate, 2)}/B
+									td(class="text-right") #{utils.formatCurrencyAmountInSmallestUnits(avgFeeRate, 2)}/B
 								else
-									td(class="text-right monospace") -
-									td(class="text-right monospace") -
+									td(class="text-right") -
+									td(class="text-right") -
 
 
 			h2(class="h5") Transactions by size
