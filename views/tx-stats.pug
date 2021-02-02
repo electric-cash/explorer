@@ -4,19 +4,11 @@ block headContent
 	title Transaction Stats
 	
 block content
-	h1(class="h3") Transaction Stats
-	hr
+	h1(class="page-title") Transaction Stats
 
-	if (false)
-		pre
-			code(class="json bg-light") #{JSON.stringify(txStatResults, null, 4)}
-
-	if (true)
-		if (false)
-			#{JSON.stringify(txStats.txCounts.length)}
-
-		if (true)
-			div(class="row")
+	div(class="card mb-4 shadow-sm")
+		div(class="card-bottom")
+			div(class="row pt-2")
 				div(class="col-lg-6")
 					script var txCountDataDay = [];
 					each item, index in txStatsDay.txCounts
