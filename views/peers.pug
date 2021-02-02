@@ -102,11 +102,11 @@ block content
 			div(class="card mb-3 shadow-sm card-menu")
 				div(class="card-top")
 					each item, index in peerSummary.getpeerinfo
-						div(class="border-bottom pb-2")
+						div(style="padding-bottom: 18.5px; padding-top: 18.5px; border-bottom: solid 1px #e3e3e3;")
 							a(href="javascript:void(0)" onclick=("javascript:var peer = document.getElementById('peerinfo_" + index + "'); peer.style.display = peer.style.display === 'none' ? '' : 'none';"))
 								img(src="/img/icons/plus.svg")
 
-							span()  #{item.addr}
+							span(class="pl-2 fw-300") #{item.addr}
 
 						div(style="display: none;", id=("peerinfo_" + index), class="p-3")
 							h6 Peer Details
