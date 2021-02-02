@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.4.0](https://github.com/electric-cash/explorer/compare/v1.3.6...v1.4.0) (2021-02-02)
+
+
+### Features
+
+* 🎸 implement peers, transaction and mempool views ([f9d7071](https://github.com/electric-cash/explorer/commit/f9d7071a36b1efe31565494aef61a67f7a10be88))
+* 🎸 remove new jquery, improve design to be more accurate ([93f9a58](https://github.com/electric-cash/explorer/commit/93f9a58201933f98b1ae6503e0c57734ab5585a3))
+
+
+### Bug Fixes
+
+* 🐛 peers border bottom update ([d935827](https://github.com/electric-cash/explorer/commit/d9358273b19e00bb3f578351e2a44c8a5cd07e41))
+
 ### [1.3.6](https://github.com/electric-cash/explorer/compare/v1.3.5...v1.3.6) (2021-01-28)
 
 
