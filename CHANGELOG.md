@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.6](https://github.com/electric-cash/explorer/compare/v1.3.5...v1.3.6) (2021-01-28)
+
+
+### Bug Fixes
+
+* 🐛 repository cleaning, remove favicons and jsons ([232bfa1](https://github.com/electric-cash/explorer/commit/232bfa101a31b366442b5aac43abc448ecab8684))
+
 ### [1.3.5](https://github.com/electric-cash/explorer/compare/v1.3.4...v1.3.5) (2021-01-27)
 
 
