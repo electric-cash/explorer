@@ -197,21 +197,21 @@ module.exports = {
 		}
 	],
 	exchangeRateDataUSD:{
-		jsonUrl:"https://api.liquid.com/products/618",
+		jsonUrl:"https://openapi-exchange.coinbene.com/api/spot/market/summary",
 		responseBodySelectorFunction:function(responseBody) {
-			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
-			if (responseBody.last_traded_price) {
-				return responseBody.last_traded_price;
+			const coinData = responseBody.filter(item => item.trading_pairs === 'ASD_USD');
+			if (coinData.last_price) {
+				return coinData.last_price;
 			}
 			return null;
 		}
 	},
 	exchangeRateDataBTC:{
-		jsonUrl:"https://api.liquid.com/products/619",
+		jsonUrl:"https://openapi-exchange.coinbene.com/api/spot/market/summary",
 		responseBodySelectorFunction:function(responseBody) {
-			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
-			if (responseBody.last_traded_price) {
-				return responseBody.last_traded_price;
+			const coinData = responseBody.filter(item => item.trading_pairs === 'ASD_BTC');
+			if (coinData.last_price) {
+				return coinData.last_price;
 			}
 			return null;
 		}
