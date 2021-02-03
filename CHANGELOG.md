@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.2](https://github.com/electric-cash/explorer/compare/v1.4.1...v1.4.2) (2021-02-03)
+
+
+### Bug Fixes
+
+* 🐛 fix mempool view, change colors, add cards, change style ([#26](https://github.com/electric-cash/explorer/issues/26)) ([14e5e68](https://github.com/electric-cash/explorer/commit/14e5e686eb8ed17c08aab5abe5f087f7070fab43))
+
 ### [1.4.1](https://github.com/electric-cash/explorer/compare/v1.4.0...v1.4.1) (2021-02-03)
 
 
