@@ -789,6 +789,10 @@
         "3JQSigWTCHyBLRD979JWgEtWP5YiiFwcQB" : {
             "name" : "Poolin",
             "link" : "https://www.poolin.com/"
+        },
+        "TGFTFJcNiGYc2saaYHL3MYYWL2Kcc6HSfV": {
+            "name": "ElCash Pool",
+            "link": "https://electriccash.global/"
         }
     }
 }

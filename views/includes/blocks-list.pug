@@ -17,34 +17,34 @@ div(class="table-responsive")
 			each block, blockIndex in blocks
 				if (block)
 					tr
-						td(class="data-cell monospace")
+						td(class="data-cell")
 							a(href=("/block-height/" + block.height)) #{block.height.toLocaleString()}
 
 							if (global.specialBlocks && global.specialBlocks[block.hash])
 								span  
 								a(data-toggle="tooltip", title=(coinConfig.name + " Fun! See block for details"))
 									i(class="fas fa-certificate text-primary")
-						td(class="data-cell monospace") #{moment.utc(new Date(parseInt(block.time) * 1000)).format("Y-MM-DD HH:mm:ss")}
+						td(class="data-cell") #{moment.utc(new Date(parseInt(block.time) * 1000)).format("Y-MM-DD HH:mm:ss")}
 
 						- var timeAgo = moment.duration(moment.utc(new Date()).diff(moment.utc(new Date(parseInt(block.time) * 1000))));
-						td(class="data-cell monospace text-right") #{timeAgo.format()}
-						td(class="data-cell monospace")
+						td(class="data-cell text-right") #{timeAgo.format()}
+						td(class="data-cell")
 							if (block.miner && block.miner.name)
 								span(data-toggle="tooltip", title=("Identified by: " + block.miner.identifiedBy), style="display: inline-block;", class="rounded bg-primary text-white miner-label") #{block.miner.name}
 							else
 								span ?
 
 						
-						td(class="data-cell monospace text-right") #{block.tx.length.toLocaleString()}
+						td(class="data-cell text-right") #{block.tx.length.toLocaleString()}
 
-						td(class="data-cell monospace text-right")
+						td(class="data-cell text-right")
 							- var currencyValue = new Decimal(block.totalFees).dividedBy(block.tx.length);
 							include ./value-display.pug
 							
-						td(class="data-cell monospace text-right") #{block.size.toLocaleString()}
+						td(class="data-cell text-right") #{block.size.toLocaleString()}
 
 						if (blocks && blocks.length > 0 && blocks[0].weight)
-							td(class="data-cell monospace text-right")
+							td(class="data-cell text-right")
 								- var fullPercent = new Decimal(100 * block.weight / coinConfig.maxBlockWeight).toDecimalPlaces(1);
 
 								span #{block.weight.toLocaleString()} 
