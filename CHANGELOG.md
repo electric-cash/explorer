@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.1](https://github.com/electric-cash/explorer/compare/v1.4.0...v1.4.1) (2021-02-03)
+
+
+### Bug Fixes
+
+* 🐛 update elcash address ([#27](https://github.com/electric-cash/explorer/issues/27)) ([d814d69](https://github.com/electric-cash/explorer/commit/d814d69d6d63d9c053ab9da43ddcc8c09e0a5adf))
+
 ## [1.4.0](https://github.com/electric-cash/explorer/compare/v1.3.6...v1.4.0) (2021-02-02)
 
 
