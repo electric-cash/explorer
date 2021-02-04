@@ -1,6 +1,6 @@
 {
   "name": "elcash-rpc-explorer",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Explorer for Electric Cash and RPC-compatible blockchains",
   "private": false,
   "bin": "bin/cli.js",

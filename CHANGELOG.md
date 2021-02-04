@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.4.3](https://github.com/electric-cash/explorer/compare/v1.4.2...v1.4.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* 🐛 change address ([b7a1ad3](https://github.com/electric-cash/explorer/commit/b7a1ad3be084581f0a1856ad655492f6ea6a8ea8))
+* 🐛 fix graphs display ([989420a](https://github.com/electric-cash/explorer/commit/989420ad81ac6d6fb3f17d22ad656b2bb8aa56d8))
+* 🐛 styling fixes ([ae63fed](https://github.com/electric-cash/explorer/commit/ae63fed3664c9f003be28898b362c0eb9fd7e070))
+
 ### [1.4.2](https://github.com/electric-cash/explorer/compare/v1.4.1...v1.4.2) (2021-02-03)
 
 
