@@ -361,45 +361,53 @@ function refreshExchangeRates() {
 	}
 
 	if (coins[config.coin].exchangeRateDataUSD) {
-		request(coins[config.coin].exchangeRateDataUSD.jsonUrl, function(error, response, body) {
-			if (error == null && response && response.statusCode && response.statusCode == 200) {
-				var responseBody = JSON.parse(body);
-				var exchangeRate = coins[config.coin].exchangeRateDataUSD.responseBodySelectorFunction(responseBody);
-				if (exchangeRate != null) {
+		/**
+		 * TODO: Hidden due to api connection is work in progress, return exchange 0
+		 */
+		// request(coins[config.coin].exchangeRateDataUSD.jsonUrl, function(error, response, body) {
+		// 	if (error == null && response && response.statusCode && response.statusCode == 200) {
+				// var responseBody = JSON.parse(body);
+				// var exchangeRate = coins[config.coin].exchangeRateDataUSD.responseBodySelectorFunction(responseBody);
+				// if (exchangeRate != null) {
 					if (global.exchangeRates === undefined) global.exchangeRates = {};
-					global.exchangeRates["usd"] = exchangeRate;
+					// global.exchangeRates["usd"] = exchangeRate;
+					global.exchangeRates["usd"] = 0;
 					global.exchangeRatesUpdateTime = new Date();
 
 					debugLog("Using exchange rates: " + JSON.stringify(global.exchangeRates) + " starting at " + global.exchangeRatesUpdateTime);
 
-				} else {
-					debugLog("Unable to get exchange rate data");
-				}
-			} else {
-				logError("39r7h2390fgewfgds", {error:error, response:response, body:body});
-			}
-		});
+				// } else {
+				// 	debugLog("Unable to get exchange rate data");
+				// }
+		// 	} else {
+		// 		logError("39r7h2390fgewfgds", {error:error, response:response, body:body});
+		// 	}
+		// });
 	}
 
 	if (coins[config.coin].exchangeRateDataBTC) {
-		request(coins[config.coin].exchangeRateDataBTC.jsonUrl, function(error, response, body) {
-			if (error == null && response && response.statusCode && response.statusCode == 200) {
-				var responseBody = JSON.parse(body);
-				var exchangeRate = coins[config.coin].exchangeRateDataBTC.responseBodySelectorFunction(responseBody);
-				if (exchangeRate != null) {
+		/**
+		 * TODO: Hidden due to api connection is work in progress, return exchange 0
+		 */
+		// request(coins[config.coin].exchangeRateDataBTC.jsonUrl, function(error, response, body) {
+		// 	if (error == null && response && response.statusCode && response.statusCode == 200) {
+		// 		var responseBody = JSON.parse(body);
+		// 		var exchangeRate = coins[config.coin].exchangeRateDataBTC.responseBodySelectorFunction(responseBody);
+		// 		if (exchangeRate != null) {
 					if (global.exchangeRates === undefined) global.exchangeRates = {};
-					global.exchangeRates['btc'] = exchangeRate;
+					// global.exchangeRates['btc'] = exchangeRate;
+					global.exchangeRates["btc"] = 0;
 					global.exchangeRatesUpdateTime = new Date();
 
 					debugLog("Using exchange rates: " + JSON.stringify(global.exchangeRates) + " starting at " + global.exchangeRatesUpdateTime);
 
-				} else {
-					debugLog("Unable to get exchange rate data");
-				}
-			} else {
-				logError("39r7h2390fgewfgds", {error:error, response:response, body:body});
-			}
-		});
+				// } else {
+				// 	debugLog("Unable to get exchange rate data");
+				// }
+			// } else {
+			// 	logError("39r7h2390fgewfgds", {error:error, response:response, body:body});
+			// }
+		// });
 	}
 }
 

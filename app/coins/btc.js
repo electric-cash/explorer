@@ -199,29 +199,21 @@ module.exports = {
 	exchangeRateDataUSD:{
 		jsonUrl:"https://api.liquid.com/products/618",
 		responseBodySelectorFunction:function(responseBody) {
-			/**
-			 * TODO: Hidden due to api connection is work in progress
-			 */
-			return 0;
 			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
-			// if (responseBody.last_traded_price) {
-			// 	return responseBody.last_traded_price;
-			// }
-			// return null;
+			if (responseBody.last_traded_price) {
+				return responseBody.last_traded_price;
+			}
+			return null;
 		}
 	},
 	exchangeRateDataBTC:{
 		jsonUrl:"https://api.liquid.com/products/619",
 		responseBodySelectorFunction:function(responseBody) {
-			/**
-			 * TODO: Hidden due to api connection is work in progress
-			 */
-			return 0;
 			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
-			// if (responseBody.last_traded_price) {
-			// 	return responseBody.last_traded_price;
-			// }
-			// return null;
+			if (responseBody.last_traded_price) {
+				return responseBody.last_traded_price;
+			}
+			return null;
 		}
 	},
 	blockRewardFunction:function(blockHeight) {
