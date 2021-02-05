@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.4](https://github.com/electric-cash/explorer/compare/v1.4.3...v1.4.4) (2021-02-05)
+
+
+### Bug Fixes
+
+* 🐛 hide last traded price ([#31](https://github.com/electric-cash/explorer/issues/31)) ([eab706f](https://github.com/electric-cash/explorer/commit/eab706f76b11f17756ba4ff262ad4c9be684d956))
+
 ### [1.4.3](https://github.com/electric-cash/explorer/compare/v1.4.2...v1.4.3) (2021-02-04)
 
 
