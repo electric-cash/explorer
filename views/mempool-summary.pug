@@ -58,7 +58,7 @@ block content
 				- var feeBucketTxCounts = mempoolstats["satoshiPerByteBucketCounts"];
 				- var totalfeeBuckets = mempoolstats["satoshiPerByteBucketTotalFees"];
 				
-				canvas(id="mempoolBarChart", height="100", class="mb-4", style="max-height: 200px")
+				canvas(id="mempoolBarChart", height="100", class="mb-4 mempool-chart")
 
 				script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js")
 
@@ -133,7 +133,7 @@ block content
 					h3(class="card-top-title") Transactions by size
 					hr(class="hr")
 				div(class="card-bottom")
-					canvas(id="txSizesBarChart", height="100", class="mb-4", style="max-height: 200px")
+					canvas(id="txSizesBarChart", height="100", class="mb-4 mempool-chart")
 
 					script var sizeBucketLabels = [];
 					script var bgColors = [];
@@ -175,7 +175,7 @@ block content
 					h3(class="card-top-title") Transactions by age
 					hr(class="hr")
 				div(class="card-bottom")
-					canvas(id="txAgesBarChart", height="100", class="mb-4", style="max-height: 200px")
+					canvas(id="txAgesBarChart", height="100", class="mb-4 mempool-chart")
 
 					script var ageBucketLabels = [];
 					script var bgColors = [];
