@@ -312,13 +312,14 @@ router.get("/blocks", function(req, res, next) {
 				}
 			}
 		} else {
-			for (var i = offset; i < (offset + limit); i++) {
+			const offsetWithLimit = offset + limit;
+			const limitTo = offsetWithLimit > getblockchaininfo.blocks ? getblockchaininfo.blocks + 1 : offsetWithLimit;
+			for (var i = offset; i < limitTo; i++) {
 				if (i >= 0) {
 					blockHeights.push(i);
 				}
 			}
 		}
-		
 		coreApi.getBlocksByHeight(blockHeights).then(function(blocks) {
 			res.locals.blocks = blocks;
 
@@ -331,7 +332,7 @@ router.get("/blocks", function(req, res, next) {
 			res.render("blocks");
 	
 			next();
-		});;
+		});
 	}).catch(function(err) {
 		res.locals.userMessage = "Error: " + err;
 
