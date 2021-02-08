@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.5](https://github.com/electric-cash/explorer/compare/v1.4.4...v1.4.5) (2021-02-08)
+
+
+### Bug Fixes
+
+* 🐛 fix mempool charts ([#33](https://github.com/electric-cash/explorer/issues/33)) ([28a29b0](https://github.com/electric-cash/explorer/commit/28a29b07eede509d610c67e6a20ca79168ffd7fb))
+
 ### [1.4.4](https://github.com/electric-cash/explorer/compare/v1.4.3...v1.4.4) (2021-02-05)
 
 
