@@ -314,7 +314,7 @@ router.get("/blocks", function(req, res, next) {
 		} else {
 			const offsetWithLimit = offset + limit;
 			const limitTo = offsetWithLimit > getblockchaininfo.blocks ? getblockchaininfo.blocks + 1 : offsetWithLimit;
-			for (var i = offset; i < limitTo; i++) {
+			for (let i = offset; i < limitTo; i++) {
 				if (i >= 0) {
 					blockHeights.push(i);
 				}
