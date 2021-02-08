@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.6](https://github.com/electric-cash/explorer/compare/v1.4.5...v1.4.6) (2021-02-08)
+
+
+### Bug Fixes
+
+* 🐛 fix bug which crashes app on browse block last page ([#32](https://github.com/electric-cash/explorer/issues/32)) ([99ca98d](https://github.com/electric-cash/explorer/commit/99ca98d8d5af59f9b7b7703de31463b1a5a58c79))
+
 ### [1.4.5](https://github.com/electric-cash/explorer/compare/v1.4.4...v1.4.5) (2021-02-08)
 
 
