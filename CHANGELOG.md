@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.7](https://github.com/electric-cash/explorer/compare/v1.4.6...v1.4.7) (2021-02-09)
+
+
+### Bug Fixes
+
+* 🐛 fix not a number bug avg fee ([f07636f](https://github.com/electric-cash/explorer/commit/f07636ff48c9b00220b17e8167fce8be555b8dd0))
+
 ### [1.4.6](https://github.com/electric-cash/explorer/compare/v1.4.5...v1.4.6) (2021-02-08)
 
 
