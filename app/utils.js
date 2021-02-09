@@ -150,6 +150,7 @@ function getCurrencyFormatInfo(formatType) {
 
 function formatCurrencyAmountWithForcedDecimalPlaces(amount, formatType, forcedDecimalPlaces) {
 	var formatInfo = getCurrencyFormatInfo(formatType);
+	const digits = 8;
 	if (formatInfo != null) {
 		var dec = new Decimal(amount);
 
@@ -165,13 +166,13 @@ function formatCurrencyAmountWithForcedDecimalPlaces(amount, formatType, forcedD
 		if (formatInfo.type == "native") {
 			dec = dec.times(formatInfo.multiplier);
 
-			return addThousandsSeparators(dec.toDecimalPlaces(decimalPlaces)) + " " + formatInfo.name;
+			return addThousandsSeparators(removeTrailingZeros(dec, digits)) + " " + formatInfo.name;
 
 		} else if (formatInfo.type == "exchanged") {
 			if (global.exchangeRates != null && global.exchangeRates[formatInfo.multiplier] != null) {
 				dec = dec.times(global.exchangeRates[formatInfo.multiplier]);
 
-				return addThousandsSeparators(dec.toDecimalPlaces(decimalPlaces)) + " " + formatInfo.name;
+				return addThousandsSeparators(removeTrailingZeros(dec, digits)) + " " + formatInfo.name;
 
 			} else {
 				return formatCurrencyAmountWithForcedDecimalPlaces(amount, coinConfig.defaultCurrencyUnit.name, forcedDecimalPlaces);
@@ -197,6 +198,8 @@ function addThousandsSeparators(x) {
 
 	return parts.join(".");
 }
+
+const removeTrailingZeros = (decimal, digits) => decimal.toFixed(digits).replace(/(\.[0-9]*[1-9])0+$|\.0*$/,'$1');
 
 function formatExchangedCurrency(amount, exchangeType) {
 	if (global.exchangeRates != null && global.exchangeRates[exchangeType.toLowerCase()] != null) {
