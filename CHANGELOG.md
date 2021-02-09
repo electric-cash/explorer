@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.8](https://github.com/electric-cash/explorer/compare/v1.4.7...v1.4.8) (2021-02-09)
+
+
+### Bug Fixes
+
+* 🐛 remove trailing zero ([ea21948](https://github.com/electric-cash/explorer/commit/ea21948f2fd14e837998b410072fcea64bd4fa58))
+
 ### [1.4.7](https://github.com/electric-cash/explorer/compare/v1.4.6...v1.4.7) (2021-02-09)
 
 
