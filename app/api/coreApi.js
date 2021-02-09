@@ -530,9 +530,10 @@ function getMempoolStats() {
 				ageBucketTxCounts[ageBucketIndex]++;
 				sizeBucketTxCounts[sizeBucketIndex]++;
 			}
+			const averageFeePerByte = summary["totalFees"] / summary["totalBytes"];
 
 			summary["averageFee"] = summary["totalFees"] / summary["count"];
-			summary["averageFeePerByte"] = summary["totalFees"] / summary["totalBytes"];
+			summary["averageFeePerByte"] = isNaN(averageFeePerByte) ? 0 : averageFeePerByte;
 
 			summary["satoshiPerByteBucketMaxima"] = satoshiPerByteBucketMaxima;
 			summary["satoshiPerByteBucketCounts"] = [];
