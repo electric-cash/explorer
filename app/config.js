@@ -132,7 +132,7 @@ module.exports = {
 
 	site: {
 		blockTxPageSize:20,
-		addressTxPageSize:10,
+		addressTxPageSize: 20,
 		txMaxInput:15,
 		browseBlocksPageSize:20,
 		addressPage:{

@@ -194,19 +194,18 @@ div(class="tab-content")
 						else
 							h3(class="card-top-title") #{txCount.toLocaleString()} transactions
 
-					if (!config.demoSite && !crawlerBot && txCount > 20)
-						div(class="col-md-8 text-right")
-							span(class="mr-2") Show
-							div(class="btn-group", role="group")
-								a(href=(paginationBaseUrl + "?limit=20"), class="btn btn-sm btn-primary px-2", class=((limit == 20 && txCount > limit) ? "active" : false)) 20
-								
-								if (txCount > 50)
-									a(href=(paginationBaseUrl + "?limit=50"), class="btn btn-sm btn-primary px-2", class=(limit == 50 ? "active" : false)) 50
-								
-								if (txCount > 100)
-									a(href=(paginationBaseUrl + "?limit=100"), class="btn btn-sm btn-primary px-2", class=(limit == 100 ? "active" : false)) 100
-								
-								a(href=(paginationBaseUrl + "?limit=3000"), class="btn btn-sm btn-primary px-2", class=(limit >= txCount ? "active" : false)) all
+					div(class="col-md-8 text-right")
+						span(class="mr-2") Show
+						div(class="btn-group", role="group")
+							a(href=(paginationBaseUrl + "?limit=20"), class="btn btn-sm btn-primary px-2", class=((limit === 20) ? "active" : false)) 20
+							
+							if (txCount > 50)
+								a(href=(paginationBaseUrl + "?limit=50"), class="btn btn-sm btn-primary px-2", class=(limit === 50 ? "active" : false)) 50
+							
+							if (txCount > 100)
+								a(href=(paginationBaseUrl + "?limit=100"), class="btn btn-sm btn-primary px-2", class=(limit === 100 ? "active" : false)) 100
+							
+							a(href=(paginationBaseUrl + "?limit=3000"), class="btn btn-sm btn-primary px-2", class=(limit === 3000 ? "active" : false)) all
 
 				hr(class="hr")
 

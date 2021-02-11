@@ -77,7 +77,7 @@ block content
 					table(class="table table-responsive-sm data-table mt-4")
 						thead
 							tr
-								th(class="data-header") Id
+								th(class="data-header") #
 								th(class="data-header") Version
 								th(class="data-header") Address
 								th(class="data-header") Services
@@ -126,6 +126,10 @@ block endOfBody
 	script(src="/js/dataTables.bootstrap4.min.js", integrity="sha384-uiSTMvD1kcI19sAHJDVf68medP9HA2E2PzGis9Efmfsdb8p9+mvbQNgFhzii1MEX")
 
 	script.
-		$(document).ready(function() {
-			$(".data-table").DataTable();
+		$(document).ready(() => {
+			$(".data-table").DataTable({
+				searching: false,
+				info: false,
+				paging: false,
+			});
 		});

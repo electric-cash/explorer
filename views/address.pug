@@ -66,7 +66,7 @@ block content
 			
 			ul(class='nav nav-tabs tabs')
 				li(class="nav-item tabs-item")
-					a(data-toggle="tab", href="#tab-details", class="ctive", role="tab") Details
+					a(data-toggle="tab", href="#tab-details", class="active", role="tab") Details
 				li(class="nav-item tabs-item")
 					a(data-toggle="tab", href="#tab-json", role="tab") JSON
 
@@ -226,43 +226,58 @@ block content
 
 					div(class="card mb-3 shadow-sm")
 						div(class="card-top")
-							div(class="float-left")
-								if (addressDetails && addressDetails.txCount)
-									if (addressDetails.txCount == 1)
-										h3(class="card-top-title") 1 Transaction
-									else
-										h3(class="card-top-title") #{addressDetails.txCount.toLocaleString()} Transactions
-								else
-									h3(class="card-top-title") Transactions
-
-								if (config.addressApi)
-									if (config.addressApi == "electrumx")
-										small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ElectrumX (using the configured server(s))` data-toggle="tooltip") Trust Note
-									else
-										small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ${config.addressApi}` data-toggle="tooltip") Trust Note
-							hr(class="hr")
-
-							if (!crawlerBot && txids && txids.length > 1 && addressApiSupport.sortDesc && addressApiSupport.sortAsc)
-								div(class="float-right")
-									a(href="#", class="pull-right dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
-										if (sort == "desc")
-											span Newest First
+							div(class="row", style="margin: 0px")
+								div(class="float-left")
+									if (addressDetails && addressDetails.txCount)
+										if (addressDetails.txCount == 1)
+											h3(class="card-top-title") 1 Transaction
 										else
-											span Oldest First
+											h3(class="card-top-title") #{addressDetails.txCount.toLocaleString()} Transactions
+									else
+										h3(class="card-top-title") Transactions
 
-									div(class="dropdown-menu dropdown-menu-right")
-										a(href=("/address/" + address), class="dropdown-item")
+												if (config.addressApi)
+													if (config.addressApi == "electrumx")
+														small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ElectrumX (using the configured server(s))` data-toggle="tooltip") Trust Note
+													else
+														small.text-muted.border-dotted.ml-2(title=`The list of transaction IDs for this address was queried from ${config.addressApi}` data-toggle="tooltip") Trust Note
+
+								div(style="margin-left: auto; margin-right: 0;")
+									if (!crawlerBot && txids && txids.length > 1 && addressApiSupport.sortDesc && addressApiSupport.sortAsc)
+										a(href="#", class="pull-right dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
 											if (sort == "desc")
-												i(class="fa fa-check") 
-											span  Newest First
-										a(href=("/address/" + address + "?sort=asc"), class="dropdown-item")
-											if (sort != "desc")
-												i(class="fa fa-check") 
-											span  Oldest First
+												span Newest First
+											else
+												span Oldest First
 
-							else if (txids && txids.length > 1 && addressApiSupport.sortDesc && !addressApiSupport.sortAsc)
-								div.float-right
-									span.text-muted Newest First
+										div(class="dropdown-menu dropdown-menu-right")
+											a(href=("/address/" + address), class="dropdown-item")
+												if (sort == "desc")
+													i(class="fa fa-check") 
+												span  Newest First
+											a(href=("/address/" + address + "?sort=asc"), class="dropdown-item")
+												if (sort != "desc")
+													i(class="fa fa-check") 
+												span  Oldest First
+
+									else if (txids && txids.length > 1 && addressApiSupport.sortDesc && !addressApiSupport.sortAsc)
+										div.float-right
+											span.text-muted Newest First
+
+
+									span(class="ml-4 mr-2") Show
+									div(class="btn-group", role="group")
+										a(href=(paginationBaseUrl + "&limit=20"), class="btn btn-sm btn-primary px-2", class=((limit === 20) ? "active" : false)) 20
+										
+										if (addressDetails.txCount > 50)
+											a(href=(paginationBaseUrl + "&limit=50"), class="btn btn-sm btn-primary px-2", class=(limit === 50 ? "active" : false)) 50
+										
+										if (addressDetails.txCount > 100)
+											a(href=(paginationBaseUrl + "&limit=100"), class="btn btn-sm btn-primary px-2", class=(limit === 100 ? "active" : false)) 100
+										
+										a(href=(paginationBaseUrl + "&limit=3000"), class="btn btn-sm btn-primary px-2", class=(limit === 3000 ? "active" : false)) all
+
+							hr(class="hr")
 
 						div(class="card-bottom")
 							if (conflictedTxidResults)
