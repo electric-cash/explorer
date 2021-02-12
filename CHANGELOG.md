@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.10](https://github.com/electric-cash/explorer/compare/v1.4.9...v1.4.10) (2021-02-12)
+
+
+### Bug Fixes
+
+* **index:** index change ([bb01633](https://github.com/electric-cash/explorer/commit/bb01633664edb87f848d5eacf53b15c93d6ff7f0))
+
 ### [1.4.9](https://github.com/electric-cash/explorer/compare/v1.4.8...v1.4.9) (2021-02-12)
 
 
