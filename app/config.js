@@ -50,6 +50,8 @@ module.exports = {
 
 	cookieSecret: cookieSecret,
 
+	exchangeRateDataUSDApiUrl: "https://openapi-exchange.coinbene.com/api/v3/spot/instruments/ticker_one?instrument_id=ELCASH/USDT",
+	exchangeRateDataBTCApiUrl: "https://openapi-exchange.coinbene.com/api/v3/spot/instruments/ticker_one?instrument_id=ELCASH/BTC",
 	privacyMode: (process.env.BTCEXP_PRIVACY_MODE.toLowerCase() == "true"),
 	demoSite: (process.env.BTCEXP_DEMO.toLowerCase() == "true"),
 	queryExchangeRates: (process.env.BTCEXP_NO_RATES.toLowerCase() != "true"),
