@@ -206,6 +206,7 @@ p {
 
 .nav-tabs .nav-item {
   margin: 0px;
+  position: relative;
 }
 
 .tabs-item {
@@ -224,14 +225,18 @@ p {
   color: #a1a3a6;
   font-size: 16px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 .tabs-item a.active {
   color: black;
+  position: relative;
+  z-index: 2;
   padding: 10px 15px;
-  -webkit-box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
-  box-shadow: 2px 0px 5px -12px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px -6px 10px 1px rgba(194,194,194,0.4);
+  -moz-box-shadow: 0px -6px 10px 1px rgba(194,194,194,0.4);
+  box-shadow: 0px -6px 10px 1px rgba(194,194,194,0.4);
 }
 
 .summary-split-table-content a {
@@ -250,7 +255,7 @@ p {
   padding: 3px 8px;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active {
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:hover, .btn-primary:active {
   background-color: #e4a416;
   color: #fff;
   border: 1px solid #e4a416;
@@ -336,6 +341,24 @@ dd {
 
 .mempool-chart {
   max-height: 200px;
+}
+
+table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before {
+  left: -0.5em;
+  right: 0;
+}
+
+table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after {
+  left: 0em;
+  right: 0;
+}
+
+table tr:not(:last-child) {
+  border-bottom: 1px solid #e3e3e3;
+}
+
+table {
+  border-collapse: collapse;
 }
 
 @media only screen and (min-width: 1921px) {

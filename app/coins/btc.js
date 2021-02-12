@@ -1,4 +1,5 @@
 var Decimal = require("decimal.js");
+const config = require("../config");
 Decimal8 = Decimal.clone({ precision:8, rounding:8 });
 
 var currencyUnits = [
@@ -197,21 +198,21 @@ module.exports = {
 		}
 	],
 	exchangeRateDataUSD:{
-		jsonUrl:"https://api.liquid.com/products/618",
+		jsonUrl: config.exchangeRateDataUSDApiUrl,
 		responseBodySelectorFunction:function(responseBody) {
 			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
-			if (responseBody.last_traded_price) {
-				return responseBody.last_traded_price;
+			if (responseBody.last_price) {
+				return responseBody.last_price;
 			}
 			return null;
 		}
 	},
 	exchangeRateDataBTC:{
-		jsonUrl:"https://api.liquid.com/products/619",
+		jsonUrl: config.exchangeRateDataBTCApiUrl,
 		responseBodySelectorFunction:function(responseBody) {
 			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
-			if (responseBody.last_traded_price) {
-				return responseBody.last_traded_price;
+			if (responseBody.last_price) {
+				return responseBody.last_price;
 			}
 			return null;
 		}
