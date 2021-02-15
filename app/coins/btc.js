@@ -56,7 +56,7 @@ module.exports = {
 	name:"Electric Cash",
 	ticker:"ELCASH",
 	logoUrl:"/img/logo/electric_cash.svg",
-	siteTitle: !!process.env.BTCEXP_IS_TESTNET ? "Electric Cash Testnet Explorer" : "Electric Cash Explorer",
+	siteTitle: !!JSON.parse(process.env.BTCEXP_IS_TESTNET.toLowerCase()) ? "Electric Cash Testnet Explorer" : "Electric Cash Explorer",
 	siteDescriptionHtml:"<b>Electric Cash Explorer</b> is <a href='https://github.com/electric-cash/explorer). If you run your own [Electric Cash Full Node](https://bitcoin.org/en/full-node), **ELCASH Explorer** can easily run alongside it, communicating via RPC calls. See the project [ReadMe](https://github.com/electric-cash/explorer) for a list of features and instructions for running.",
 	nodeTitle:"Bitcoin Full Node",
 	nodeUrl:"https://bitcoin.org/en/full-node",
