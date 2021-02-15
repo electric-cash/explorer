@@ -267,7 +267,7 @@ app.runOnStartup = function() {
 	}
 
 	const refreshInterval = {
-		exchangeRates: parseInt(process.env.BTCEXP_REFRESH_EXCHANGE_RATE_INTERVAL || 5),			// default: 5min
+		exchangeRates: parseInt(process.env.BTCEXP_REFRESH_EXCHANGE_RATE_INTERVAL || 5),		// default: 5min
 		coinSupply: parseInt(process.env.BTCEXP_REFRESH_COIN_SUPPLY_INTERVAL || 1),				// default: 1min
 		walletsNumber: parseInt(process.env.BTCEXP_REFRESH_WALLETS_NUMBER_INTERVAL || 1),		// default: 1min
 		txVolume: parseInt(process.env.BTCEXP_REFRESH_TX_VOLUME_INTERVAL || 1),					// default: 1min
