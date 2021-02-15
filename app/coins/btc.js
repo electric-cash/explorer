@@ -1,5 +1,5 @@
 var Decimal = require("decimal.js");
-const config = require("../config");
+var apiUrl = require('../consts/apiUrl');
 Decimal8 = Decimal.clone({ precision:8, rounding:8 });
 
 var currencyUnits = [
@@ -197,10 +197,9 @@ module.exports = {
 			alertBodyHtml: "This is one of 2 'duplicate coinbase' transactions. An early bitcoin bug (fixed by <a href='https://github.com/bitcoin/bips/blob/master/bip-0030.mediawiki'>BIP30</a>) allowed identical coinbase transactions - a newer duplicate would overwrite older copies. This transaction was the coinbase transaction for <a href='/block-height/91812'>Block #91,812</a> and, ~3 hours later, <a href='/block-height/91842'>Block #91,842</a>. The 50 BTC claimed as the coinbase for block 91,812 were also overwritten and lost."
 		}
 	],
-	exchangeRateDataUSD:{
-		jsonUrl: config.exchangeRateDataUSDApiUrl,
+	exchangeRateDataUSDT:{
+		jsonUrl: apiUrl.EXCHANGE_RATE_USDT,
 		responseBodySelectorFunction:function(responseBody) {
-			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
 			if (responseBody.last_price) {
 				return responseBody.last_price;
 			}
@@ -208,9 +207,17 @@ module.exports = {
 		}
 	},
 	exchangeRateDataBTC:{
-		jsonUrl: config.exchangeRateDataBTCApiUrl,
+		jsonUrl: apiUrl.EXCHANGE_RATE_BTC,
 		responseBodySelectorFunction:function(responseBody) {
-			//console.log("Exchange Rate Response: " + JSON.stringify(responseBody));
+			if (responseBody.last_price) {
+				return responseBody.last_price;
+			}
+			return null;
+		}
+	},
+	exchangeRateDataUSDTUSD:{
+		jsonUrl: apiUrl.EXCHANGE_RATE_USDT_USD,
+		responseBodySelectorFunction: function(responseBody) {
 			if (responseBody.last_price) {
 				return responseBody.last_price;
 			}
