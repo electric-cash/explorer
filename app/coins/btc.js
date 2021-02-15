@@ -200,8 +200,8 @@ module.exports = {
 	exchangeRateDataUSDT:{
 		jsonUrl: apiUrl.EXCHANGE_RATE_USDT,
 		responseBodySelectorFunction:function(responseBody) {
-			if (responseBody.last_price) {
-				return responseBody.last_price;
+			if (responseBody.data && responseBody.data.last_price) {
+				return responseBody.data.last_price;
 			}
 			return null;
 		}
@@ -209,8 +209,8 @@ module.exports = {
 	exchangeRateDataBTC:{
 		jsonUrl: apiUrl.EXCHANGE_RATE_BTC,
 		responseBodySelectorFunction:function(responseBody) {
-			if (responseBody.last_price) {
-				return responseBody.last_price;
+			if (responseBody.data && responseBody.data.last_price) {
+				return responseBody.data.last_price;
 			}
 			return null;
 		}
