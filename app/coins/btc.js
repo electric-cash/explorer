@@ -200,18 +200,8 @@ module.exports = {
 	exchangeRateDataUSDT:{
 		jsonUrl: apiUrl.EXCHANGE_RATE_USDT,
 		responseBodySelectorFunction:function(responseBody) {
-<<<<<<< HEAD
-<<<<<<< HEAD
 			if (responseBody.data && responseBody.data.last_price) {
 				return responseBody.data.last_price;
-=======
-			if (responseBody.last_price) {
-				return responseBody.last_price;
->>>>>>> 60eec68... build(merge): from master
-=======
-			if (responseBody.data && responseBody.data.last_price) {
-				return responseBody.data.last_price;
->>>>>>> cf7a163... build(merge): master
 			}
 			return null;
 		}
@@ -219,18 +209,8 @@ module.exports = {
 	exchangeRateDataBTC:{
 		jsonUrl: apiUrl.EXCHANGE_RATE_BTC,
 		responseBodySelectorFunction:function(responseBody) {
-<<<<<<< HEAD
-<<<<<<< HEAD
 			if (responseBody.data && responseBody.data.last_price) {
 				return responseBody.data.last_price;
-=======
-			if (responseBody.last_price) {
-				return responseBody.last_price;
->>>>>>> 60eec68... build(merge): from master
-=======
-			if (responseBody.data && responseBody.data.last_price) {
-				return responseBody.data.last_price;
->>>>>>> cf7a163... build(merge): master
 			}
 			return null;
 		}
