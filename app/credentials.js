@@ -13,7 +13,7 @@ module.exports = {
 		password: btcAuth[1] || process.env.BTCEXP_BITCOIND_PASS,
 		cookie: btcUri.query.cookie || process.env.BTCEXP_BITCOIND_COOKIE || path.join(os.homedir(), '.bitcoin', '.cookie'),
 		timeout: parseInt(btcUri.query.timeout || process.env.BTCEXP_BITCOIND_RPC_TIMEOUT || 5000),
-		isTestnet: !!JSON.parse(`${process.env.BTCEXP_IS_TESTNET}`.toLowerCase()),
+		isTestnet: !!JSON.parse(`${process.env.BTCEXP_IS_TESTNET || "false"}`.toLowerCase()),
 	},
 
 	// optional: enter your api access key from ipstack.com below
