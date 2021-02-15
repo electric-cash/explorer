@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.11](https://github.com/electric-cash/explorer/compare/v1.4.10...v1.4.11) (2021-02-15)
+
+
+### Bug Fixes
+
+* **utils, btc, config, app:** uncomment things that is responsible for exchange rate, add optimizati ([#38](https://github.com/electric-cash/explorer/issues/38)) ([ccbf4a9](https://github.com/electric-cash/explorer/commit/ccbf4a971eb447be586de2c371206afeacf21099))
+
 ### [1.4.10](https://github.com/electric-cash/explorer/compare/v1.4.9...v1.4.10) (2021-02-12)
 
 
