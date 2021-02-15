@@ -228,18 +228,19 @@ app.runOnStartup = function() {
 
 	loadMiningPoolConfigs();
 
-	if (global.sourcecodeVersion == null && fs.existsSync('.git')) {
-		simpleGit(".").log(["-n 1"], function(err, log) {
-			if (err) {
-				utils.logError("3fehge9ee", err, {desc:"Error accessing git repo"});
-
-				return;
-			}
-			
-			global.sourcecodeVersion = log.all[0].hash.substring(0, 10);
-			global.sourcecodeDate = log.all[0].date.substring(0, "0000-00-00".length);
-		});
-	}
+	// @todo: use version in package.json
+	// if (global.sourcecodeVersion == null && fs.existsSync('.git')) {
+	// 	simpleGit(".").log(["-n 1"], function(err, log) {
+	// 		if (err) {
+	// 			utils.logError("3fehge9ee", err, {desc:"Error accessing git repo"});
+	//
+	// 			return;
+	// 		}
+	//
+	// 		global.sourcecodeVersion = log.all[0].hash.substring(0, 10);
+	// 		global.sourcecodeDate = log.all[0].date.substring(0, "0000-00-00".length);
+	// 	});
+	// }
 
 	if (config.demoSite) {
 		getSourcecodeProjectMetadata();
