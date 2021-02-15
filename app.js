@@ -13,6 +13,8 @@ configPaths.filter(fs.existsSync).forEach(path => {
 	dotenv.config({ path });
 });
 
+global.cacheStats = {};
+
 // debug module is already loaded by the time we do dotenv.config
 // so refresh the status of DEBUG env var
 var debug = require("debug");
@@ -138,6 +140,8 @@ function getSourcecodeProjectMetadata() {
 
 
 app.runOnStartup = function() {
+	global.appStartTime = new Date().getTime();
+
 	global.config = config;
 	global.coinConfig = coins[config.coin];
 	global.coinConfigs = coins;
@@ -156,6 +160,7 @@ app.runOnStartup = function() {
 	};
 
 	global.client = new bitcoinCore(rpcClientProperties);
+	global.rpcClientNoTimeout = new bitcoinCore({ ...rpcClientProperties, timeout: 0 });
 
 	coreApi.getNetworkInfo().then(function(getnetworkinfo) {
 		debugLog(`Connected via RPC to node. Basic info: version=${getnetworkinfo.version}, subversion=${getnetworkinfo.subversion}, protocolversion=${getnetworkinfo.protocolversion}, services=${getnetworkinfo.localservices}`);
@@ -262,11 +267,11 @@ app.runOnStartup = function() {
 	}
 
 	// refresh exchange rate periodically
-	setInterval(utils.refreshExchangeRates, 300000);
-	setInterval(utils.refreshCoinSupply, 60000);
-	setInterval(utils.refreshWalletsNumber, 60000);
-	setInterval(utils.refreshTxVolume, 60000);
-	setInterval(utils.refreshMiningPoolsData, 60000);
+	setInterval(utils.refreshExchangeRates, 5 * 60 * 1000);  // 5min
+	setInterval(utils.refreshCoinSupply, 60 * 1000);		 // 1min
+	setInterval(utils.refreshWalletsNumber, 60 * 1000);		 // 1min
+	setInterval(utils.refreshTxVolume, 60 * 1000);			 // 1min
+	setInterval(utils.refreshMiningPoolsData, 60 * 1000);	 // 1min
 
 	utils.logMemoryUsage();
 	setInterval(utils.logMemoryUsage, 5000);

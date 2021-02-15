@@ -28,6 +28,15 @@ var exponentScales = [
 ];
 
 var ipMemoryCache = {};
+var ipRedisCache = null;
+if (redisCache.active) {
+	var onRedisCacheEvent = function(cacheType, eventType, cacheKey) {
+		global.cacheStats.redis[eventType]++;
+		//debugLog(`cache.${cacheType}.${eventType}: ${cacheKey}`);
+	}
+
+	ipRedisCache = redisCache.createCache("v0", onRedisCacheEvent);
+}
 var ipCache = {
 	get:function(key) {
 		return new Promise(function(resolve, reject) {
@@ -37,8 +46,8 @@ var ipCache = {
 				return;
 			}
 
-			if (redisCache.active) {
-				redisCache.get("ip-" + key).then(function(redisResult) {
+			if (ipRedisCache != null) {
+				ipRedisCache.get("ip-" + key).then(function(redisResult) {
 					if (redisResult != null) {
 						resolve({key:key, value:redisResult});
 
@@ -56,8 +65,8 @@ var ipCache = {
 	set:function(key, value, expirationMillis) {
 		ipMemoryCache[key] = value;
 
-		if (redisCache.active) {
-			redisCache.set("ip-" + key, value, expirationMillis);
+		if (ipRedisCache != null) {
+			ipRedisCache.set("ip-" + key, value, expirationMillis);
 		}
 	}
 };
@@ -629,10 +638,22 @@ function colorHexToHsl(hex) {
 const reflectPromise = p => p.then(v => ({v, status: "resolved" }),
                             e => ({e, status: "rejected" }));
 
+global.errorStats = {};
+
 function logError(errorId, err, optionalUserData = null) {
 	if (!global.errorLog) {
 		global.errorLog = [];
 	}
+
+	if (!global.errorStats[errorId]) {
+		global.errorStats[errorId] = {
+			count: 0,
+			firstSeen: new Date().getTime()
+		};
+	}
+
+	global.errorStats[errorId].count++;
+	global.errorStats[errorId].lastSeen = new Date().getTime();
 
 	global.errorLog.push({errorId:errorId, error:err, userData:optionalUserData, date:new Date()});
 	while (global.errorLog.length > 100) {

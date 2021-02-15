@@ -38,6 +38,7 @@
     "express-session": "1.16.1",
     "jstransformer-markdown-it": "^2.1.0",
     "lru-cache": "5.1.1",
+    "md5": "^2.3.0",
     "meow": "^5.0.0",
     "moment": "^2.24.0",
     "moment-duration-format": "2.2.2",
