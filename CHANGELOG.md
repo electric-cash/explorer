@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.13](https://github.com/electric-cash/explorer/compare/v1.4.12...v1.4.13) (2021-02-15)
+
+
+### Bug Fixes
+
+* **app.js:** interval time date is now 5min ([#40](https://github.com/electric-cash/explorer/issues/40)) ([f095fb0](https://github.com/electric-cash/explorer/commit/f095fb027b7097df64cc22997dbaba87347c123c))
+
 ### [1.4.12](https://github.com/electric-cash/explorer/compare/v1.4.11...v1.4.12) (2021-02-15)
 
 
