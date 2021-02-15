@@ -165,7 +165,11 @@ block content
 							span(class="font-weight-bold") Market Cap
 							p(class="lead") $#{Math.round(global.exchangeRates['usdt'] * global.exchangeRates['usdtusd'] * global.totalCoinSupply).toLocaleString() }
 
+<<<<<<< HEAD
 					if (global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'])
+=======
+					if (global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'] && global.exchangeRates['btc'])
+>>>>>>> 60eec68... build(merge): from master
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/usd.svg")
@@ -177,6 +181,7 @@ block content
 								
 							else
 								pp(class="lead") $--.--
+<<<<<<< HEAD
 						//- TODO:  Hidden due to BTC is still not listed && global.exchangeRates['btc']
 						//- div(class=networkSummaryColumnClass)
 						//- 	div(class="float-left icon-container")
@@ -188,6 +193,18 @@ block content
 						//- 		p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
 						//- 	else
 						//- 		p(class="lead") -.----BTC
+=======
+						div(class=networkSummaryColumnClass)
+							div(class="float-left icon-container")
+								img(src="/img/icons/btc.svg")
+
+							span.font-weight-bold(data-toggle="tooltip") Exchange Rate (BTC)
+
+							if (global.exchangeRates)
+								p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
+							else
+								p(class="lead") -.----BTC
+>>>>>>> 60eec68... build(merge): from master
 
 
 
