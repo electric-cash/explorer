@@ -158,15 +158,14 @@ block content
 							span(class="font-weight-bold") Coins In Circulation
 							p(class="lead") #{Math.round(global.totalCoinSupply).toLocaleString()} ELCASH
 					
-					if (global.totalCoinSupply && global.exchangeRates)
+					if (global.totalCoinSupply && global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'])
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/market-cap.svg")
 							span(class="font-weight-bold") Market Cap
-							//- p(class="lead") $#{Math.round(global.exchangeRates['usd'] * global.totalCoinSupply).toLocaleString() }
-							p(class="lead") $--.--
+							p(class="lead") $#{Math.round(global.exchangeRates['usdt'] * global.exchangeRates['usdtusd'] * global.totalCoinSupply).toLocaleString() }
 
-					if (global.exchangeRates)
+					if (global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'] && global.exchangeRates['btc'])
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/usd.svg")
@@ -174,10 +173,10 @@ block content
 							span.font-weight-bold(data-toggle="tooltip") Exchange Rate (USD)
 
 							if (global.exchangeRates)
-								//- p(class="lead") #{utils.formatExchangedCurrency(1.0, "usd")}
-								p(class="lead") $--.--
+								p(class="lead") #{utils.formatExchangedCurrency(1.0, "usd")}
+								
 							else
-								p(class="lead") -
+								pp(class="lead") $--.--
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/btc.svg")
@@ -185,10 +184,9 @@ block content
 							span.font-weight-bold(data-toggle="tooltip") Exchange Rate (BTC)
 
 							if (global.exchangeRates)
-								//- p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
-								p(class="lead") -.----BTC
+								p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
 							else
-								p(class="lead") -
+								p(class="lead") -.----BTC
 
 
 

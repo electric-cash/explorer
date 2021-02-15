@@ -44,7 +44,7 @@ var addressApi = require("./app/api/addressApi.js");
 var electrumAddressApi = require("./app/api/electrumAddressApi.js");
 var coreApi = require("./app/api/coreApi.js");
 var auth = require('./app/auth.js');
-
+var compression = require('compression')
 var crawlerBotUserAgentStrings = [ "Googlebot", "Bingbot", "Slurp", "DuckDuckBot", "Baiduspider", "YandexBot", "Sogou", "Exabot", "facebot", "ia_archiver" ];
 
 var baseActionsRouter = require('./routes/baseActionsRouter');
@@ -79,7 +79,7 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false
 }));
-
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 process.on("unhandledRejection", (reason, p) => {
