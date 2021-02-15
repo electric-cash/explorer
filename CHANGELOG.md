@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.12](https://github.com/electric-cash/explorer/compare/v1.4.11...v1.4.12) (2021-02-15)
+
+
+### Bug Fixes
+
+* **index:** hide btc exchange rat ([#39](https://github.com/electric-cash/explorer/issues/39)) ([c8812fc](https://github.com/electric-cash/explorer/commit/c8812fc6ef866faee7414ae0520dad8c878e1586))
+
 ### [1.4.11](https://github.com/electric-cash/explorer/compare/v1.4.10...v1.4.11) (2021-02-15)
 
 
