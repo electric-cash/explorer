@@ -287,7 +287,7 @@ router.get("/blocks", function(req, res, next) {
 
 	if (req.query.limit) {
 		var tmpLimit = parseInt(req.query.limit);
-		limit = tmpLimit > 50 ? 20 : tmpLimit;
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 	}
 
 	if (req.query.offset) {
@@ -461,7 +461,7 @@ router.get("/block-height/:blockHeight", function(req, res, next) {
 
 	if (req.query.limit) {
 		var tmpLimit = parseInt(req.query.limit);
-		limit = tmpLimit > 50 ? 20 : tmpLimit;
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 
 		// for demo sites, limit page sizes
 		if (config.demoSite && limit > config.site.blockTxPageSize) {
@@ -506,7 +506,7 @@ router.get("/block/:blockHash", function(req, res, next) {
 
 	if (req.query.limit) {
 		var tmpLimit = parseInt(req.query.limit);
-		limit = tmpLimit > 50 ? 20 : tmpLimit;
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 
 		// for demo sites, limit page sizes
 		if (config.demoSite && limit > config.site.blockTxPageSize) {
@@ -638,7 +638,7 @@ router.get("/address/:address", function(req, res, next) {
 	
 	if (req.query.limit) {
 		var tmpLimit = parseInt(req.query.limit);
-		limit = tmpLimit > 50 ? 20 : tmpLimit;
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 
 		// for demo sites, limit page sizes
 		if (config.demoSite && limit > config.site.addressTxPageSize) {
@@ -1134,7 +1134,7 @@ router.get("/unconfirmed-tx", function(req, res, next) {
 
 	if (req.query.limit) {
 		var tmpLimit = parseInt(req.query.limit);
-		limit = tmpLimit > 50 ? 20 : tmpLimit;
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 	}
 
 	if (req.query.offset) {
