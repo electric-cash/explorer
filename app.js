@@ -266,12 +266,27 @@ app.runOnStartup = function() {
 		utils.refreshMiningPoolsData();
 	}
 
+	const refreshInterval = {
+		exchangeRates: parseInt(process.env.BTCEXP_REFRESH_EXCHANGE_RATE_INTERVAL || 5),			// default: 5min
+		coinSupply: parseInt(process.env.BTCEXP_REFRESH_COIN_SUPPLY_INTERVAL || 1),				// default: 1min
+		walletsNumber: parseInt(process.env.BTCEXP_REFRESH_WALLETS_NUMBER_INTERVAL || 1),		// default: 1min
+		txVolume: parseInt(process.env.BTCEXP_REFRESH_TX_VOLUME_INTERVAL || 1),					// default: 1min
+		miningPoolsData: parseInt(process.env.BTCEXP_REFRESH_MINING_POOLS_DATA_INTERVAL || 1),	// default: 1min
+	};
+
+	// just dump info
+	debugLog(`RefreshExchangeRates interval: ${refreshInterval.exchangeRates}min`);
+	debugLog(`RefreshCoinSupply interval: ${refreshInterval.coinSupply}min`);
+	debugLog(`RefreshWalletsNumber interval: ${refreshInterval.walletsNumber}min`);
+	debugLog(`RefreshTxVolume interval: ${refreshInterval.txVolume}min`);
+	debugLog(`RefreshMiningPoolsData interval: ${refreshInterval.miningPoolsData}min`);
+
 	// refresh exchange rate periodically
-	setInterval(utils.refreshExchangeRates, 5 * 60 * 1000);  // 5min
-	setInterval(utils.refreshCoinSupply, 60 * 1000);		 // 1min
-	setInterval(utils.refreshWalletsNumber, 60 * 1000);		 // 1min
-	setInterval(utils.refreshTxVolume, 60 * 1000);			 // 1min
-	setInterval(utils.refreshMiningPoolsData, 60 * 1000);	 // 1min
+	setInterval(utils.refreshExchangeRates, refreshInterval.exchangeRates * 60 * 1000);
+	setInterval(utils.refreshCoinSupply, refreshInterval.coinSupply * 60 * 1000);
+	setInterval(utils.refreshWalletsNumber, refreshInterval.walletsNumber * 60 * 1000);
+	setInterval(utils.refreshTxVolume, refreshInterval.txVolume * 60 * 1000);
+	setInterval(utils.refreshMiningPoolsData, refreshInterval.miningPoolsData * 60 * 1000);
 
 	utils.logMemoryUsage();
 	setInterval(utils.logMemoryUsage, 5000);
