@@ -166,10 +166,14 @@ block content
 							p(class="lead") $#{Math.round(global.exchangeRates['usdt'] * global.exchangeRates['usdtusd'] * global.totalCoinSupply).toLocaleString() }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 					if (global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'])
 =======
 					if (global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'] && global.exchangeRates['btc'])
 >>>>>>> 60eec68... build(merge): from master
+=======
+					if (global.exchangeRates && global.exchangeRates['usdt'] && global.exchangeRates['usdtusd'])
+>>>>>>> cf7a163... build(merge): master
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/usd.svg")
@@ -182,10 +186,14 @@ block content
 							else
 								pp(class="lead") $--.--
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cf7a163... build(merge): master
 						//- TODO:  Hidden due to BTC is still not listed && global.exchangeRates['btc']
 						//- div(class=networkSummaryColumnClass)
 						//- 	div(class="float-left icon-container")
 						//- 		img(src="/img/icons/btc.svg")
+<<<<<<< HEAD
 
 						//- 	span.font-weight-bold(data-toggle="tooltip") Exchange Rate (BTC)
 
@@ -197,14 +205,23 @@ block content
 						div(class=networkSummaryColumnClass)
 							div(class="float-left icon-container")
 								img(src="/img/icons/btc.svg")
+=======
+>>>>>>> cf7a163... build(merge): master
 
-							span.font-weight-bold(data-toggle="tooltip") Exchange Rate (BTC)
+						//- 	span.font-weight-bold(data-toggle="tooltip") Exchange Rate (BTC)
 
+<<<<<<< HEAD
 							if (global.exchangeRates)
 								p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
 							else
 								p(class="lead") -.----BTC
 >>>>>>> 60eec68... build(merge): from master
+=======
+						//- 	if (global.exchangeRates)
+						//- 		p(class="lead") #{utils.formatExchangedCurrency(1.0, "btc")}
+						//- 	else
+						//- 		p(class="lead") -.----BTC
+>>>>>>> cf7a163... build(merge): master
 
 
 
