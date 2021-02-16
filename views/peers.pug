@@ -130,6 +130,14 @@ block endOfBody
 			$(".data-table").DataTable({
 				searching: false,
 				info: false,
-				paging: false,
+				lengthMenu: [20, 50, 100],
 			});
+
+			// Hide show selectbox
+			$('#DataTables_Table_0_length').hide();
+
+			// Add classes to pagination which are matched to design
+			const $paginationList = $('.dataTables_paginate ul');
+			$paginationList.addClass('pagination-wrap justify-content-center flex-wrap');
+			$paginationList.find('li').addClass('page-item');
 		});
