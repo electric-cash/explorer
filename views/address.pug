@@ -275,8 +275,6 @@ block content
 										if (addressDetails.txCount > 100)
 											a(href=(paginationBaseUrl + "&limit=100"), class="btn btn-sm btn-primary px-2", class=(limit === 100 ? "active" : false)) 100
 										
-										a(href=(paginationBaseUrl + "&limit=3000"), class="btn btn-sm btn-primary px-2", class=(limit === 3000 ? "active" : false)) all
-
 							hr(class="hr")
 
 						div(class="card-bottom")
@@ -316,9 +314,7 @@ block content
 									span No transactions found
 
 								each tx, txIndex in transactions
-									//pre
-									//	code(class="json bg-light") #{JSON.stringify(tx, null, 4)}
-									div(class=("xcard bg-light rounded shadow-sm " + ((txIndex < (transactions.length - 1) || txids.length > limit) ? "mb-4" : "")))
+									div(class=("xcard rounded shadow-sm " + ((txIndex < (transactions.length - 1) || txids.length > limit) ? "mb-4" : "")))
 										div(class="card-header clearfix")
 											div(class="float-left", style="margin-right: 0px;")
 												if (sort == "desc")
