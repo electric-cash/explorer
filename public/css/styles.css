@@ -378,6 +378,10 @@ div.dataTables_paginate {
   margin: 15px 0px !important;
 }
 
+.tooltip-inner {
+  word-break: break-all;
+}
+
 @media only screen and (min-width: 1921px) {
   .page-body {
     background-image: url("/img/images/background@3x.png");
@@ -400,6 +404,12 @@ div.dataTables_paginate {
   .settings-icon {
     margin-top: 0.5rem;
     margin-left: 0px;
+  }
+
+  .table-responsive-sm {
+    overflow: scroll;
+    display: block;
+    width: 100%;
   }
 }
 
