@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.15](https://github.com/electric-cash/explorer/compare/v1.4.14...v1.4.15) (2021-02-17)
+
+
+### Bug Fixes
+
+* **coreapi:** change size to vsize, it has the same value ([#41](https://github.com/electric-cash/explorer/issues/41)) ([a45c09f](https://github.com/electric-cash/explorer/commit/a45c09f5235aa1f6bdd25848b152d9b92d247be9))
+
 ### [1.4.14](https://github.com/electric-cash/explorer/compare/v1.4.13...v1.4.14) (2021-02-17)
 
 
