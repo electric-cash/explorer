@@ -357,7 +357,7 @@ block content
 						div(class="tab-content")
 							div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
 								pre
-									code(class="json bg-light") #{JSON.stringify(result.getrawtransaction, null, 4)}
+									code(class="json") #{JSON.stringify(result.getrawtransaction, null, 4)}
 
 				div(class="card mb-3 shadow-sm")
 					div(class="card-top")
@@ -367,7 +367,7 @@ block content
 						div(class="tab-content")
 							div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
 								pre
-									code(class="json bg-light") #{JSON.stringify(utxos, null, 4)}
+									code(class="json") #{JSON.stringify(utxos, null, 4)}
 
 				div(class="card mb-3 shadow-sm")
 					div(class="card-top")
@@ -377,4 +377,4 @@ block content
 						div(class="tab-content")
 							div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
 								pre
-									code(class="json bg-light") #{JSON.stringify(mempoolDetails, null, 4)}
+									code(class="json") #{JSON.stringify(mempoolDetails, null, 4)}
