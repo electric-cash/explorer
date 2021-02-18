@@ -265,9 +265,9 @@ div(class="tab-content")
 				div(class="tab-content")
 					div(id="tab-json-block-summary", class="tab-pane active", role="tabpanel")
 						pre
-							code(class="json bg-light") #{JSON.stringify(blockDetails, null, 4)}
+							code(class="json") #{JSON.stringify(blockDetails, null, 4)}
 
 					div(id="tab-json-tx-ids", class="tab-pane", role="tabpanel")
 						pre
-							code(class="json bg-light") #{JSON.stringify(result.getblock.tx, null, 4)}
+							code(class="json") #{JSON.stringify(result.getblock.tx, null, 4)}
 

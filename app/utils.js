@@ -206,7 +206,7 @@ function formatExchangedCurrency(amount, exchangeType) {
 		var dec = new Decimal(amount);
 		if (exchangeType.toLowerCase() === 'usd' && global.exchangeRates['usdt'] != null && global.exchangeRates['usdtusd'] != null) {
 			dec = dec.times(global.exchangeRates['usdt']).times(global.exchangeRates['usdtusd']);
-			var exchangedAmt = parseFloat(Math.round(dec * 100) / 100).toFixed(2);
+			var exchangedAmt = parseFloat(dec).toFixed(4);
 			return "$" + addThousandsSeparators(exchangedAmt);
 		}
 		if (exchangeType.toLowerCase() === 'btc' && global.exchangeRates['btc'] != null) {

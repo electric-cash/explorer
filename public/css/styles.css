@@ -287,6 +287,7 @@ p {
 .hljs {
   padding: 0px;
   color: #000;
+  background-color: #fff;
 }
 
 pre code {
@@ -360,7 +361,7 @@ table.dataTable thead .sorting_desc:after {
   right: 0;
 }
 
-table tr:not(:last-child) {
+table:not(.no-border) tr:not(:last-child) {
   border-bottom: 1px solid #e3e3e3;
 }
 
