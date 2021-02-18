@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.16](https://github.com/electric-cash/explorer/compare/v1.4.15...v1.4.16) (2021-02-18)
+
+
+### Bug Fixes
+
+* **jquery, highlight, utils:** update jquery, update highlight, update design ([#43](https://github.com/electric-cash/explorer/issues/43)) ([9687492](https://github.com/electric-cash/explorer/commit/96874927045431d7f2c69dfef1d71e66c58dbf7a))
+
 ### [1.4.15](https://github.com/electric-cash/explorer/compare/v1.4.14...v1.4.15) (2021-02-17)
 
 
