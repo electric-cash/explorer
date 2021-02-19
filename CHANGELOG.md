@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.18](https://github.com/electric-cash/explorer/compare/v1.4.17...v1.4.18) (2021-02-19)
+
+
+### Bug Fixes
+
+* **style.css, index.pug:** add exchange source tooltip, fix table overflow on mobile horizontal ([#45](https://github.com/electric-cash/explorer/issues/45)) ([56f9495](https://github.com/electric-cash/explorer/commit/56f9495d30b19befc21e783e6bef8d09658abd77))
+
 ### [1.4.17](https://github.com/electric-cash/explorer/compare/v1.4.16...v1.4.17) (2021-02-19)
 
 
