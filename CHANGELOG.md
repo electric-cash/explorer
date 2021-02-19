@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.19](https://github.com/electric-cash/explorer/compare/v1.4.18...v1.4.19) (2021-02-19)
+
+
+### Bug Fixes
+
+* **fix issue moving page buttons on peers site:** fix issue moving page buttons on peers site ([#44](https://github.com/electric-cash/explorer/issues/44)) ([6b00ff1](https://github.com/electric-cash/explorer/commit/6b00ff15db5012358ad5bcd89f0ad88e2b004be7))
+
 ### [1.4.18](https://github.com/electric-cash/explorer/compare/v1.4.17...v1.4.18) (2021-02-19)
 
 
