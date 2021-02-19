@@ -382,6 +382,10 @@ div.dataTables_paginate {
   word-break: break-all;
 }
 
+.xcard {
+  margin-bottom: 24px;
+}
+
 @media only screen and (min-width: 1921px) {
   .page-body {
     background-image: url("/img/images/background@3x.png");
