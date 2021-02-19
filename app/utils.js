@@ -150,14 +150,9 @@ function getCurrencyFormatInfo(formatType) {
 
 function formatCurrencyAmountWithForcedDecimalPlaces(amount, formatType, forcedDecimalPlaces) {
 	var formatInfo = getCurrencyFormatInfo(formatType);
-	const digits = 8;
 	if (formatInfo != null) {
 		var dec = new Decimal(amount);
-
 		var decimalPlaces = formatInfo.decimalPlaces;
-		//if (decimalPlaces == 0 && dec < 1) {
-		//	decimalPlaces = 5;
-		//}
 
 		if (forcedDecimalPlaces >= 0) {
 			decimalPlaces = forcedDecimalPlaces;
@@ -166,13 +161,13 @@ function formatCurrencyAmountWithForcedDecimalPlaces(amount, formatType, forcedD
 		if (formatInfo.type == "native") {
 			dec = dec.times(formatInfo.multiplier);
 
-			return addThousandsSeparators(removeTrailingZeros(dec, digits)) + " " + formatInfo.name;
+			return addThousandsSeparators(removeTrailingZeros(dec, decimalPlaces)) + " " + formatInfo.name;
 
 		} else if (formatInfo.type == "exchanged") {
 			if (global.exchangeRates != null && global.exchangeRates[formatInfo.multiplier] != null) {
 				dec = dec.times(global.exchangeRates[formatInfo.multiplier]);
 
-				return addThousandsSeparators(removeTrailingZeros(dec, digits)) + " " + formatInfo.name;
+				return addThousandsSeparators(removeTrailingZeros(dec, decimalPlaces)) + " " + formatInfo.name;
 
 			} else {
 				return formatCurrencyAmountWithForcedDecimalPlaces(amount, coinConfig.defaultCurrencyUnit.name, forcedDecimalPlaces);

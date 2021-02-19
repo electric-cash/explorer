@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.4.17](https://github.com/electric-cash/explorer/compare/v1.4.16...v1.4.17) (2021-02-19)
+
+
+### Bug Fixes
+
+* **styles.css, address.pug:** make bottom margin from block details screen bigger ([#46](https://github.com/electric-cash/explorer/issues/46)) ([32d417c](https://github.com/electric-cash/explorer/commit/32d417c3268cab1a242ae6347ba4494f1ee505f1))
+* **utils.js:** show satoshi as integer number ([#47](https://github.com/electric-cash/explorer/issues/47)) ([4a76f47](https://github.com/electric-cash/explorer/commit/4a76f47e6e446492acd97737c2d41da826b855a4))
+
 ### [1.4.16](https://github.com/electric-cash/explorer/compare/v1.4.15...v1.4.16) (2021-02-18)
 
 
