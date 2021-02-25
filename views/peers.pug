@@ -111,14 +111,14 @@ block content
 						div(style="display: none;", id=("peerinfo_" + index), class="p-3")
 							h6 Peer Details
 							pre
-								code(class="json bg-light") #{JSON.stringify(item, null, 4)}
+								code(class="json") #{JSON.stringify(item, null, 4)}
 
 							if (peerIpSummary && peerIpSummary.detailsByIp && peerIpSummary.detailsByIp[item.addr.substring(0, item.addr.lastIndexOf(":"))])
 								hr
 
 								h6 IP Geo-Location Info
 								pre
-									code(class="json bg-light") #{JSON.stringify(peerIpSummary.detailsByIp[item.addr.substring(0, item.addr.lastIndexOf(":"))], null, 4)}
+									code(class="json") #{JSON.stringify(peerIpSummary.detailsByIp[item.addr.substring(0, item.addr.lastIndexOf(":"))], null, 4)}
 
 	
 block endOfBody
@@ -130,6 +130,14 @@ block endOfBody
 			$(".data-table").DataTable({
 				searching: false,
 				info: false,
-				paging: false,
+				lengthMenu: [20, 50, 100],
+				drawCallback: function () {
+					// Add classes to pagination which are matched to design
+					const $paginationList = $('.dataTables_paginate ul');
+					$paginationList.addClass('pagination-wrap justify-content-center flex-wrap');
+					$paginationList.find('li').addClass('page-item');
+				}
 			});
+			// Hide show selectbox
+			$('#DataTables_Table_0_length').hide();
 		});

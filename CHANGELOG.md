@@ -1,5 +1,55 @@
 # Changelog
 
+### [1.4.20](https://github.com/electric-cash/explorer/compare/v1.4.19...v1.4.20) (2021-02-25)
+
+
+### Bug Fixes
+
+* **styles, layout, address:** disable stacktrace errors for production, add styling to error ([aa3a344](https://github.com/electric-cash/explorer/commit/aa3a344fe1471f5b641a5335bd2d244347ea091f))
+
+### [1.4.19](https://github.com/electric-cash/explorer/compare/v1.4.18...v1.4.19) (2021-02-19)
+
+
+### Bug Fixes
+
+* **fix issue moving page buttons on peers site:** fix issue moving page buttons on peers site ([#44](https://github.com/electric-cash/explorer/issues/44)) ([6b00ff1](https://github.com/electric-cash/explorer/commit/6b00ff15db5012358ad5bcd89f0ad88e2b004be7))
+
+### [1.4.18](https://github.com/electric-cash/explorer/compare/v1.4.17...v1.4.18) (2021-02-19)
+
+
+### Bug Fixes
+
+* **style.css, index.pug:** add exchange source tooltip, fix table overflow on mobile horizontal ([#45](https://github.com/electric-cash/explorer/issues/45)) ([56f9495](https://github.com/electric-cash/explorer/commit/56f9495d30b19befc21e783e6bef8d09658abd77))
+
+### [1.4.17](https://github.com/electric-cash/explorer/compare/v1.4.16...v1.4.17) (2021-02-19)
+
+
+### Bug Fixes
+
+* **styles.css, address.pug:** make bottom margin from block details screen bigger ([#46](https://github.com/electric-cash/explorer/issues/46)) ([32d417c](https://github.com/electric-cash/explorer/commit/32d417c3268cab1a242ae6347ba4494f1ee505f1))
+* **utils.js:** show satoshi as integer number ([#47](https://github.com/electric-cash/explorer/issues/47)) ([4a76f47](https://github.com/electric-cash/explorer/commit/4a76f47e6e446492acd97737c2d41da826b855a4))
+
+### [1.4.16](https://github.com/electric-cash/explorer/compare/v1.4.15...v1.4.16) (2021-02-18)
+
+
+### Bug Fixes
+
+* **jquery, highlight, utils:** update jquery, update highlight, update design ([#43](https://github.com/electric-cash/explorer/issues/43)) ([9687492](https://github.com/electric-cash/explorer/commit/96874927045431d7f2c69dfef1d71e66c58dbf7a))
+
+### [1.4.15](https://github.com/electric-cash/explorer/compare/v1.4.14...v1.4.15) (2021-02-17)
+
+
+### Bug Fixes
+
+* **coreapi:** change size to vsize, it has the same value ([#41](https://github.com/electric-cash/explorer/issues/41)) ([a45c09f](https://github.com/electric-cash/explorer/commit/a45c09f5235aa1f6bdd25848b152d9b92d247be9))
+
+### [1.4.14](https://github.com/electric-cash/explorer/compare/v1.4.13...v1.4.14) (2021-02-17)
+
+
+### Bug Fixes
+
+* **address, layout, peers, block:** - ([#42](https://github.com/electric-cash/explorer/issues/42)) ([6e56f71](https://github.com/electric-cash/explorer/commit/6e56f71f7fdecee1d6d0be385b87fdbda9009c40))
+
 ### [1.4.13](https://github.com/electric-cash/explorer/compare/v1.4.12...v1.4.13) (2021-02-15)
 
 

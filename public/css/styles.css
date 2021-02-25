@@ -234,9 +234,9 @@ p {
   position: relative;
   z-index: 2;
   padding: 10px 15px;
-  -webkit-box-shadow: 0px -6px 10px 1px rgba(194,194,194,0.4);
-  -moz-box-shadow: 0px -6px 10px 1px rgba(194,194,194,0.4);
-  box-shadow: 0px -6px 10px 1px rgba(194,194,194,0.4);
+  -webkit-box-shadow: 0px -6px 10px 1px rgba(194, 194, 194, 0.4);
+  -moz-box-shadow: 0px -6px 10px 1px rgba(194, 194, 194, 0.4);
+  box-shadow: 0px -6px 10px 1px rgba(194, 194, 194, 0.4);
 }
 
 .summary-split-table-content a {
@@ -255,7 +255,9 @@ p {
   padding: 3px 8px;
 }
 
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:hover, .btn-primary:active {
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:hover,
+.btn-primary:active {
   background-color: #e4a416;
   color: #fff;
   border: 1px solid #e4a416;
@@ -285,6 +287,7 @@ p {
 .hljs {
   padding: 0px;
   color: #000;
+  background-color: #fff;
 }
 
 pre code {
@@ -328,10 +331,11 @@ dd {
 }
 
 .font-scpro-regular {
-	font-family: SourceCodePro-Regular;
+  font-family: SourceCodePro-Regular;
 }
 
-.table td, .table th {
+.table td,
+.table th {
   border-top: 0;
 }
 
@@ -343,22 +347,47 @@ dd {
   max-height: 200px;
 }
 
-table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before {
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before {
   left: -0.5em;
   right: 0;
 }
 
-table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after {
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
   left: 0em;
   right: 0;
 }
 
-table tr:not(:last-child) {
+table:not(.no-border) tr:not(:last-child) {
   border-bottom: 1px solid #e3e3e3;
 }
 
-table {
-  border-collapse: collapse;
+table,
+table.dataTable {
+  border-collapse: collapse !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.15) !important;
+}
+
+div.dataTables_paginate {
+  margin: 15px 0px !important;
+}
+
+.tooltip-inner {
+  word-break: break-all;
+}
+
+.xcard {
+  margin-bottom: 24px;
+}
+
+.alert.alert-warning {
+  margin-top: 10px;
 }
 
 @media only screen and (min-width: 1921px) {
@@ -383,6 +412,12 @@ table {
   .settings-icon {
     margin-top: 0.5rem;
     margin-left: 0px;
+  }
+
+  .table-responsive-sm {
+    overflow: scroll;
+    display: block;
+    width: 100%;
   }
 }
 
