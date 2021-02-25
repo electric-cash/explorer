@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.20](https://github.com/electric-cash/explorer/compare/v1.4.19...v1.4.20) (2021-02-25)
+
+
+### Bug Fixes
+
+* **styles, layout, address:** disable stacktrace errors for production, add styling to error ([aa3a344](https://github.com/electric-cash/explorer/commit/aa3a344fe1471f5b641a5335bd2d244347ea091f))
+
 ### [1.4.19](https://github.com/electric-cash/explorer/compare/v1.4.18...v1.4.19) (2021-02-19)
 
 
