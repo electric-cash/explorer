@@ -13,6 +13,8 @@ configPaths.filter(fs.existsSync).forEach(path => {
 	dotenv.config({ path });
 });
 
+global.cacheStats = {};
+
 // debug module is already loaded by the time we do dotenv.config
 // so refresh the status of DEBUG env var
 var debug = require("debug");
@@ -138,6 +140,8 @@ function getSourcecodeProjectMetadata() {
 
 
 app.runOnStartup = function() {
+	global.appStartTime = new Date().getTime();
+
 	global.config = config;
 	global.coinConfig = coins[config.coin];
 	global.coinConfigs = coins;
@@ -156,6 +160,7 @@ app.runOnStartup = function() {
 	};
 
 	global.client = new bitcoinCore(rpcClientProperties);
+	global.rpcClientNoTimeout = new bitcoinCore({ ...rpcClientProperties, timeout: 0 });
 
 	coreApi.getNetworkInfo().then(function(getnetworkinfo) {
 		debugLog(`Connected via RPC to node. Basic info: version=${getnetworkinfo.version}, subversion=${getnetworkinfo.subversion}, protocolversion=${getnetworkinfo.protocolversion}, services=${getnetworkinfo.localservices}`);
@@ -223,18 +228,19 @@ app.runOnStartup = function() {
 
 	loadMiningPoolConfigs();
 
-	if (global.sourcecodeVersion == null && fs.existsSync('.git')) {
-		simpleGit(".").log(["-n 1"], function(err, log) {
-			if (err) {
-				utils.logError("3fehge9ee", err, {desc:"Error accessing git repo"});
-
-				return;
-			}
-			
-			global.sourcecodeVersion = log.all[0].hash.substring(0, 10);
-			global.sourcecodeDate = log.all[0].date.substring(0, "0000-00-00".length);
-		});
-	}
+	// @todo: use version in package.json
+	// if (global.sourcecodeVersion == null && fs.existsSync('.git')) {
+	// 	simpleGit(".").log(["-n 1"], function(err, log) {
+	// 		if (err) {
+	// 			utils.logError("3fehge9ee", err, {desc:"Error accessing git repo"});
+	//
+	// 			return;
+	// 		}
+	//
+	// 		global.sourcecodeVersion = log.all[0].hash.substring(0, 10);
+	// 		global.sourcecodeDate = log.all[0].date.substring(0, "0000-00-00".length);
+	// 	});
+	// }
 
 	if (config.demoSite) {
 		getSourcecodeProjectMetadata();
@@ -261,12 +267,27 @@ app.runOnStartup = function() {
 		utils.refreshMiningPoolsData();
 	}
 
+	const refreshInterval = {
+		exchangeRates: parseInt(process.env.BTCEXP_REFRESH_EXCHANGE_RATE_INTERVAL || 5),		// default: 5min
+		coinSupply: parseInt(process.env.BTCEXP_REFRESH_COIN_SUPPLY_INTERVAL || 1),				// default: 1min
+		walletsNumber: parseInt(process.env.BTCEXP_REFRESH_WALLETS_NUMBER_INTERVAL || 1),		// default: 1min
+		txVolume: parseInt(process.env.BTCEXP_REFRESH_TX_VOLUME_INTERVAL || 1),					// default: 1min
+		miningPoolsData: parseInt(process.env.BTCEXP_REFRESH_MINING_POOLS_DATA_INTERVAL || 1),	// default: 1min
+	};
+
+	// just dump info
+	debugLog(`RefreshExchangeRates interval: ${refreshInterval.exchangeRates}min`);
+	debugLog(`RefreshCoinSupply interval: ${refreshInterval.coinSupply}min`);
+	debugLog(`RefreshWalletsNumber interval: ${refreshInterval.walletsNumber}min`);
+	debugLog(`RefreshTxVolume interval: ${refreshInterval.txVolume}min`);
+	debugLog(`RefreshMiningPoolsData interval: ${refreshInterval.miningPoolsData}min`);
+
 	// refresh exchange rate periodically
-	setInterval(utils.refreshExchangeRates, 300000);
-	setInterval(utils.refreshCoinSupply, 60000);
-	setInterval(utils.refreshWalletsNumber, 60000);
-	setInterval(utils.refreshTxVolume, 60000);
-	setInterval(utils.refreshMiningPoolsData, 60000);
+	setInterval(utils.refreshExchangeRates, refreshInterval.exchangeRates * 60 * 1000);
+	setInterval(utils.refreshCoinSupply, refreshInterval.coinSupply * 60 * 1000);
+	setInterval(utils.refreshWalletsNumber, refreshInterval.walletsNumber * 60 * 1000);
+	setInterval(utils.refreshTxVolume, refreshInterval.txVolume * 60 * 1000);
+	setInterval(utils.refreshMiningPoolsData, refreshInterval.miningPoolsData * 60 * 1000);
 
 	utils.logMemoryUsage();
 	setInterval(utils.logMemoryUsage, 5000);

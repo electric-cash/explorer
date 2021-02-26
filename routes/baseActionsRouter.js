@@ -21,6 +21,8 @@ var coreApi = require("./../app/api/coreApi.js");
 var addressApi = require("./../app/api/addressApi.js");
 var helpers = require("./../app/helpers/colorGenerator.js");
 
+const v8 = require('v8');
+
 const forceCsrf = csurf({ ignoreMethods: [] });
 
 router.get("/", function(req, res, next) {
@@ -284,7 +286,8 @@ router.get("/blocks", function(req, res, next) {
 	var sort = "desc";
 
 	if (req.query.limit) {
-		limit = parseInt(req.query.limit);
+		var tmpLimit = parseInt(req.query.limit);
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 	}
 
 	if (req.query.offset) {
@@ -295,7 +298,7 @@ router.get("/blocks", function(req, res, next) {
 		sort = req.query.sort;
 	}
 
-	res.locals.limit = limit;
+	res.locals.limit = limit > 50 ? 20 : limit;
 	res.locals.offset = offset;
 	res.locals.sort = sort;
 	res.locals.paginationBaseUrl = "/blocks";
@@ -457,7 +460,8 @@ router.get("/block-height/:blockHeight", function(req, res, next) {
 	var offset = 0;
 
 	if (req.query.limit) {
-		limit = parseInt(req.query.limit);
+		var tmpLimit = parseInt(req.query.limit);
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 
 		// for demo sites, limit page sizes
 		if (config.demoSite && limit > config.site.blockTxPageSize) {
@@ -501,7 +505,8 @@ router.get("/block/:blockHash", function(req, res, next) {
 	var offset = 0;
 
 	if (req.query.limit) {
-		limit = parseInt(req.query.limit);
+		var tmpLimit = parseInt(req.query.limit);
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 
 		// for demo sites, limit page sizes
 		if (config.demoSite && limit > config.site.blockTxPageSize) {
@@ -632,7 +637,8 @@ router.get("/address/:address", function(req, res, next) {
 
 	
 	if (req.query.limit) {
-		limit = parseInt(req.query.limit);
+		var tmpLimit = parseInt(req.query.limit);
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 
 		// for demo sites, limit page sizes
 		if (config.demoSite && limit > config.site.addressTxPageSize) {
@@ -954,7 +960,7 @@ router.post("/rpc-terminal", function(req, res, next) {
 		return;
 	}
 
-	client.command([{method:cmd, parameters:parsedParams}], function(err, result, resHeaders) {
+	global.rpcClientNoTimeout.command([{method:cmd, parameters:parsedParams}], function(err, result, resHeaders) {
 		debugLog("Result[1]: " + JSON.stringify(result, null, 4));
 		debugLog("Error[2]: " + JSON.stringify(err, null, 4));
 		debugLog("Headers[3]: " + JSON.stringify(resHeaders, null, 4));
@@ -1127,7 +1133,8 @@ router.get("/unconfirmed-tx", function(req, res, next) {
 	var sort = "desc";
 
 	if (req.query.limit) {
-		limit = parseInt(req.query.limit);
+		var tmpLimit = parseInt(req.query.limit);
+		limit = tmpLimit > 100 ? 100 : tmpLimit;
 	}
 
 	if (req.query.offset) {
@@ -1248,6 +1255,28 @@ router.get("/mining-pools", function(req, res, next) {
 	res.locals.colors = JSON.stringify(colors);
 
 	res.render("mining-pools");
+	next();
+});
+
+router.get("/stats", function(req, res, next) {
+	res.locals.appStartTime = global.appStartTime;
+	res.locals.memstats = v8.getHeapStatistics();
+	res.locals.rpcStats = global.rpcStats;
+	res.locals.cacheStats = global.cacheStats;
+	res.locals.errorStats = global.errorStats;
+
+	res.locals.appConfig = {
+		privacyMode: config.privacyMode,
+		demoSite: config.demoSite,
+		rpcConcurrency: config.rpcConcurrency,
+		addressApi: config.addressApi,
+		ipStackComApiAccessKey: !!config.credentials.ipStackComApiAccessKey,
+		redisCache: !!config.redisUrl,
+		noInmemoryRpcCache: config.noInmemoryRpcCache
+	};
+
+	res.render("stats");
+
 	next();
 });
 
