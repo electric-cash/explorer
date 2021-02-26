@@ -1,5 +1,22 @@
 # Changelog
 
+### [1.4.21](https://github.com/electric-cash/explorer/compare/v1.4.20...v1.4.21) (2021-02-26)
+
+
+### Bug Fixes
+
+* **btc:** resolve conflicts ([6e8044b](https://github.com/electric-cash/explorer/commit/6e8044b02578458dcf04352630ff79da4dfdf112))
+* **pagination:** set hard limit to 100 ([151af44](https://github.com/electric-cash/explorer/commit/151af44d6b2e457cf34ffa49fb56d6343434ccce))
+* **rebase:** master ([f08daf8](https://github.com/electric-cash/explorer/commit/f08daf874a9628589b0e98d343e843f7587cb5aa))
+* **testnet:** fix parsing testnet option and include it in cache prefix ([13f24a2](https://github.com/electric-cash/explorer/commit/13f24a21d0d70033f381852bd84a1853291295f9))
+* **testnet:** handle default values for enable testnet ([4a130f4](https://github.com/electric-cash/explorer/commit/4a130f4442c418b98a0a9aad3c4b0dca9e2ee60f))
+* **testnet:** parsing env ([a85b678](https://github.com/electric-cash/explorer/commit/a85b678308100b7b6844bbf2ab12be211f8f958b))
+
+
+### Performance Improvements
+
+* **node:** bump version to 12x ([93a2f22](https://github.com/electric-cash/explorer/commit/93a2f229de458ffefbbe03f18ecaa40c116a3d67))
+
 ### [1.4.20](https://github.com/electric-cash/explorer/compare/v1.4.19...v1.4.20) (2021-02-25)
 
 
