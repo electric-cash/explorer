@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.4.22](https://github.com/electric-cash/explorer/compare/v1.4.21...v1.4.22) (2021-03-01)
+
+
+### Bug Fixes
+
+* **styles.css:** change bottom margin of the card component ([8ab09ae](https://github.com/electric-cash/explorer/commit/8ab09ae1beb14076635df9842452ef8a9a2264bf))
+
 ### [1.4.21](https://github.com/electric-cash/explorer/compare/v1.4.20...v1.4.21) (2021-02-26)
 
 
