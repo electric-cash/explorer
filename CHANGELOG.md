@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.4.23](https://github.com/electric-cash/explorer/compare/v1.4.22...v1.4.23) (2021-04-27)
+
+
+### Bug Fixes
+
+* change shrinkwrap to package-lock ([0d28af4](https://github.com/electric-cash/explorer/commit/0d28af41336369c58017f4e3966833391685fba7))
+* use cookie session to resolve problem with multiple instances behind load balancer ([d126af1](https://github.com/electric-cash/explorer/commit/d126af1952414aa405aab30ad5f4bc76ff2d1d64))
+
 ### [1.4.22](https://github.com/electric-cash/explorer/compare/v1.4.21...v1.4.22) (2021-03-01)
 
 
