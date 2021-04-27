@@ -28,7 +28,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require("express-session");
+var session = require('cookie-session')
 var csurf = require("csurf");
 var config = require("./app/config.js");
 var simpleGit = require('simple-git');
@@ -77,9 +77,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session({
-	secret: config.cookieSecret,
-	resave: false,
-	saveUninitialized: false
+	name: 'elcash.session',
+	keys: [
+		config.cookieSecret
+	]
 }));
 app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
