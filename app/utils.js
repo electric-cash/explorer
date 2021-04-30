@@ -32,7 +32,6 @@ var ipRedisCache = null;
 if (redisCache.active) {
 	var onRedisCacheEvent = function(cacheType, eventType, cacheKey) {
 		global.cacheStats.redis[eventType]++;
-		//debugLog(`cache.${cacheType}.${eventType}: ${cacheKey}`);
 	}
 
 	ipRedisCache = redisCache.createCache("v0", onRedisCacheEvent);
@@ -248,8 +247,6 @@ function logMemoryUsage() {
 
 	var mbTotal = process.memoryUsage().heapTotal / 1024 / 1024;
 	mbTotal = Math.round(mbTotal * 100) / 100;
-
-	//debugLog("memoryUsage: heapUsed=" + mbUsed + ", heapTotal=" + mbTotal + ", ratio=" + parseInt(mbUsed / mbTotal * 100));
 }
 
 function getMinerFromCoinbaseTx(tx) {

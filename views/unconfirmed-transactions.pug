@@ -6,10 +6,6 @@ block headContent
 block content
 	h1(class="page-title") Unconfirmed Transactions
 
-	if (false)
-		pre
-			code #{JSON.stringify(mempoolDetails.txCount, null, 4)}
-
 	if (mempoolDetails)
 		- var txCount = mempoolDetails.txCount;
 

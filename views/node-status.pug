@@ -7,17 +7,6 @@ block content
 	h1(class="page-title") Node Status
 
 	if (getblockchaininfo)
-		if (false)
-			p Data from RPC commands 
-				a(href="/rpc-browser?method=getblockchaininfo") getblockchaininfo
-				span , 
-				a(href="/rpc-browser?method=getnetworkinfo") getnetworkinfo
-				span , and 
-				a(href="/rpc-browser?method=getnettotals") getnettotals
-
-		if (false)
-			pre
-				code(class="json bg-light") #{JSON.stringify(getblockchaininfo, null, 4)}
 
 		ul(class='nav nav-tabs tabs')
 			li(class="nav-item tabs-item")
