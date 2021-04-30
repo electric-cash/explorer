@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.5.1](https://github.com/electric-cash/explorer/compare/v1.5.0...v1.5.1) (2021-04-30)
+
+
+### Bug Fixes
+
+* Resolve problem with address page ([d7d6232](https://github.com/electric-cash/explorer/commit/d7d6232f569f774474fdea7cb2f5da4a7d7fe132))
+
 ## [1.5.0](https://github.com/electric-cash/explorer/compare/v1.4.23...v1.5.0) (2021-04-30)
 
 
