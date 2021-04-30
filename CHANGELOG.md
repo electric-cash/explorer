@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/electric-cash/explorer/compare/v1.4.23...v1.5.0) (2021-04-30)
+
+
+### Features
+
+* remove unused methods, dead if's, commented code ([6762a90](https://github.com/electric-cash/explorer/commit/6762a908ee12520603c01c57520865c6cb336387))
+
 ### [1.4.23](https://github.com/electric-cash/explorer/compare/v1.4.22...v1.4.23) (2021-04-27)
 
 
