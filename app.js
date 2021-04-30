@@ -76,6 +76,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.set('etag', false);
 app.use(session({
 	name: 'elcash.session',
 	keys: [

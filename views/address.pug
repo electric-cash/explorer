@@ -281,56 +281,56 @@ block content
 								else if (transactions.length == 0)
 									span No transactions found
 
-								each tx, txIndex in transactions
-									div(class=("xcard rounded shadow-sm " + ((txIndex < (transactions.length - 1) || txids.length > limit) ? "mb-4" : "")))
-										div(class="card-header clearfix")
-											div(class="float-left", style="margin-right: 0px;")
-												if (sort == "desc")
-													span ##{(addressDetails.txCount - offset - txIndex).toLocaleString()}
-												else
-													span ##{(offset + txIndex + 1).toLocaleString()}
-												span  &ndash;
+							each tx, txIndex in transactions
+								div(class=("xcard rounded shadow-sm " + ((txIndex < (transactions.length - 1) || txids.length > limit) ? "mb-4" : "")))
+									div(class="card-header clearfix")
+										div(class="float-left", style="margin-right: 0px;")
+											if (sort == "desc")
+												span ##{(addressDetails.txCount - offset - txIndex).toLocaleString()}
+											else
+												span ##{(offset + txIndex + 1).toLocaleString()}
+											span  &ndash;
 
-											div(class="row")
-												div(class="col-md-6")
-													if (tx && tx.txid)
-														a(href=("/tx/" + tx.txid), class="blue-link") #{tx.txid}
+										div(class="row")
+											div(class="col-md-6")
+												if (tx && tx.txid)
+													a(href=("/tx/" + tx.txid), class="blue-link") #{tx.txid}
 
-														if (global.specialTransactions && global.specialTransactions[tx.txid])
-															span  
-															a(data-toggle="tooltip", title=(coinConfig.name + " Fun! See transaction for details"))
-																i(class="fas fa-certificate text-primary")
+													if (global.specialTransactions && global.specialTransactions[tx.txid])
+														span
+														a(data-toggle="tooltip", title=(coinConfig.name + " Fun! See transaction for details"))
+															i(class="fas fa-certificate text-primary")
 
-												div(class="col-md-6")
-													div(class="text-md-right")
-														if (tx.time)
-															span #{moment.utc(new Date(tx["time"] * 1000)).format("Y-MM-DD HH:mm:ss")} utc
-															- var timeAgoTime = tx.time;
-															include includes/time-ago.pug
+											div(class="col-md-6")
+												div(class="text-md-right")
+													if (tx.time)
+														span #{moment.utc(new Date(tx["time"] * 1000)).format("Y-MM-DD HH:mm:ss")} utc
+														- var timeAgoTime = tx.time;
+														include includes/time-ago.pug
 
-														else
-															span(class="text-danger") Unconfirmed
+													else
+														span(class="text-danger") Unconfirmed
 
-												div(class="col")
-													if (addrGainsByTx[tx.txid])
-														- var currencyValue = addrGainsByTx[tx.txid];
-														span(class="text-success") +
-															include includes/value-display.pug
-
-														if (addrLossesByTx[tx.txid])
-															span  / 
+											div(class="col")
+												if (addrGainsByTx[tx.txid])
+													- var currencyValue = addrGainsByTx[tx.txid];
+													span(class="text-success") +
+														include includes/value-display.pug
 
 													if (addrLossesByTx[tx.txid])
-														- var currencyValue = addrLossesByTx[tx.txid];
-														span(class="text-danger") -
-															include includes/value-display.pug
-													
-										div(class="card-body")
-											- var txInputs = txInputsByTransaction[tx.txid];
-											- var blockHeight = blockHeightsByTxid[tx.txid];
-											- var txIOHighlightAddress = address;
+														span  /
 
-											include includes/transaction-io-details.pug
+												if (addrLossesByTx[tx.txid])
+													- var currencyValue = addrLossesByTx[tx.txid];
+													span(class="text-danger") -
+														include includes/value-display.pug
+
+								div(class="card-body")
+									- var txInputs = txInputsByTransaction[tx.txid];
+									- var blockHeight = blockHeightsByTxid[tx.txid];
+									- var txIOHighlightAddress = address;
+
+									include includes/transaction-io-details.pug
 
 							if (!crawlerBot && addressDetails && addressDetails.txCount > limit)
 								- var txCount = addressDetails.txCount;
