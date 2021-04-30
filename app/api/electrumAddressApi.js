@@ -168,7 +168,6 @@ function getAddressTxids(addrScripthash) {
 			return electrumClient.blockchainScripthash_getHistory(addrScripthash);
 
 		}).then(function(results) {
-			debugLog(`getAddressTxids=${utils.ellipsize(JSON.stringify(results), 200)}`);
 
 			if (addrScripthash == coinConfig.genesisCoinbaseOutputAddressScripthash) {
 				for (var i = 0; i < results.length; i++) {

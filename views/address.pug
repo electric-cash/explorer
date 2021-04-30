@@ -133,10 +133,6 @@ block content
 												- var timeAgoTime = firstSeenTransaction.time;
 												include includes/time-ago.pug
 												
-												if (false)
-													pre
-														code(class="json bg-light") #{JSON.stringify(firstSeenTransaction)}
-
 									if (balance)
 										if (balance.conflictedResults)
 											div(class="row")
@@ -198,32 +194,6 @@ block content
 													img(src="/img/icons/check.svg", class="check-icon")
 												else
 													img(src="/img/icons/remove.svg", class="remove-icon")
-
-					if (false)
-						div(class="card mb-3 shadow-sm")
-							div(class="card-header")
-								span(class="h6") Flags
-							div(class="card-body")
-								div(class="table-responsive")
-									table(class="table text-center")
-										thead
-											tr
-												th Is Valid?
-												th Is Script?
-												th Is Witness?
-												th Is Mine?
-												th Is Watch-Only?
-										tbody
-											tr
-												- var x = result.validateaddress;
-												- var flags = [x.isvalid, x.isscript, x.iswitness, x.ismine, x.iswatchonly];
-
-												each flag in flags
-													td
-														if (flag)
-															img(src="/img/icons/check.svg", class="check-icon")
-														else
-															img(src="/img/icons/remove.svg", class="remove-icon")
 
 					div(class="card mb-3 shadow-sm")
 						div(class="card-top")
@@ -288,13 +258,10 @@ block content
 										span The transaction history for this address was requested from mulitple ElectrumX servers and the results did not match. The results below were obtained only from 
 										span(class="font-weight-bold") #{electrumHistory.server}
 
-
-							if (true)
 								if (addressApiError && addressApiError.error && addressApiError.error.code && addressApiError.error.code == -32600)
 									span Failed to retrieve transaction history from ElectrumX. See 
 									a(href="https://github.com/janoside/btc-rpc-explorer/issues/67") Issue #67
 									span  for more information.
-
 
 								else if (addressApiError && addressApiError.userText)
 									div.text-danger Error: #{addressApiError.userText}
@@ -359,20 +326,11 @@ block content
 															include includes/value-display.pug
 													
 										div(class="card-body")
-											if (true)
-												- var txInputs = txInputsByTransaction[tx.txid];
-												- var blockHeight = blockHeightsByTxid[tx.txid];
-												- var txIOHighlightAddress = address;
+											- var txInputs = txInputsByTransaction[tx.txid];
+											- var blockHeight = blockHeightsByTxid[tx.txid];
+											- var txIOHighlightAddress = address;
 
-												include includes/transaction-io-details.pug
-
-							else
-								p Since this explorer is database-free, it doesn't natively support address transaction history. However, you can configure it to communicate with one or more ElectrumX servers to build and display this data. In doing so, you should be aware that you'll be trusting those ElectrumX servers. If you configure multiple servers the results obtained from each will be cross-referenced against the others. Communicating with ElectrumX servers will also impact your privacy since the servers will know what addresses you're interested in. If these tradeoffs are acceptable, you can see a list of public ElectrumX servers here: 
-								a(href="https://uasf.saltylemon.org/electrum") https://uasf.saltylemon.org/electrum
-							
-							if (false)
-								pre
-									code(class="json bg-light") #{JSON.stringify(transactions, null, 4)}
+											include includes/transaction-io-details.pug
 
 							if (!crawlerBot && addressDetails && addressDetails.txCount > limit)
 								- var txCount = addressDetails.txCount;
@@ -387,8 +345,6 @@ block content
 
 								include includes/pagination.pug
 
-							
-				
 				div(id="tab-json", class="tab-pane", role="tabpanel")
 					div(class="card mb-4 shadow-sm card-menu")
 						div(class="card-top")
@@ -406,5 +362,3 @@ block content
 						div(class="card-bottom")
 							pre
 								code #{JSON.stringify(addressDetails, null, 4)}
-
-		

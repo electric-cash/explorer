@@ -136,15 +136,6 @@ div(class="row")
 							div(class="tx-io-desc")
 								if (vout.scriptPubKey)
 									if (vout.scriptPubKey.addresses)
-										if (false)
-											if (vout.scriptPubKey.type == "pubkey")
-												span(class="border border-secondary rounded bg-light px-2 py-1 mr-2") P2PK
-											else if (vout.scriptPubKey.type == "pubkeyhash")
-												span(class="border border-secondary rounded bg-light px-2 py-1 mr-2") P2PKH
-											else if (vout.scriptPubKey.type == "scripthash")
-												span(class="border border-secondary rounded bg-light px-2 py-1 mr-2") P2SH
-											else if (vout.scriptPubKey.type == "witness_v0_keyhash")
-												span(class="border border-secondary rounded bg-light px-2 py-1 mr-2") V0_P2WPKH
 
 										a(id=("output-" + voutIndex), href=("/address/" + vout.scriptPubKey.addresses[0]), class="blue-link")
 											span(class="word-wrap ") #{vout.scriptPubKey.addresses[0]}

@@ -189,8 +189,6 @@ block content
 						//- 	else
 						//- 		p(class="lead") -.----BTC
 
-
-
 		include includes/tools-card.pug
 		
 		if (latestBlocks)
@@ -216,7 +214,6 @@ block content
 
 					include includes/blocks-list.pug
 
-
 		if (txStats)
 			div(class="card mb-4 shadow-sm")
 				div(class="card-top")
@@ -232,29 +229,28 @@ block content
 					hr(class="hr")
 
 				div(class="card-bottom")
-					if (true)
-						div(class="row")
-							div(class="col-lg-6")
-								div(class="table-responsive")
-									table(class="table text-right mb-4 mb-lg-0 transaction-stats-table")
-										thead
-											tr
-												th Period
-												th Transactions
-												th Transactions Per Sec
-										tbody
-											each item, index in chainTxStats
-												tr()
-													td #{chainTxStatsLabels[index]}
-													td #{item.window_tx_count.toLocaleString()}
-													td #{new Decimal(item.txrate).toDecimalPlaces(4)}
+					div(class="row")
+						div(class="col-lg-6")
+							div(class="table-responsive")
+								table(class="table text-right mb-4 mb-lg-0 transaction-stats-table")
+									thead
+										tr
+											th Period
+											th Transactions
+											th Transactions Per Sec
+									tbody
+										each item, index in chainTxStats
+											tr()
+												td #{chainTxStatsLabels[index]}
+												td #{item.window_tx_count.toLocaleString()}
+												td #{new Decimal(item.txrate).toDecimalPlaces(4)}
 
 
-							div(class="col-lg-6")
-								script var txRateDataDay = [];
-								each item, index in txStats.txCountStats.txRates
-									script txRateDataDay.push({x:#{item.x}, y:#{item.y}});
+						div(class="col-lg-6")
+							script var txRateDataDay = [];
+							each item, index in txStats.txCountStats.txRates
+								script txRateDataDay.push({x:#{item.x}, y:#{item.y}});
 
-								- var graphData = {id:"graphRateDay", dataVar:"txRateDataDay", labels:txStats.txCountStats.txLabels, title:"Tx Rate, 24hr", xaxisTitle:"Block", xaxisStep:5, yaxisTitle:"Tx Per Sec"};
-								include ./includes/line-graph.pug
-											
+							- var graphData = {id:"graphRateDay", dataVar:"txRateDataDay", labels:txStats.txCountStats.txLabels, title:"Tx Rate, 24hr", xaxisTitle:"Block", xaxisStep:5, yaxisTitle:"Tx Per Sec"};
+							include ./includes/line-graph.pug
+
