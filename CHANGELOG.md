@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.6.0](https://github.com/electric-cash/explorer/compare/v1.5.1...v1.6.0) (2021-05-25)
+
+
+### Features
+
+* added testnet configuration in env sample ([e292df0](https://github.com/electric-cash/explorer/commit/e292df079f786431388e0f7d043d85d7d345dc21))
+* change node version to v16 ([56b81df](https://github.com/electric-cash/explorer/commit/56b81df7f04ab1d15b041f807d8a7811953c5f6a))
+* docker-compose setup for local development ([86f403e](https://github.com/electric-cash/explorer/commit/86f403e7a0cc909d6ed6c93dc5ca1d180909fd2d))
+* env file for local docker development setup ([e3c3d9d](https://github.com/electric-cash/explorer/commit/e3c3d9da48fc768288ba8dc0201c953f2f6c523e))
+* remove fun subpage, refactor code ([955a4a7](https://github.com/electric-cash/explorer/commit/955a4a7ce6a8104572f60c4588e2e0d63588b35a))
+
 ### [1.5.1](https://github.com/electric-cash/explorer/compare/v1.5.0...v1.5.1) (2021-04-30)
 
 
