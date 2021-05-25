@@ -1,10 +1,7 @@
-var btc = require("./coins/btc.js");
-var ltc = require("./coins/ltc.js");
+var elcash = require("./coins/elcash.js");
 
 module.exports = {
-	"ELCASH": btc,
-	"BTC": btc,
-	"LTC": ltc,
+	"ELCASH": elcash,
 
-	"coins":["ELCASH", "BTC", "LTC"]
+	"coins":["ELCASH"]
 };
