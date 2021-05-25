@@ -1,0 +1,59 @@
+---
+version: '3'
+
+services:
+  explorer:
+    build:
+      dockerfile: ./Dockerfile-dev
+      context: .
+    ports:
+      - 3002:3002
+    env_file:
+      - .env
+    volumes:
+      - $PWD:/workspace
+
+  api:
+    image: electriccash/api:0.2.0
+    command: [ "gunicorn", "-w", "3", "--bind", "0.0.0.0:5000", "--access-logfile", "-", "api:app" ]
+    depends_on:
+      - mongodb
+    env_file:
+      - .env-local-docker
+
+  api_deamon:
+    image: electriccash/api:0.2.0
+    command: [ "python3", "daemon.py" ]
+    depends_on:
+      - mongodb
+    env_file:
+      - .env-local-docker
+
+  mongodb:
+    image: mongo:4.2
+    command: mongod --logpath=/dev/null
+    environment:
+      MONGO_INITDB_DATABASE: blockchain
+    volumes:
+      - mongo-data:/data/db
+
+  electriccash:
+    image: electriccash/electriccash:0.25.0
+    env_file:
+      - .env-local-docker
+    volumes:
+      - electriccash-data:/elcash/blockchain
+
+  electrumx:
+    image: electriccash/electrumx:0.2.1
+    environment:
+      NET: testnet
+      DAEMON_URL: http://user:password@electriccash:18332/
+      SERVICES: tcp://:50001
+    volumes:
+      - electrumx-data:/db
+
+volumes:
+  mongo-data:
+  electriccash-data:
+  electrumx-data:
