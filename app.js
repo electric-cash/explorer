@@ -2,12 +2,12 @@
 
 'use strict';
 
-var os = require('os');
-var path = require('path');
-var dotenv = require("dotenv");
-var fs = require('fs');
+const os = require('os');
+const path = require('path');
+const dotenv = require("dotenv");
+const fs = require('fs');
 
-var configPaths = [ path.join(os.homedir(), '.config', 'elcash-rpc-explorer.env'), path.join(process.cwd(), '.env') ];
+const configPaths = [path.join(os.homedir(), '.config', 'elcash-rpc-explorer.env'), path.join(process.cwd(), '.env')];
 configPaths.filter(fs.existsSync).forEach(path => {
 	console.log('Loading env file:', path);
 	dotenv.config({ path });
@@ -21,10 +21,10 @@ var debug = require("debug");
 debug.enable(process.env.DEBUG || "btcexp:app,btcexp:error");
 
 var debugLog = debug("btcexp:app");
-var debugPerfLog = debug("btcexp:actionPerformace");
 
-var express = require('express');
-var favicon = require('serve-favicon');
+const express = require('express');
+const helmet = require("helmet");
+const favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -51,7 +51,11 @@ var crawlerBotUserAgentStrings = [ "Googlebot", "Bingbot", "Slurp", "DuckDuckBot
 
 var baseActionsRouter = require('./routes/baseActionsRouter');
 
-var app = express();
+const app = express();
+app.use(helmet({
+	contentSecurityPolicy: false,
+}));
+app.set('etag', false);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -66,7 +70,6 @@ app.set('view engine', 'pug');
 
 // basic http authentication
 if (process.env.BTCEXP_BASIC_AUTH_PASSWORD) {
-	app.disable('x-powered-by');
 	app.use(auth(process.env.BTCEXP_BASIC_AUTH_PASSWORD));
 }
 
@@ -76,14 +79,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.set('etag', false);
 app.use(session({
 	name: 'elcash.session',
 	keys: [
 		config.cookieSecret
 	]
 }));
-app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 process.on("unhandledRejection", (reason, p) => {
@@ -185,26 +186,8 @@ app.runOnStartup = function() {
 		});
 	}
 
-	global.specialTransactions = {};
-	global.specialBlocks = {};
-	global.specialAddresses = {};
-
 	if (config.donations.addresses && config.donations.addresses[coinConfig.ticker]) {
 		global.specialAddresses[config.donations.addresses[coinConfig.ticker].address] = {type:"donation"};
-	}
-
-	if (global.coinConfig.historicalData) {
-		global.coinConfig.historicalData.forEach(function(item) {
-			if (item.type == "blockheight") {
-				global.specialBlocks[item.blockHash] = item;
-
-			} else if (item.type == "tx") {
-				global.specialTransactions[item.txid] = item;
-
-			} else if (item.type == "address") {
-				global.specialAddresses[item.address] = {type:"fun", addressInfo:item};
-			}
-		});
 	}
 
 	if (config.addressApi) {
@@ -292,15 +275,7 @@ app.runOnStartup = function() {
 	setInterval(utils.refreshMiningPoolsData, refreshInterval.miningPoolsData * 60 * 1000);
 
 	utils.logMemoryUsage();
-	setInterval(utils.logMemoryUsage, 5000);
 };
-
-app.use(function(req, res, next) {
-	req.startTime = Date.now();
-	req.startMem = process.memoryUsage().heapUsed;
-
-	next();
-});
 
 app.use(function(req, res, next) {
 	// make session available in templates
@@ -408,13 +383,6 @@ app.use(csurf(), (req, res, next) => {
 });
 
 app.use('/', baseActionsRouter);
-
-app.use(function(req, res, next) {
-	var time = Date.now() - req.startTime;
-	var memdiff = process.memoryUsage().heapUsed - req.startMem;
-
-	debugPerfLog("Finished action '%s' in %d ms", req.path, time);
-});
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

@@ -1,5 +1,5 @@
-var express = require('express');
-var csurf = require('csurf');
+const express = require('express');
+const csurf = require('csurf');
 var router = express.Router();
 var moment = require('moment');
 var qrcode = require('qrcode');
@@ -291,10 +291,10 @@ router.post("/search", function(req, res, next) {
 		return;
 	}
 
-	var query = req.body.query.toLowerCase().trim();
-	var rawCaseQuery = req.body.query.trim();
+	var query = escape(req.body.query.toLowerCase().trim());
+	var rawCaseQuery = escape(req.body.query.trim());
 
-	req.session.query = req.body.query;
+	req.session.query = escape(req.body.query);
 
 	if (query.length == 64) {
 		coreApi.getRawTransaction(query).then(function(tx) {
@@ -913,19 +913,6 @@ router.get("/tx-stats", function(req, res, next) {
 
 router.get("/about", function(req, res, next) {
 	res.render("about");
-
-	next();
-});
-
-router.get("/fun", function(req, res, next) {
-	var sortedList = coins[config.coin].historicalData;
-	sortedList.sort(function(a, b){
-		return ((a.date > b.date) ? 1 : -1);
-	});
-
-	res.locals.historicalData = sortedList;
-	
-	res.render("fun");
 
 	next();
 });
