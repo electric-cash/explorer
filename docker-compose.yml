@@ -8,6 +8,10 @@ services:
       context: .
     ports:
       - 3002:3002
+    depends_on:
+      - electriccash
+      - electrumx
+      - api
     env_file:
       - .env
     volumes:
@@ -39,6 +43,7 @@ services:
 
   electriccash:
     image: electriccash/electriccash:0.25.0
+    command: ["elcashd","-conf=/elcash/elcash.conf", "-rpcworkqueue=4096"]
     env_file:
       - .env-local-docker
     volumes:
@@ -46,6 +51,8 @@ services:
 
   electrumx:
     image: electriccash/electrumx:0.2.1
+    depends_on:
+      - electriccash
     environment:
       NET: testnet
       DAEMON_URL: http://user:password@electriccash:18332/

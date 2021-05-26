@@ -12,8 +12,7 @@ var redisCache = require("../redisCache.js");
 var md5 = require("md5");
 
 // choose one of the below: RPC to a node, or mock data while testing
-var rpcApi = require("./rpcApi.js");
-//var rpcApi = require("./mockApi.js");
+const rpcApi = require("./rpcApi.js");
 
 
 // this value should be incremented whenever data format changes, to avoid

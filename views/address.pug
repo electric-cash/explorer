@@ -181,18 +181,18 @@ block content
 								div(style="margin-left: auto; margin-right: 0;")
 									if (!crawlerBot && txids && txids.length > 1 && addressApiSupport.sortDesc && addressApiSupport.sortAsc)
 										a(href="#", class="pull-right dropdown-toggle", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false")
-											if (sort == "desc")
+											if (sort === "desc")
 												span Newest First
 											else
 												span Oldest First
 
 										div(class="dropdown-menu dropdown-menu-right")
 											a(href=("/address/" + address), class="dropdown-item")
-												if (sort == "desc")
+												if (sort === "desc")
 													i(class="fa fa-check") 
 												span  Newest First
 											a(href=("/address/" + address + "?sort=asc"), class="dropdown-item")
-												if (sort != "desc")
+												if (sort !== "desc")
 													i(class="fa fa-check") 
 												span  Oldest First
 

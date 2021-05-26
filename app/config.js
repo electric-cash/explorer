@@ -5,7 +5,7 @@ var url = require('url');
 var coins = require("./coins.js");
 var credentials = require("./credentials.js");
 
-var currentCoin = process.env.BTCEXP_COIN || "BTC"; // BTC is the same as ELCASH
+var currentCoin = process.env.BTCEXP_COIN || "ELCASH"; // BTC is the same as ELCASH
 
 var rpcCred = credentials.rpc;
 
