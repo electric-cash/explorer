@@ -1,5 +1,7 @@
 # Changelog
 
+### [1.6.1](https://github.com/electric-cash/explorer/compare/v1.6.0...v1.6.1) (2021-05-26)
+
 ## [1.6.0](https://github.com/electric-cash/explorer/compare/v1.5.1...v1.6.0) (2021-05-25)
 
 
