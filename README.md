@@ -6,11 +6,11 @@ This is a fork of [BTC RPC Explorer](https://github.com/janoside/btc-rpc-explore
 
 Simple, database-free Electric Cash blockchain explorer, via RPC. Built with Node.js, express, bootstrap-v4.
 
-This tool is intended to be a simple, self-hosted explorer for the Electric Cash blockchain, driven by RPC calls to your own elcashd node. This tool is easy to run but currently lacks features compared to database-backed explorers.
+This tool is intended to be a simple, self-hosted explorer for the Electric Cash blockchain, driven by RPC calls to your own `elcashd` node. This tool is easy to run but currently lacks features compared to database-backed explorers.
 
 Whatever reasons one might have for running a full node (trustlessness, technical curiosity, supporting the network, etc) it's helpful to appreciate the "fullness" of your node. With this explorer, you can not only explore the blockchain (in the traditional sense of the term "explorer"), but also explore the functional capabilities of your own node.
 
-Live demo available at: [http://explorer.electriccash.global](http://explorer.electriccash.global)
+Live demo available at: [https://explorer.electriccash.global](https://explorer.electriccash.global) and [https://explorer.testnet.electriccash.global](https://explorer.testnet.electriccash.global)
 
 # Features
 
@@ -19,23 +19,22 @@ Live demo available at: [http://explorer.electriccash.global](http://explorer.el
 * View transaction details, with navigation "backward" via spent transaction outputs
 * View JSON content used to generate most pages
 * Search by transaction ID, block hash/height, and address
-* Optional transaction history for addresses by querying from ElectrumX, blockchain.com, blockchair.com, or blockcypher.com
+* Optional transaction history for addresses by querying from ElectrumX
 * Mempool summary, with fee, size, and age breakdowns
-* RPC command browser and terminal
 
 # Getting started
 
-The below instructions are geared toward Electric Cash, but can be adapted easily to other coins.
+The below instructions are geared toward Electric Cash.
 
 ## Prerequisites
 
 1. Install and run a full, archiving [node](https://github.com/electric-cash/electric-cash/blob/master/INSTALL.md). Ensure that your bitcoin node has full transaction indexing enabled (`txindex=1`) and the RPC server enabled (`server=1`).
-2. Synchronize your node with the Electric Cash network.
-3. "Recent" version of Node.js (8+ recommended).
+1. Synchronize your node with the Electric Cash network.
+1. "Recent" version of Node.js (16+ recommended).
 
 ## Instructions
 
-```bash
+```shell
 apt-get install node npm 
 git clone https://github.com/electric-cash/explorer
 cd explorer
@@ -89,7 +88,12 @@ See `./bin/cli.js --help` for the full list of CLI options.
 ## Run via Docker
 
 1. `docker build -t elcash-rpc-explorer .`
-2. `docker run -p 3002:3002 -it elcash-rpc-explorer`
+1. `docker run -p 3002:3002 -it elcash-rpc-explorer`
+
+## Local dev environment via docker-compose
+
+1. Prepare `.env` file. If you want setup testnet environment, just copy: `.env-sample` 
+1. `docker-compose up -d`
 
 # Support
 
