@@ -864,6 +864,14 @@ router.get("/about", (req, res) => {
 	res.render("about");
 });
 
+router.get("/richest-wallets", (req, res) => {
+	utils.getRichestWallets().then(function(results) {
+		res.locals.richestWallets = results;
+
+		res.render("richest-wallets");
+	});
+});
+
 router.get("/mining-pools", (req, res) => {
 	let miningPools = {
 		addresses: [],

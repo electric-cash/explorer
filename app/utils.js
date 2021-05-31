@@ -70,6 +70,32 @@ var ipCache = {
 	}
 };
 
+var richestWalletsCache = {
+	get:function() {
+		return new Promise(function(resolve, reject) {
+
+			if (redisCache.active) {
+				redisCache.get("richestWallets").then(function(redisResult) {
+					if (redisResult != null) {
+						resolve(redisResult);
+
+						return;
+					}
+
+					resolve(null);
+				});
+
+			} else {
+				resolve(null);
+			}
+		});
+	},
+	set:function(value, expirationMillis) {
+		if (redisCache.active) {
+			redisCache.set("richestWallets", value, expirationMillis);
+		}
+	}
+};
 
 
 function redirectToConnectPageIfNeeded(req, res) {
@@ -709,6 +735,28 @@ function buildQrCodeUrl(str, results) {
 	});
 }
 
+function getRichestWallets() {
+	const REDIS_EXPIRATION_INTERVAL = 1000 * 60;
+	return new Promise(function(resolve, reject) {
+		richestWalletsCache.get().then(function(result) {
+			if (result == null) {
+				request.get(process.env.BTCEXP_API_URL + "/richestwallets?limit=100", function(error, response, body) {
+					if (error == null && response && response.statusCode && response.statusCode == 200) {
+						var responseBody = JSON.parse(body);
+						richestWalletsCache.set(JSON.stringify(responseBody), REDIS_EXPIRATION_INTERVAL);
+						resolve(responseBody);
+					} else {
+						logError("rich wallets error", {error:error, response:response, body:body});
+						reject(error);
+					}
+				});
+			} else {
+				richestWalletsCache.get().then((result) => resolve(JSON.parse(result)))
+			}
+		}).catch(error => reject(error));
+	})
+}
+
 
 module.exports = {
 	reflectPromise: reflectPromise,
@@ -742,5 +790,6 @@ module.exports = {
 	buildQrCodeUrls: buildQrCodeUrls,
 	ellipsize: ellipsize,
 	refreshMiningPoolsData,
-	getNameFromAddress
+	getNameFromAddress,
+  getRichestWallets: getRichestWallets
 };
