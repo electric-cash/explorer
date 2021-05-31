@@ -869,7 +869,11 @@ router.get("/richest-wallets", (req, res) => {
 		res.locals.richestWallets = results;
 
 		res.render("richest-wallets");
-	});
+  });
+});
+
+router.get("/coin-distribution", (req, res) => {
+	res.render("coin-distribution");
 });
 
 router.get("/mining-pools", (req, res) => {

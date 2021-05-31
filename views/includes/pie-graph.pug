@@ -1,0 +1,59 @@
+script(src="/js/chart.bundle.min.js")
+script(src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1")
+
+script.
+	Chart.plugins.register(ChartDataLabels);
+
+canvas(id=graphData.id, class="mb-4")
+
+if (session.uiTheme && session.uiTheme == "dark")
+	script.
+		Chart.defaults.global.defaultFontColor='white';
+else
+	script.
+		Chart.defaults.global.defaultFontColor='black';
+
+script.
+	var ctx = document.getElementById("#{graphData.id}").getContext('2d');
+	var graph = new Chart(ctx, {
+		type: 'pie',
+		data: {
+			labels: #{graphData.labels},
+			datasets: [{
+				data: #{graphData.data},
+				backgroundColor: #{graphData.bgColors},
+				hoverOffset: 4,
+				borderWidth: 1,
+			}]
+		},
+		options: {
+			plugins: {
+				datalabels: {
+					formatter: (value, ctx) => {
+						let sum = 0;
+						let dataArr = ctx.chart.data.datasets[0].data;
+						
+						dataArr.map(data => {
+								sum += data;
+						});
+						
+						let percentage = (value * 100 / sum).toFixed(1) + '%';
+
+						return percentage;
+					},
+					color: '#fff',
+				},
+			},
+			responsive: true,
+			legend: {
+				position: 'top',
+			},
+		},
+		plugins: [{
+			beforeInit: (chart, options) => {
+				chart.legend.afterFit = function() {
+					this.height = this.height + 20;
+				};
+			},
+		}]
+	});
