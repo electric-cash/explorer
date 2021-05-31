@@ -1,0 +1,51 @@
+extends layout
+
+block headContent
+	title Coin Distribution
+
+block content
+	div(class='page-content')
+		h1(class="page-title") Coin Distribution
+
+		div(class="card mb-4 shadow-sm")
+				div(class="card-bottom")
+
+				div(class="card-bottom")
+					div(class="row")
+						div(class="col-lg-5")
+							div(class="table-responsive")
+								table(class="table text-right mb-4 mb-lg-0 transaction-stats-table")
+									thead
+										tr
+											th &nbsp;
+											th Amount
+									tbody
+											tr
+												td Founder
+												td 786 856
+											tr
+												td Development fund
+												td 210 000
+											tr
+												td Marketing fund
+												td 50 000
+											tr
+												td Exchanges and other partners liquidity pool
+												td 980 958
+											tr
+												td Free market
+												td 816 644
+											tr
+												td Community hodlers
+												td 600 417
+											tr
+												td(class="font-weight-bold") Total supply
+												td 3 444 875
+
+						div(class="col-lg-7")
+							script var coinDistributionLabels = ['Founder', 'Development fund', 'Marketing fund', 'Exchanges and other partners liquidity pool', 'Free market'];
+							script var coinDistributionData = [786856, 210000, 50000, 980958, 816644];
+							script var coinDistributionBgColors = ['#FF6601', '#FFC602', '#8CC703', '#00A3C1', '#0213A5'];
+						
+							- var graphData = {id:"coinDistribution", labels: "coinDistributionLabels", data: "coinDistributionData", bgColors: "coinDistributionBgColors"};
+							include ./includes/pie-graph.pug
