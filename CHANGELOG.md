@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/electric-cash/explorer/compare/v1.8.0...v1.9.0) (2021-06-01)
+
+
+### Features
+
+* add richest wallets and coin distribution links ([64932ce](https://github.com/electric-cash/explorer/commit/64932ce9a8473010b0b65a6248d72961e2627e45))
+
 ## [1.8.0](https://github.com/electric-cash/explorer/compare/v1.7.0...v1.8.0) (2021-06-01)
 
 
