@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/electric-cash/explorer/compare/v1.7.0...v1.8.0) (2021-06-01)
+
+
+### Features
+
+* add coin distribution page ([d78cc28](https://github.com/electric-cash/explorer/commit/d78cc287bd2eda356978a14484df374d44a5b024))
+
 ## [1.7.0](https://github.com/electric-cash/explorer/compare/v1.6.1...v1.7.0) (2021-06-01)
 
 
