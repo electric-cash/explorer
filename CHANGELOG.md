@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/electric-cash/explorer/compare/v1.6.1...v1.7.0) (2021-06-01)
+
+
+### Features
+
+* add richest wallets page ([8fa371d](https://github.com/electric-cash/explorer/commit/8fa371db25f866d5509f31b06158f4015ddb54e6))
+
 ### [1.6.1](https://github.com/electric-cash/explorer/compare/v1.6.0...v1.6.1) (2021-05-26)
 
 ## [1.6.0](https://github.com/electric-cash/explorer/compare/v1.5.1...v1.6.0) (2021-05-25)
