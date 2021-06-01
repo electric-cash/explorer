@@ -390,6 +390,11 @@ div.dataTables_paginate {
   margin-top: 10px;
 }
 
+.coin-distribution-chart-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 @media only screen and (min-width: 1921px) {
   .page-body {
     background-image: url("/img/images/background@3x.png");
@@ -417,6 +422,12 @@ div.dataTables_paginate {
   .table-responsive-sm {
     overflow: scroll;
     display: block;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .coin-distribution-chart-container {
     width: 100%;
   }
 }
