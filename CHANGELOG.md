@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.9.1](https://github.com/electric-cash/explorer/compare/v1.9.0...v1.9.1) (2021-06-01)
+
+
+### Bug Fixes
+
+* change the aspect ratio of the chart, add adaptable chart container ([792fa90](https://github.com/electric-cash/explorer/commit/792fa90dfee20d75df5cd46990713754f7096df3))
+
 ## [1.9.0](https://github.com/electric-cash/explorer/compare/v1.8.0...v1.9.0) (2021-06-01)
 
 
