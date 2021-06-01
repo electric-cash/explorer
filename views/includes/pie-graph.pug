@@ -4,7 +4,8 @@ script(src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1")
 script.
 	Chart.plugins.register(ChartDataLabels);
 
-canvas(id=graphData.id, class="mb-4")
+div(class="coin-distribution-chart-container")
+	canvas(id=graphData.id, class="mb-4")
 
 if (session.uiTheme && session.uiTheme == "dark")
 	script.
@@ -44,8 +45,11 @@ script.
 					color: '#fff',
 				},
 			},
+			maintainAspectRatio: true,
 			responsive: true,
+			aspectRatio: 1,
 			legend: {
+				enable: false,
 				position: 'top',
 			},
 		},
