@@ -154,7 +154,10 @@ module.exports = {
 		{name:"Transaction Stats", url:"/tx-stats", desc:"See graphs of total transaction volume and transaction rates.", image:"avg-tx"},
 
 		{name:"Mempool Summary", url:"/mempool-summary", desc:"Detailed summary of the current mempool for this node.", image:"mempool-summary"},
-		{name:"Unconfirmed Transactions", url:"/unconfirmed-tx", desc:"Browse unconfirmed/pending transactions.", image:"unlock"}
+		{name:"Unconfirmed Transactions", url:"/unconfirmed-tx", desc:"Browse unconfirmed/pending transactions.", image:"unlock"},
+
+    {name:"Coin Distribution", url:"/coin-distribution"},
+		{name:"Richest Wallets", url:"/richest-wallets"}
 
 		// {name:"RPC Browser", url:"/rpc-browser", desc:"Browse the RPC functionality of this node. See docs and execute commands.", image:"rpc-browser"},
 		// {name:"Hashrate distribution", url:"/mining-pools", desc:"Estimated hashrate of mining pools.", image:"hashrate-distribution"}
