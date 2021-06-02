@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.9.3](https://github.com/electric-cash/explorer/compare/v1.9.2...v1.9.3) (2021-06-02)
+
+
+### Bug Fixes
+
+* **redis-cache:** fix usage for richestwallets ([a7d55f2](https://github.com/electric-cash/explorer/commit/a7d55f2cf2752c727080e88c34a0cc001df33091))
+
 ### [1.9.2](https://github.com/electric-cash/explorer/compare/v1.9.1...v1.9.2) (2021-06-02)
 
 
