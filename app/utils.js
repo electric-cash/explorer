@@ -29,6 +29,7 @@ var exponentScales = [
 
 var ipMemoryCache = {};
 var ipRedisCache = null;
+
 if (redisCache.active) {
 	var onRedisCacheEvent = function(cacheType, eventType, cacheKey) {
 		global.cacheStats.redis[eventType]++;
@@ -36,6 +37,7 @@ if (redisCache.active) {
 
 	ipRedisCache = redisCache.createCache("v0", onRedisCacheEvent);
 }
+
 var ipCache = {
 	get:function(key) {
 		return new Promise(function(resolve, reject) {
@@ -74,8 +76,8 @@ var richestWalletsCache = {
 	get:function() {
 		return new Promise(function(resolve, reject) {
 
-			if (redisCache.active) {
-				redisCache.get("richestWallets").then(function(redisResult) {
+			if (ipRedisCache != null) {
+				ipRedisCache.get("richestWallets").then(function(redisResult) {
 					if (redisResult != null) {
 						resolve(redisResult);
 
@@ -91,8 +93,8 @@ var richestWalletsCache = {
 		});
 	},
 	set:function(value, expirationMillis) {
-		if (redisCache.active) {
-			redisCache.set("richestWallets", value, expirationMillis);
+		if (ipRedisCache != null) {
+			ipRedisCache.set("richestWallets", value, expirationMillis);
 		}
 	}
 };
