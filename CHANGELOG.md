@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.9.2](https://github.com/electric-cash/explorer/compare/v1.9.1...v1.9.2) (2021-06-02)
+
+
+### Bug Fixes
+
+* add date to title ([53eae9d](https://github.com/electric-cash/explorer/commit/53eae9d755cc76b52b63a0fe9765ce3d3566f8e0))
+
 ### [1.9.1](https://github.com/electric-cash/explorer/compare/v1.9.0...v1.9.1) (2021-06-01)
 
 
