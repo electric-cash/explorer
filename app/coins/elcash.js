@@ -83,8 +83,8 @@ module.exports = {
     exchangeRateDataUSDT: {
         jsonUrl: apiUrl.EXCHANGE_RATE_USDT,
         responseBodySelectorFunction: responseBody => {
-            if (responseBody.data && responseBody.data.last_price) {
-                return responseBody.data.last_price;
+            if (responseBody['electric-cash'] && responseBody['electric-cash'].usd) {
+                return responseBody['electric-cash'].usd;
             }
             return null;
         }
