@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.9.4](https://github.com/electric-cash/explorer/compare/v1.9.3...v1.9.4) (2021-08-09)
+
+
+### Bug Fixes
+
+* **homepage:** change price feed provider ([f23ae02](https://github.com/electric-cash/explorer/commit/f23ae02c66d0413a8082d5b9c3b55b996c1dcaa2))
+
 ### [1.9.3](https://github.com/electric-cash/explorer/compare/v1.9.2...v1.9.3) (2021-06-02)
 
 
