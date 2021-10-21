@@ -2,35 +2,23 @@ import { expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 export class Header {
-  private logo = this.page.locator("img[alt='logo']");
-  private tools = this.page.locator('a[role="button"]:has-text("TOOLS")');
-  private nodeStatus = this.page.locator(
-    "//div[@id='navbarNav']/ul[1]//a[@href='/node-status']/span[.=' Node Status']",
-  );
-  private peers = this.page.locator("//div[@id='navbarNav']/ul[1]//a[@href='/peers']/span[.=' Peers']");
-  private browseBlocks = this.page.locator("//div[@id='navbarNav']/ul[1]//a[@href='/blocks']/span[.=' Browse Blocks']");
-  private transactionStats = this.page.locator(
-    "//div[@id='navbarNav']/ul[1]//a[@href='/tx-stats']/span[.=' Transaction Stats']",
-  );
-  private mempoolSummary = this.page.locator(
-    "//div[@id='navbarNav']/ul[1]//a[@href='/mempool-summary']/span[.=' Mempool Summary']",
-  );
-  private unconfirmedTransactions = this.page.locator(
-    "//div[@id='navbarNav']/ul[1]//a[@href='/unconfirmed-tx']/span[.=' Unconfirmed Transactions']",
-  );
-  private richestWallets = this.page.locator(
-    "//div[@id='navbarNav']/ul[1]//a[@href='/richest-wallets']/span[.=' Richest Wallets']",
-  );
-  private coinDistribution = this.page.locator(
-    "//div[@id='navbarNav']/ul[1]//a[@href='/coin-distribution']/span[.=' Coin Distribution']",
-  );
+  private logo = this.page.locator('[data-test-id="logo"]');
+  private tools = this.page.locator('[data-test-id="tools"]');
+  private nodeStatus = this.page.locator('[data-test-id="Node Status"]');
+  private peers = this.page.locator('[data-test-id="Peers"]');
+  private browseBlocks = this.page.locator('[data-test-id="Browse Blocks"]');
+  private transactionStats = this.page.locator('[data-test-id="Transaction Stats"]');
+  private mempoolSummary = this.page.locator('[data-test-id="Mempool Summary"]');
+  private unconfirmedTransactions = this.page.locator('[data-test-id="Unconfirmed Transactions"]');
+  private richestWallets = this.page.locator('[data-test-id="Richest Wallets"]');
+  private coinDistribution = this.page.locator('[data-test-id="Coin Distribution"]');
 
   constructor(private page: Page) {}
 
   async explorerLogoRedirect() {
     await this.logo.isVisible();
     await this.logo.click();
-    await expect(this.page.url()).toMatch('https://explorer.testnet.ec.stage.rnd.land/');
+    await expect(this.page.url()).toMatch('/');
   }
 
   async nodeStatusUrl() {

@@ -2,12 +2,15 @@ import { expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 export class Search {
-  private searchBar = this.page.locator("input[name='query']");
-  private searchButton = this.page.locator('.search-icon');
-  private latestBlock = this.page.innerText('tr:nth-of-type(1) > td:nth-of-type(1) > a');
-  private latestBlockButton = this.page.locator('tr:nth-of-type(1) > td:nth-of-type(1) > a');
-  private richestWallets = this.page.locator('a:nth-of-type(8) > span');
-  private tools = this.page.locator('a[role="button"]:has-text("TOOLS")');
+  private searchBar = this.page.locator('[data-test-id="searchBar"]');
+  private searchButton = this.page.locator('[data-test-id="searchButton"]');
+  private latestBlock = this.page.innerText('[data-test-id="block0"]');
+  private latestBlockButton = this.page.locator('[data-test-id="block0"]');
+  private richestWallets = this.page.locator('[data-test-id="Richest Wallets"]');
+  private tools = this.page.locator('[data-test-id="tools"]');
+  private blockHash = this.page.innerText('[data-test-id="blockHash0"]');
+  private tx = this.page.innerText('[data-test-id="tx0"]');
+  private txAddress = this.page.innerText('[data-test-id="txAddress"]');
 
   constructor(private page: Page) {}
 
@@ -21,8 +24,7 @@ export class Search {
 
   async searchByTx() {
     await this.latestBlockButton.click();
-    const txID = this.page.textContent('.card-header > .blue-link');
-    await this.searchBar.fill(await txID);
+    await this.searchBar.fill(await this.tx);
     await this.searchButton.click();
     await expect(this.page.url()).toContain('/tx/');
   }
@@ -30,16 +32,14 @@ export class Search {
   async searchByAddress() {
     await this.tools.click();
     await this.richestWallets.click();
-    const address = this.page.textContent('tr:nth-of-type(9) > td:nth-of-type(1) > a');
-    await this.searchBar.fill(await address);
+    await this.searchBar.fill(await this.txAddress);
     await this.searchButton.click();
     await expect(this.page.url()).toContain('/address/');
   }
 
   async searchByHash() {
     await this.latestBlockButton.click();
-    const hash = this.page.textContent('h1 > span:nth-of-type(2)');
-    await this.searchBar.fill(await hash);
+    await this.searchBar.fill(await this.blockHash);
     await this.searchButton.click();
     await expect(this.page.url()).toContain('/block/');
   }

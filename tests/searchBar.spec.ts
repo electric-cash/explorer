@@ -6,7 +6,7 @@ let po: pageObjects;
 test.describe('Search bar tests', () => {
   test.beforeEach(async ({ page }) => {
     po = app(page);
-    await po.navigation.openApp();
+    await page.goto('/');
   });
 
   test('Should search latest block in the search bar', async () => {

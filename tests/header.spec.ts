@@ -6,7 +6,7 @@ let po: pageObjects;
 test.describe('Header tests', () => {
   test.beforeEach(async ({ page }) => {
     po = app(page);
-    await po.navigation.openApp();
+    await page.goto('/');
   });
 
   test('should open bitcoinvault global after clicking a logo', async () => {

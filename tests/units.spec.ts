@@ -6,7 +6,7 @@ let po: pageObjects;
 test.describe('Units change check', () => {
   test.beforeEach(async ({ page }) => {
     po = app(page);
-    await po.navigation.openApp();
+    await page.goto('/');
   });
 
   test('Should change units to mELCASH', async () => {

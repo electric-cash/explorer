@@ -18,7 +18,7 @@ div(class="table-responsive")
 				if (block)
 					tr
 						td(class="data-cell")
-							a(href=("/block-height/" + block.height)) #{block.height.toLocaleString()}
+							a(href=("/block-height/" + block.height), data-test-id="block" + block.blockIndex) #{block.height.toLocaleString()}
 
 						td(class="data-cell") #{moment.utc(new Date(parseInt(block.time) * 1000)).format("Y-MM-DD HH:mm:ss")}
 

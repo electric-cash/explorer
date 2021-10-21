@@ -6,7 +6,7 @@ let po: pageObjects;
 test.describe('TX stats', () => {
   test.beforeEach(async ({ page }) => {
     po = app(page);
-    await po.navigation.openApp();
+    await page.goto('/');
   });
 
   test('Should assert visibility of tx stats', async () => {

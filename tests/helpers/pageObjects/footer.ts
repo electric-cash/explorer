@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 export class Footer {
-  private source = this.page.locator('.footer.page-footer > .container a');
+  private source = this.page.locator('[data-test-id="sourceUrl"]');
 
   constructor(private page: Page) {}
 

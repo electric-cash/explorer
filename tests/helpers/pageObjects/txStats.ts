@@ -2,7 +2,8 @@ import { expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 export class TransactionsStats {
-  private txStats = this.page.locator("[class] [class='card mb-4 shadow-sm']:nth-of-type(3) [href='/tx-stats']");
+  private tools = this.page.locator('[data-test-id="tools"]');
+  private txStats = this.page.locator('[data-test-id="Transaction Stats"]');
   private txStatsDaily = this.page.locator('canvas#graphDay');
   private txStatsWeekly = this.page.locator('canvas#graphWeek');
   private txStatsMonthly = this.page.locator('canvas#graphMonth');
@@ -15,6 +16,8 @@ export class TransactionsStats {
   constructor(private page: Page) {}
 
   async txStatsVisibility() {
+    await this.tools.isVisible();
+    await this.tools.click();
     await this.txStats.isVisible();
     await this.txStats.click();
     await expect(this.txStatsDaily).toBeVisible();
@@ -24,6 +27,8 @@ export class TransactionsStats {
   }
 
   async txRateVisibility() {
+    await this.tools.isVisible();
+    await this.tools.click();
     await this.txStats.isVisible();
     await this.txStats.click();
     await expect(this.txRateDaily).toBeVisible();
