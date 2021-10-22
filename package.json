@@ -9,8 +9,8 @@
     "start-dev": "nodemon ./bin/www",
     "refresh-mining-pool-configs": "node ./bin/refresh-mining-pool-configs.js",
     "commit-retry": "npx cz --retry",
-    "test:testnet": "npx playwright test --config=test.config.ts",
-    "test:prod": "npx playwright test --config=prod.config.ts"
+    "test:testnet": "npx playwright test --config=testnet.config.ts",
+    "test:mainnet": "npx playwright test --config=mainnet.config.ts"
   },
   "keywords": [
     "elcash",
