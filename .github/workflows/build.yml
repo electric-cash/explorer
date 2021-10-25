@@ -21,4 +21,4 @@ jobs:
         continue-on-error: true
 
       - name: Build docker image
-        run: docker build -t elcash-explorer-$GITHUB_ACTION .
+        run: docker build -t elcash-explorer-ci .
