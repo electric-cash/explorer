@@ -128,7 +128,7 @@ div(class="row")
 									if (vout.scriptPubKey.addresses)
 
 										a(id=("output-" + voutIndex), href=("/address/" + vout.scriptPubKey.addresses[0]), class="blue-link")
-											span(class="word-wrap ") #{vout.scriptPubKey.addresses[0]}
+											span(class="word-wrap ", data-test-id="txAddress") #{vout.scriptPubKey.addresses[0]}
 
 									else if (vout.scriptPubKey.hex && vout.scriptPubKey.hex.startsWith('6a24aa21a9ed'))
 										span()

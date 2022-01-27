@@ -194,7 +194,7 @@ div(class="tab-content")
 							if (tx && tx.txid)
 								span ##{(txIndex + offset + 1).toLocaleString()}
 								span  &ndash; 
-								a(href=("/tx/" + tx.txid), class="blue-link") #{tx.txid}
+								a(href=("/tx/" + tx.txid), class="blue-link", data-test-id="tx" + tx.txIndex) #{tx.txid}
 
 						div(class="card-body px-lg-3 px-2")
 							- var txInputs = result.txInputsByTransaction[tx.txid];
