@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.9.6](https://github.com/electric-cash/explorer/compare/v1.9.5...v1.9.6) (2022-01-26)
+
+
+### Bug Fixes
+
+* icons scaling ([bf2694f](https://github.com/electric-cash/explorer/commit/bf2694f691191f4e46ee420200be7bb141965c32))
+* make css fix more targeted ([fde8da9](https://github.com/electric-cash/explorer/commit/fde8da97f10b895c533e7947132bbffa4866006c))
+
 ### [1.9.5](https://github.com/electric-cash/explorer/compare/v1.9.4...v1.9.5) (2021-10-29)
 
 ### [1.9.4](https://github.com/electric-cash/explorer/compare/v1.9.3...v1.9.4) (2021-08-09)
