@@ -115,6 +115,7 @@ p {
 .icon-container {
   width: 10%;
   height: auto;
+  min-height: 100%;
   margin-right: 5px;
   display: flex;
   justify-content: center;
