@@ -113,7 +113,8 @@ p {
 }
 
 .icon-container {
-  height: 100%;
+  width: 10%;
+  height: auto;
   margin-right: 5px;
   display: flex;
   justify-content: center;
