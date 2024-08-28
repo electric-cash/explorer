@@ -1,5 +1,7 @@
 # Changelog
 
+### [1.9.8](https://github.com/electric-cash/explorer/compare/v1.9.7...v1.9.8) (2024-08-28)
+
 ### [1.9.7](https://github.com/electric-cash/explorer/compare/v1.9.6...v1.9.7) (2024-08-26)
 
 ### [1.9.6](https://github.com/electric-cash/explorer/compare/v1.9.5...v1.9.6) (2022-01-26)
