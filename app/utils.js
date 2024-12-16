@@ -502,7 +502,7 @@ function refreshTxVolume() {
 	request(process.env.BTCEXP_API_URL + "/transactionvolume?period=month", function(error, response, body) {
 		if (error == null && response && response.statusCode && response.statusCode == 200) {
 			var responseBody = JSON.parse(body);
-			if (responseBody[responseBody.length - 1].avg) {
+			if (responseBody[responseBody.length - 1] && responseBody[responseBody.length - 1].avg) {
 				global.txAvgVolume24h = responseBody[responseBody.length - 1].avg;
 				global.txAvgVolume24hUpdateTime = new Date();
 				debugLog("Got 24h avg tx volume: " + global.txAvgVolume24h);
