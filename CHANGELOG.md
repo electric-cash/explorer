@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.9.9](https://github.com/electric-cash/explorer/compare/v1.9.8...v1.9.9) (2024-12-16)
+
+
+### Bug Fixes
+
+* don't fail when no records ([7d57a3f](https://github.com/electric-cash/explorer/commit/7d57a3f202978025592a52a953e7c16d79bca953))
+
 ### [1.9.8](https://github.com/electric-cash/explorer/compare/v1.9.7...v1.9.8) (2024-08-28)
 
 ### [1.9.7](https://github.com/electric-cash/explorer/compare/v1.9.6...v1.9.7) (2024-08-26)
