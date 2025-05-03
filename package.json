@@ -8,7 +8,9 @@
     "start": "node ./bin/www",
     "start-dev": "nodemon ./bin/www",
     "refresh-mining-pool-configs": "node ./bin/refresh-mining-pool-configs.js",
-    "commit-retry": "npx cz --retry"
+    "commit-retry": "npx cz --retry",
+    "test:testnet": "npx playwright test --config=testnet.config.ts",
+    "test:mainnet": "npx playwright test --config=mainnet.config.ts"
   },
   "keywords": [
     "elcash",
@@ -55,6 +57,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^12.1.1",
+    "@playwright/test": "^1.15.2",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",

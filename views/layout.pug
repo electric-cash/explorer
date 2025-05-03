@@ -27,7 +27,7 @@ html(lang="en")
 				a(class="navbar-brand", href="/")
 					span
 						if (coinConfig.logoUrl)
-							img(src=coinConfig.logoUrl, class="header-image", alt="logo")
+							img(src=coinConfig.logoUrl, class="header-image", alt="logo", data-test-id="logo")
 						
 				button(type="button", class="navbar-toggler navbar-toggler-right", data-toggle="collapse", data-target="#navbarNav", aria-label="collapse navigation")
 					i(class="fas fa-bars", style="color: #e4a416")
@@ -38,11 +38,11 @@ html(lang="en")
 
 							if (config.siteTools)
 								li(class="nav-item dropdown")
-									a(class="nav-link dropdown-toggle", style="color: #a1a3a6; font-weight: 500; font-size: 15px", href="javascript:void(0)", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") 
+									a(class="nav-link dropdown-toggle", style="color: #a1a3a6; font-weight: 500; font-size: 15px", href="javascript:void(0)", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", data-test-id="tools") 
 										span Tools
 									div(class="dropdown-menu shadow", aria-label="Tools Items")
 										each item in config.siteTools
-											a(class="dropdown-item", href=item.url)
+											a(class="dropdown-item", href=item.url, data-test-id=item.name)
 												i(class=item.fontawesome, style="width: 20px; margin-right: 10px;")
 												span  #{item.name}
 
@@ -62,19 +62,19 @@ html(lang="en")
 						form(method="post", action="/search", class="form-inline")
 							input(type="hidden", name="_csrf", value=csrfToken)
 							div(class="input-group input-group-sm")
-								input(type="text", class="search-input", name="query", placeholder="Search", value=(query))
-								input(type="image", src=("/img/icons/search.png"), class="search-icon")
+								input(type="text", class="search-input", name="query", placeholder="Search", value=(query), data-test-id="searchBar")
+								input(type="image", src=("/img/icons/search.png"), class="search-icon", data-test-id="searchButton")
 
 						ul(class="navbar-nav")
 							li(class="nav-item dropdown pt-1 pb-1")
-								a(href="javascript:void(0)", id="navbarDropdown", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") 
+								a(href="javascript:void(0)", id="navbarDropdown", role="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", data-test-id='unitsDropdown') 
 									img(src="/img/icons/settings.png", class="settings-icon")
 								div(class="dropdown-menu dropdown-menu-right shadow", aria-labelledby="navbarDropdown")
 									if (coinConfig.currencyUnits)
 										span(class="dropdown-header") Currency Units
 										each item in coinConfig.currencyUnits
 											if (item.type == "native" || (config.queryExchangeRates && !config.privacyMode))
-												a(class="dropdown-item", href=("/changeSetting?name=currencyFormatType&value=" + item.values[0]))
+												a(class="dropdown-item", href=("/changeSetting?name=currencyFormatType&value=" + item.values[0]), data-test-id=item.name)
 													each valueName in item.values
 														if (currencyFormatType == valueName)
 															i(class="fas fa-check")
@@ -119,7 +119,7 @@ html(lang="en")
 						dl
 							dt Source
 							dd
-								a(href="https://github.com/electric-cash/explorer") github.com/electric-cash/explorer
+								a(href="https://github.com/electric-cash/explorer", data-test-id="sourceUrl") github.com/electric-cash/explorer
 								
 								if (global.sourcecodeProjectMetadata)
 									div(class="mt-2")

@@ -7,6 +7,6 @@ block content
 	h1(class="page-title") Block 
 		span(style="width: 100%;", class="text-md") ##{result.getblock.height.toLocaleString()}
 		br
-		span(style="width: 100%; word-break: break-all;", class="text-md") #{result.getblock.hash}
+		span(style="width: 100%; word-break: break-all;", class="text-md", data-test-id="blockHash") #{result.getblock.hash}
 
 	include includes/block-content.pug

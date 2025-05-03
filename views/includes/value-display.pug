@@ -6,7 +6,7 @@ if (currencyValue > 0)
 	span.monospace #{parts[0]}
 		if (currencyFormatInfo.type == "native")
 			if (global.exchangeRates)
-				small.border-dotted.ml-1(data-toggle="tooltip", title=utils.formatExchangedCurrency(currencyValue, "usd")) #{parts[1]}
+				small.border-dotted.ml-1(data-toggle="tooltip", title=utils.formatExchangedCurrency(currencyValue, "usd"), data-test-id="displayedUnit") #{parts[1]}
 
 			else
 				small.ml-1 #{parts[1]}
