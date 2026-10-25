@@ -59,6 +59,11 @@ app.use(helmet({
     },
 }));
 
+// Liveness checks the HTTP process, not RPC availability or page rendering.
+app.get('/healthz', (req, res) => {
+    res.set('Cache-Control', 'no-store').type('text/plain').end('ok\n');
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
