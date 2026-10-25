@@ -105,6 +105,7 @@ if (process.argv.includes('--worker')) {
                 PATH: process.env.PATH, SystemRoot: process.env.SystemRoot,
                 HOME: home, USERPROFILE: home, TMP: home, TEMP: home,
                 NODE_ENV: 'production', DEBUG: 'health-test:none',
+                NODE_V8_COVERAGE: process.env.NODE_V8_COVERAGE,
                 BTCEXP_GENESIS_COINBASE_TRANSACTION: '{}',
                 BTCEXP_BITCOIND_COOKIE: path.join(home, 'no-rpc-cookie'),
             };

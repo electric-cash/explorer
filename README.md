@@ -95,6 +95,29 @@ See `./bin/cli.js --help` for the full list of CLI options.
 1. Prepare `.env` file. If you want setup testnet environment, just copy: `.env-sample` 
 1. `docker-compose up -d`
 
+## Liveness checks
+
+`GET /healthz` returns `200` with the plain-text body `ok` when the HTTP
+process can respond. `HEAD /healthz` is also supported. The response is not
+cacheable and contains no node, wallet, configuration, or credential data.
+This endpoint is intentionally available without basic authentication; all
+other routes retain their existing authentication behavior.
+
+The endpoint does not call RPC, external APIs, or render a page. It is suitable
+for a container **liveness** check, not proof that the backend is synchronized,
+transaction lookups work, or the service is ready to receive user traffic.
+Keep readiness and functional checks separate. Do not use the homepage as a
+liveness check: it performs backend work and a backend outage should not by
+itself cause an otherwise responsive explorer process to restart.
+
+Deploy an image containing this endpoint before configuring probes to use it.
+Allow multiple consecutive liveness failures before restarting a container;
+choose timeout and startup thresholds from measured startup/runtime behavior.
+
+Run the isolated HTTP tests with `npm run test:health`. They use a temporary
+home directory and an explicit test environment, without production credentials
+or background refresh jobs.
+
 # Support
 
 Support the original developer of BTC RPC Explorer by donating BTC to:

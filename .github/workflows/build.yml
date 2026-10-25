@@ -22,3 +22,6 @@ jobs:
 
       - name: Build docker image
         run: docker build -t elcash-explorer-ci .
+
+      - name: Test liveness without network access
+        run: docker run --rm --network none --entrypoint node elcash-explorer-ci tests/healthcheck.test.js
