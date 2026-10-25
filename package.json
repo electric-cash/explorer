@@ -6,6 +6,7 @@
   "bin": "bin/cli.js",
   "scripts": {
     "start": "node ./bin/www",
+    "test:health": "node tests/healthcheck.test.js",
     "start-dev": "nodemon ./bin/www",
     "refresh-mining-pool-configs": "node ./bin/refresh-mining-pool-configs.js",
     "commit-retry": "npx cz --retry"
